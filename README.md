@@ -9,5 +9,5 @@ Al tener esta problematica en cuenta nace EcoAprende, la tienda en línea en don
 Integrantes:
 
 - Coordinadora: Melanie Jackeline Martínez Ramírez, 20190148, 2A.
-- 
+
 - Franco Enmanuel Soriano Molina, 20200154, 2A.
