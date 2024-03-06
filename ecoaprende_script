@@ -1,0 +1,241 @@
+DROP DATABASE IF EXISTS db_ecoaprende;
+
+CREATE DATABASE db_ecoaprende;
+
+USE db_ecoaprende;
+
+CREATE TABLE tb_universidad (
+    id_universidad VARCHAR(36) PRIMARY KEY NOT NULL, #UNIQUE
+    nombre_universidad VARCHAR(100) NOT NULL #CHECK
+);
+
+ALTER TABLE tb_universidad ADD
+CONSTRAINT unique_iduniversidad
+UNIQUE (id_universidad);
+
+ALTER TABLE tb_universidad ADD 
+CONSTRAINT nombre_universidad_check 
+CHECK (nombre_universidad <> '');
+
+CREATE TABLE tb_carrera(
+	id_carrera VARCHAR(36) PRIMARY KEY NOT NULL, #UNIQUE
+    nombre_carrera VARCHAR(100) NOT NULL, #CHECK
+    especialidad_carrera VARCHAR(100) NOT NULL,
+    pensum_carrera MEDIUMBLOB NOT NULL,
+    id_universidad VARCHAR(36) #FK
+);
+
+ALTER TABLE tb_carrera ADD
+CONSTRAINT unique_idcarrera
+UNIQUE (id_carrera);
+
+ALTER TABLE tb_carrera ADD 
+CONSTRAINT nombre_carrera_check 
+CHECK (nombre_carrera <> '');
+
+ALTER TABLE tb_carrera ADD
+CONSTRAINT fk_universidad_carrera
+FOREIGN KEY (id_universidad)
+REFERENCES tb_universidad(id_universidad);
+
+CREATE TABLE tb_usuario (
+	id_usuario VARCHAR(36) PRIMARY KEY NOT NULL, #UNIQUE
+    nombre_usuario VARCHAR(50) NOT NULL,
+    correo_usuario VARCHAR(100) NOT NULL, #UNIQUE
+    clave_usuario VARCHAR(30) NOT NULL,
+    telefono_usuario VARCHAR(9) NOT NULL, #CHECK UNIQUE
+    dui_usuario VARCHAR(10) NOT NULL, #CHECK UNIQUE
+    id_carrera VARCHAR(36) #FK
+);
+
+ALTER TABLE tb_usuario ADD
+CONSTRAINT unique_idusuario
+UNIQUE (id_usuario);
+
+ALTER TABLE tb_usuario ADD
+CONSTRAINT unique_correousuario
+UNIQUE (correo_usuario);
+
+ALTER TABLE tb_usuario ADD
+CONSTRAINT unique_telefonousuario
+UNIQUE (telefono_usuario);
+
+ALTER TABLE tb_usuario ADD
+CONSTRAINT check_telefonousuario 
+CHECK (telefono_usuario > 0);
+
+ALTER TABLE tb_usuario ADD
+CONSTRAINT unique_duiusuario
+UNIQUE (dui_usuario);
+
+ALTER TABLE tb_usuario ADD
+CONSTRAINT fk_usuario_carrera
+FOREIGN KEY (id_carrera)
+REFERENCES tb_carrera(id_carrera);
+
+CREATE TABLE tb_iniciosesion(
+id_iniciosesion VARCHAR(36) PRIMARY KEY NOT NULL, #PK, UNIQUE
+nombre_usuario VARCHAR(50) NOT NULL,
+clave_usuario VARCHAR(30) NOT NULL,
+id_usuario VARCHAR(36) #FK
+);
+
+ALTER TABLE tb_iniciosesion ADD
+CONSTRAINT unique_id_inicio_sesion
+UNIQUE (id_iniciosesion);
+
+ALTER TABLE tb_iniciosesion ADD
+CONSTRAINT fk_iniciosesion_usuario
+FOREIGN KEY (id_usuario)
+REFERENCES tb_usuario(id_usuario);
+
+CREATE TABLE tb_detallepedido(
+	id_detallepedido VARCHAR(36) PRIMARY KEY NOT NULL, #PK UNIQUE
+    cantidad_libro_pedido INT NOT NULL, #CHECK
+    direccion_pedido VARCHAR(300) NOT NULL, #DEFAULT
+    preciototal_libro_pedido DECIMAL(5,2) NOT NULL #CHECK
+);
+
+ALTER TABLE tb_detallepedido ADD
+CONSTRAINT unique_id_detalle_pedido
+UNIQUE (id_detallepedido);
+
+ALTER TABLE tb_detallepedido ADD 
+CONSTRAINT cantidad_libro_pedido_check 
+CHECK (cantidad_libro_pedido <> '');
+
+ALTER TABLE tb_detallepedido
+ALTER COLUMN direccion_pedido 
+SET DEFAULT 'Dirección por defecto';
+
+ALTER TABLE tb_detallepedido ADD 
+CONSTRAINT preciototal_libro_pedido_check 
+CHECK (preciototal_libro_pedido <> '');
+
+CREATE TABLE tb_autor(
+	id_autor VARCHAR(36) PRIMARY KEY NOT NULL, #PK UNIQUE
+    nombre_autor VARCHAR(50) NOT NULL #UNIQUE
+);
+
+ALTER TABLE tb_autor ADD
+CONSTRAINT unique_idautor
+UNIQUE (id_autor);
+
+ALTER TABLE tb_autor ADD
+CONSTRAINT unique_nombreautor
+UNIQUE (nombre_autor);
+
+CREATE TABLE tb_editorial(
+	id_editorial VARCHAR(36) PRIMARY KEY NOT NULL, #PK UNIQUE
+    nombre_editorial VARCHAR(120) NOT NULL #UNIQUE
+);
+
+ALTER TABLE tb_editorial ADD
+CONSTRAINT unique_ideditorial
+UNIQUE (id_editorial);
+
+ALTER TABLE tb_editorial ADD
+CONSTRAINT unique_nombreeditorial
+UNIQUE (nombre_editorial);
+
+CREATE TABLE tb_categoria (
+	id_categoria VARCHAR(36) PRIMARY KEY NOT NULL, #PK UNIQUE
+    nombre_categoria VARCHAR(50) NOT NULL, #UNIQUE
+    descripcion_categoria VARCHAR(500) NOT NULL #CHECK
+);
+
+ALTER TABLE tb_categoria ADD
+CONSTRAINT unique_idcategoria
+UNIQUE (id_categoria);
+
+ALTER TABLE tb_categoria ADD
+CONSTRAINT unique_nombrecategoria
+UNIQUE (nombre_categoria);
+
+ALTER TABLE tb_categoria ADD 
+CONSTRAINT descripcion_categoria_check 
+CHECK (descripcion_categoria <> '');
+
+CREATE TABLE tb_detalle_valoracion(
+	id_detalle_valoracion VARCHAR(36) PRIMARY KEY NOT NULL, #PK UNIQUE
+    id_libro VARCHAR(36) NOT NULL, #FK
+    id_usuario VARCHAR(36) NOT NULL #FK
+);
+
+CREATE TABLE tb_libro(
+	id_libro VARCHAR(36) PRIMARY KEY NOT NULL, #PK UNIQUE
+    id_autor VARCHAR(36) NOT NULL, #FK
+    id_editorial VARCHAR(36) NOT NULL, #FK
+    id_categoria VARCHAR(36) NOT NULL, #FK
+    descripcion_libro VARCHAR (800) NOT NULL #CHECK
+);
+
+ALTER TABLE tb_libro ADD
+CONSTRAINT unique_idlibro
+UNIQUE (id_libro);
+
+ALTER TABLE tb_libro ADD
+CONSTRAINT fk_libro_autor
+FOREIGN KEY (id_autor)
+REFERENCES tb_autor(id_autor);
+
+ALTER TABLE tb_libro ADD
+CONSTRAINT fk_libro_editorial
+FOREIGN KEY (id_editorial)
+REFERENCES tb_editorial(id_editorial);
+
+ALTER TABLE tb_libro ADD
+CONSTRAINT fk_libro_categoria
+FOREIGN KEY (id_categoria)
+REFERENCES tb_categoria(id_categoria);
+
+ALTER TABLE tb_libro ADD 
+CONSTRAINT descripcion_libro_check 
+CHECK (descripcion_libro <> '');
+
+CREATE TABLE tb_valoracion(
+	id_valoracion VARCHAR(36) PRIMARY KEY NOT NULL, #PK UNIQUE
+    id_libro VARCHAR(36) NOT NULL, #FK
+    id_usuario VARCHAR(36) NOT NULL, #FK
+    id_pedido VARCHAR(36) NOT NULL, #FK
+    valoracion_pedido DECIMAL(5,2), #CHECK
+    descripcion_valoracion VARCHAR(300)
+);
+
+ALTER TABLE tb_valoracion ADD
+CONSTRAINT unique_idvaloracion
+UNIQUE (id_valoracion);
+
+ALTER TABLE tb_valoracion ADD
+CONSTRAINT fk_valoracion_libro
+FOREIGN KEY (id_libro)
+REFERENCES tb_libro(id_libro);
+
+ALTER TABLE tb_valoracion ADD
+CONSTRAINT fk_valoracion_usuario
+FOREIGN KEY (id_usuario)
+REFERENCES tb_usuario(id_usuario);
+
+ALTER TABLE tb_valoracion ADD 
+CONSTRAINT descripcion_valoracion_check 
+CHECK (descripcion_valoracion <> '');
+
+CREATE TABLE tb_pedido(
+	id_pedido VARCHAR(36) PRIMARY KEY NOT NULL, #PK UNIQUE
+	descripcion_pedido VARCHAR(300), #CHECK
+    id_usuario VARCHAR(36) #FK
+);
+
+ALTER TABLE tb_pedido ADD
+CONSTRAINT unique_idpedido
+UNIQUE (id_pedido);
+
+ALTER TABLE tb_pedido ADD
+CONSTRAINT fk_pedido_usuario
+FOREIGN KEY (id_usuario)
+REFERENCES tb_usuario(id_usuario);
+
+ALTER TABLE tb_valoracion ADD
+CONSTRAINT fk_valoracion_pedido
+FOREIGN KEY (id_pedido)
+REFERENCES tb_pedido(id_pedido);
