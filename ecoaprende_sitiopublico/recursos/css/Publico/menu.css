@@ -1,0 +1,66 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+
+h1 {
+  color: white;
+  font-size: 31px;
+  font-family: 'Ropa Sans';
+}
+
+
+
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  background-position: 80%;
+}
+
+
+
+
+
+
+.card {
+  width: 20% !important;
+  border-radius: 20px;
+  top: 100px;
+  padding: 3%;
+  background-color: rgba(119, 127, 71, 1);
+
+}
+
+
+@media only screen and (max-width:6000px) {
+  .card {
+    width: 70% !important;
+  }
+}
+
+
+
+#correo {
+  width: 80%;
+  margin-left: 20%;
+  margin-top: -40px;
+}
+
+#clave {
+  width: 80%;
+  margin-left: 20%;
+  margin-top: -40px;
+}
+
+.btn-primary {
+  width: 100%;
+  border: none;
+  margin-top: 10%;
+  background-color: rgba(39, 59, 9, 1);
+  color: white;
+  font-weight: bold;
+  color: white;
+  font-family: 'Ropa Sans';
+  margin-left: 60%;
+}
+
+

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="image/png" rel="icon" href="../../Recursos/img/7.png">
+    <link type="text/css" rel="stylesheet" href="../../Recursos/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="../../Recursos/css/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../Recursos/css/gestiona_cliente.css">
+</head>
+
+<body>
+    <header class="pink-bar-top">
+        <nav class="navbar navbar-expand-lg navbar fixed-top mb-5 rosadito">
+            <div class="container">
+                <!-- Logo y nombre a la izquierda -->
+                <a class="navbar-brand" href="./dashboard.html">
+                    <img src="../../Recursos/img/4.png" alt="Logo de Eco Aprende" width="30" height="30"
+                        class="d-inline-block align-top">
+                    <strong style="font-size: 20px;">ECO APRENDE</strong>
+                </a>
+                <!-- Botón de colapso para dispositivos móviles -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Contenido de la barra de navegación -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto"> <!-- Utiliza mx-auto para centrar este bloque -->
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">
+                                <i class="bi bi-box me-2"></i>
+                                Gestionar pedidos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">
+                                <i class="bi bi-gear me-2"></i>
+                                Administrar categorias
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">
+                                <i class="bi bi-person me-2"></i>
+                                Gestionar perfiles
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">
+                                <i class="bi bi-journal-text me-2"></i>
+                                Publicar
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">
+                                <i class="bi bi-chat-dots me-2"></i>
+                                Comentarios
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contenido principal del documento -->
+    <main id="mainContent">
+        <!-- Título del contenido principal -->
+        <h3>
+            <th>Administrar categoria</th>
+        </h3>
+        <div class="row">
+            <!-- Formulario de búsqueda -->
+            <form class="col-sm-12 col-md-6" id="searchForm">
+                <div class="row">
+                    <div class="col-6">
+                        <input type="search" class="form-control" name="search" placeholder="Buscar" required>
+                    </div>
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-morado">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <div class="col-sm-12 col-md-6 text-end">
+                <!-- Botón para abrir una caja de diálogo al momento de crear un nuevo registro -->
+                <button type="button" class="btn btn-save" onclick="openCreate()">Agregar categoría
+                </button>
+            </div>
+        </div>
+
+        <!-- Tabla para mostrar los registros existentes -->
+        <table class="table table-hover">
+            <!-- Encabezado de la tabla para mostrar la cantidad de registros y los títulos de las columnas -->
+            <thead>
+                <tr>
+                    <td colspan="6" id="rowsFound"></td>
+                </tr>
+                <tr>
+                    <th>IMAGEN</th>
+                    <th>NOMBRE</th>
+                    <th>CATEGORIA</th>
+                    <th>DESCRIPCION</th>
+                    <th>ESTADO</th>
+                    <th>EDITAR</th>
+                </tr>
+            </thead>
+            <!-- Cuerpo de la tabla para mostrar un registro por fila -->
+            <tbody id="tableBody"></tbody>
+        </table>
+
+        <!-- Componente Modal para guardar un registro -->
+        <div class="modal fade" id="saveModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="modalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1>Crear categoría</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <!-- Formulario para guardar un registro -->
+                    <form id="saveForm">
+                        <div class="modal-body row g-3">
+                            <!-- Campo oculto para asignar el id del registro al momento de modificar -->
+                            <input type="hidden" id="idCategoria" name="idCategoria">
+                            <div class="col-sm-12 col-md-6">
+                                <label for="nombreCategoria" class="form-label">Nombre</label>
+                                <input id="nombreCategoria" type="text" name="nombreCategoria" class="form-control"
+                                    required>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label for="descripcionCategoria" class="form-label">Categoría</label>
+                                <input id="descripcionCategoria" type="text" name="descripcionCategoria"
+                                    class="form-control">
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label for="descripcionCategoria" class="form-label">Descripción</label>
+                                <input id="descripcionCategoria" type="text" name="descripcionCategoria"
+                                    class="form-control">
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label for="descripcionCategoria" class="form-label">Estado</label>
+                                <input id="descripcionCategoria" type="text" name="descripcionCategoria"
+                                    class="form-control">
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label for="imagenCategoria" class="form-label">Imagen</label>
+                                <input id="imagenCategoria" type="file" name="imagenCategoria" class="form-control"
+                                    accept=".png, .jpg">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-save">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Franja rosa abajo -->
+    <div class="pink-bar-bottom"></div>
+
+    <!-- IMPORTACIÓN DE ARCHIVOS JAVASCRIPT -->
+    <script type="text/javascript" src="../../Recursos/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="../../Recursos/js/sweetalert.min.js"></script>
+    <!-- Llamada al controlador general de la aplicación -->
+    <script type="text/javascript" src="../../Controlador/Utilidades/components.js"></script>
+    <!-- Llamada al controlador del sitio privado -->
+    <script type="text/javascript" src="../../Controlador/Utilidades/admin.js"></script>
+    <!-- Llamada al controlador de la página web -->
+    <script type="text/javascript" src="../../Controlador/Administrador/administrador.js"></script>
+</body>
+
+</html>

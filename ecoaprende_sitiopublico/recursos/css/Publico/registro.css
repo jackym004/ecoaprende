@@ -1,0 +1,11 @@
+* {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    background-color: rgba(119, 127, 71, 1);
+}
+
+
+#card{
+    border: none;
+}

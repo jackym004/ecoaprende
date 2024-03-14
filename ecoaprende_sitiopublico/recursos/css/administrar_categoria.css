@@ -1,0 +1,50 @@
+.pink-bar-top {
+    background-color: pink;
+    height: 75px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.pink-bar-top button.btn-link {
+    color: black;
+    font-family: 'Ropa Sans', sans-serif;
+}
+
+.pink-bar-bottom {
+    background-color: pink;
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+}
+#mainContent {
+    margin-top: 75px; /* Altura de la franja rosa superior */
+    padding-top: 20px; /* Espaciado adicional para el contenido */
+}
+
+/* Estilos para el botón de guardar cambios */
+.btn-save {
+    background-color: #FF5C77; /* Cambio del color de fondo */
+    color: white; /* Color de texto */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Borde redondeado */
+    cursor: pointer; /* Cursor al pasar el ratón */
+}
+.btn-morado {
+    background-color: #8B3341; /* Cambio del color de fondo */
+    color: white; /* Color de texto */
+    border: none; /* Sin borde */
+    padding: 7px 10px; /* Espaciado interno */
+    border-radius: 5px; /* Borde redondeado */
+    cursor: pointer; /* Cursor al pasar el ratón */
+}
