@@ -2,9 +2,20 @@ const HEADER = document.querySelector('header');
 HEADER.innerHTML = `
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-<a class="navbar-brand px-4" type="submit" class="btn" href="">
+<style>
+  .navbar {
+    background-color: rgba(119, 127, 71, 1)
+    !important;
+  }
+
+  li{
+    font-family:'Ropa Sans';
+  }
+</style> 
+<a class="navbar-brand px-4 " type="submit" class="btn" href="">
 <img src="/ecoaprende_sitiopublico/recursos/img/eco.png" alt="eco" width="100">
 </a>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
