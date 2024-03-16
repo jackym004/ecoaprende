@@ -1,0 +1,26 @@
+body {
+    background: url();
+}
+
+.contenedorLibro {
+    background-color: #D9D9D9;
+}
+
+.contenedorImg {
+    height: 300px;
+}
+
+.imgLibro {
+    max-width: 100%;
+    height: auto;
+}
+.lineaNegra
+{
+    width: 50vw;
+    border: solid 5px black;
+    bottom: -15%;
+}
+.paginationBottom
+{
+    height:250px;
+}
