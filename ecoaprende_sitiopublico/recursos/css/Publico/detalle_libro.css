@@ -1,0 +1,50 @@
+body {
+    background: url();
+}
+
+.contenedor1,
+.contenedorImg {
+    min-height: 50vh;
+    max-height: 50vh;
+}
+
+.contenedor2 {
+    height: 1000px;
+}
+
+.imgLibro {
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.imgUser {
+    height: auto;
+    max-width: 100%;
+}
+
+.contenedorInfo {
+    background-color: #D9D9D9;
+}
+
+h3 {
+    height: fit-content;
+}
+
+.h2 {
+    width: fit-content;
+}
+
+.comentario {
+    background-color: #D9D9D9;
+}
+
+.contenedorComentarios {
+    max-height: 400px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.card2 {
+    max-width: 40%;
+}

@@ -24,3 +24,8 @@ body {
 .paginationBottom {
     height: 250px;
 }
+.none
+{
+    text-decoration: none;
+    color: black;
+}
