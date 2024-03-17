@@ -1,11 +1,11 @@
 const FOOTER = document.querySelector('footer');
 FOOTER.innerHTML = `
 
-<nav class="navbar fixed-bottom bg-dark bg-body-tertiary bg-dark border-bottom border-body" data-bs-theme="dark">
+<nav class="navbar sticky-bottom bg-dark bg-body-tertiary bg-dark border-bottom border-body mt-5 " data-bs-theme="dark">
 <style>
   .navbar {
-    background-color: rgba(119, 127, 71, 1)
-    !important;
+    background-color: rgba(119, 127, 71, 1) !important;
+    
   }
 
   p{

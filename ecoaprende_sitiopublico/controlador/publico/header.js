@@ -12,7 +12,7 @@ HEADER.innerHTML = `
     font-family:'Ropa Sans';
   }
 </style> 
-<a class="navbar-brand px-4 " type="submit" class="btn" href="">
+<a class="navbar-brand px-4 " type="submit" class="btn" href="/ecoaprende_sitiopublico/vistas/publica/menu.html">
 <img src="/ecoaprende_sitiopublico/recursos/img/eco.png" alt="eco" width="100">
 </a>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -31,14 +31,17 @@ HEADER.innerHTML = `
               <a class="nav-link text-white px-5" href="#"><i class="bi bi-shop fs-4 px-2"></i>Tienda</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-white px-5" href="#" role="button" data-bs-toggle="dropdown"
+              <a class="nav-link dropdown-toggle text-white px-5" href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
                 <i class="bi bi-box-seam fs-4 px-2"></i>Categorias
               </a>
               <ul class="dropdown-menu ">
-                <li><a class="dropdown-item" href="#">1</a></li>
-                <li><a class="dropdown-item" href="#">2</a></li>
-                <li><a class="dropdown-item" href="#">3</a></li>
+                <li><a class="dropdown-item" href="#">Tecnologia</a></li>
+                <li><a class="dropdown-item" href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Medicina General</a></li>
+                <li><a class="dropdown-item" href="#">Ciencia en general</a></li>
+                <li><a class="dropdown-item" href="#">Autores populares</a></li>
+                <li><a class="dropdown-item" href="#">Editoriales</a></li>
+                <li><a class="dropdown-item" href="#">Idiomas</a></li>
               </ul>
             </li>
             </ul>
