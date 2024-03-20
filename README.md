@@ -11,6 +11,4 @@ Integrantes:
 
 - Coordinadora: Melanie Jackeline Martínez Ramírez, 20190148, 2A.
 
-- Franco Enmanuel Soriano Molina, 20200154, 2A.
-
 - Anderson René Figueroa Coto. 20220105, 2A.
