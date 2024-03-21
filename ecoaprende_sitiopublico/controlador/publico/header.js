@@ -24,31 +24,31 @@ HEADER.innerHTML = `
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
             <li class="nav-item">
-              <a class="nav-link active text-white text-start px-5" aria-current="page" href="menu.html"><i
+              <a class="nav-link active text-white text-start px-5" aria-current="page" href="/ecoaprende_sitiopublico/vistas/publica/menu.html"><i
                   class="bi bi-house-door-fill fs-4 px-2"></i>Inicio</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-white px-5" href="opciones_categoria.html" role="button" data-bs-toggle="dropdown"
+              <a class="nav-link dropdown-toggle text-white px-5" href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
                 <i class="bi bi-box-seam fs-4 px-2"></i>Categorias
               </a>
               <ul class="dropdown-menu ">
-                <li><a class="dropdown-item" href="opciones_categoria.html">Tecnologia</a></li>
-                <li><a class="dropdown-item" href="opciones_categoria.html">Medicina General</a></li>
-                <li><a class="dropdown-item" href="opciones_categoria.html">Ciencia en general</a></li>
-                <li><a class="dropdown-item" href="opciones_categoria.html">Autores populares</a></li>
-                <li><a class="dropdown-item" href="opciones_categoria.html">Editoriales</a></li>
-                <li><a class="dropdown-item" href="opciones_categoria.html">Idiomas</a></li>
+                <li><a class="dropdown-item" href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Tecnologia</a></li>
+                <li><a class="dropdown-item" href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Medicina General</a></li>
+                <li><a class="dropdown-item" href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Ciencia en general</a></li>
+                <li><a class="dropdown-item" href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Autores populares</a></li>
+                <li><a class="dropdown-item" href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Editoriales</a></li>
+                <li><a class="dropdown-item" href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Idiomas</a></li>
               </ul>
             </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
             <li class="nav-item">
-              <a class="nav-link text-white px-5" aria-current="page" href="carrito_compra.html"><i
+              <a class="nav-link text-white px-5" aria-current="page" href="/ecoaprende_sitiopublico/vistas/publica/carrito_compra.html"><i
                   class="bi bi-cart-fill px-2 fs-4"></i>Carrito</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white px-5" href="#"><i class="bi bi-person-fill px-2 fs-4"></i>Usuario</a>
+              <a class="nav-link text-white px-5" href="/ecoaprende_sitiopublico/vistas/publica/usuario.html"><i class="bi bi-person-fill px-2 fs-4"></i>Usuario</a>
             </li>
           </ul>
 
