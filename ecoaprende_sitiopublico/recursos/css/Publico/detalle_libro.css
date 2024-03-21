@@ -54,5 +54,10 @@ h3 {
 }
 
 .cantidad {
-    max-width: 50px; border-radius: 100%;
+    max-width: 50px; border-radius: 10%;
+}
+
+a{
+    text-decoration: none;
+    color: black;
 }
