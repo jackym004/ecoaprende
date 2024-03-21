@@ -11,3 +11,15 @@ body {
   h1{
     font-family: Ropa sans;
   }
+
+  
+  a{
+    font-family: Ropa sans;
+    text-decoration: none;
+  }
+
+  #pp{
+    margin-right: 50px;
+  }
+
+ 
