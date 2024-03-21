@@ -23,5 +23,3 @@ FOOTER.innerHTML = `
     </nav>
     
 `
-
-
