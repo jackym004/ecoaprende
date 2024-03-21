@@ -10,14 +10,47 @@
 }
 
 
-#card{
+
+
+#card {
     border: none;
 }
 
-.img{
+.img {
     margin-bottom: 6%;
 }
 
-.cont{
+.cont {
     margin-top: 50px;
+}
+
+input {
+    font-family: Ropa sans;
+}
+
+.btn-primary {
+    border: none;
+    background-color: rgba(39, 59, 9, 1);
+    color: white;
+    font-weight: bold;
+    color: white;
+    font-family: 'Ropa Sans';
+    margin-left: 50%;
+    width: 50%;
+    padding: 2%;
+    margin-top: -2;
+}
+
+.bibi {
+    margin-right: 100%;
+    width: 50%;
+    padding: 2%;
+}
+
+
+
+a {
+    text-decoration: none;
+    font-family: 'Ropa Sans';
+
 }
