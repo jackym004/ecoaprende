@@ -48,3 +48,11 @@ h3 {
 .card2 {
     max-width: 40%;
 }
+
+.letra {
+    font-size: 20px;
+}
+
+.cantidad {
+    max-width: 50px; border-radius: 100%;
+}
