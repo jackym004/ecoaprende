@@ -142,4 +142,3 @@ async function openDelete(id) {
         }
     }
 }
-
