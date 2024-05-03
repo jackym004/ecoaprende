@@ -1,0 +1,15 @@
+.chartCard {
+    width: 40vw;
+    height: calc(40vh - 0px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .chartBox {
+    width: 80%;
+    height: 80%;
+    border-radius: 20px;
+    border: solid 3px black;
+    background: white;
+  }

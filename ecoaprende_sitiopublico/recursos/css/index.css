@@ -1,42 +1,72 @@
-  body {
-    background-image: url('../../Recursos/img/3.png');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .form-floating {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  
-  .form-floating .icon {
-    font-size: 30px;
-    margin-bottom: 12px;
-    color: black;
-  }
-  
-  .form-floating input {
-    padding-left: 32px;
-    margin-bottom: 20px;
-  }
-  
-  .form-floating label {
-    margin-bottom: 8px;
-  }
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
-  .custom-bg-color1 {
-    background-color: #FFB7C3;
-  }
 
-  .custom-bg-color2 {
-    background-color: #FF5C77;
-  }
-  
+body {
+  background-image: url('../../Recursos/img/lgin.png');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.titulo {
+  font-family: IBM Plex Mono;
+  font-size: 32px;
+  margin-top: px;
+}
+
+.subtitulo{
+  font-family: IBM Plex Mono;
+  font-size: 16px;
+}
+
+.form-floating {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 50;
+  font-family: IBM Plex Mono;
+}
+
+.contenedor{
+  width: 100%;
+  height: 120%;
+  border-radius: 5px;
+}
+
+#ingresarButton{
+  background-color: #FF5C77;
+  color: white;
+  width: 120px;
+}
+
+.form-floating .icon {
+  font-size: 30px;
+  margin-bottom: 12px;
+  color: black;
+}
+
+.form-floating input {
+  padding-left: 32px;
+  margin-bottom: 20px;
+}
+
+.form-floating label {
+  margin-bottom: 8px;
+}
+
+.custom-bg-color1 {
+  background-color: #FFB7C3;
+}
+
+.input {
+  width: 20px;
+}
+
+
+

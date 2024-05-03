@@ -11,27 +11,27 @@
 </head>
 
 <body>
-    <div class="container mt-5">
+    <div class="container mt-2 ">
         <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="container custom-bg-color1">
-                    <h1 class="mb-4 text-center">INICIO DE SESION</h1>
-                    <div class="container p-4 bg-transparent rounded">
-                        <form>
-                            <div class="form-floating mb-3">
-                                <div class="icon"><i class='bx bx-user'></i></div>
-                                <label for="floatingInput" class="text-center bold">CORREO ELECTRONICO</label>
-                                <input type="email" class="form-control" id="floatingInput"
-                                    placeholder="name@example.com">
+            <div class="col-md-8 ">
+                <div class="contenedor pt-5  container custom-bg-color1">
+                    <h1 class="titulo  text-start ms-4">INICIO DE SESION</h1>
+                    <h1 class="subtitulo mt-3  text-start ms-4">Por favor introduzca su información en los campos de abajo:</h1>
+                    <div class="container-fluid">
+                        <form class="px-5 mt-5 ">
+
+                            <div class="input-group mt-4 ">
+                                <input type="text" class="input form-control" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-default" placeholder="Correo electrónico">
                             </div>
-                            <div class="form-floating mb-3">
-                                <div class="icon"><i class='bx bx-lock'></i></div>
-                                <label for="floatingPassword" class="text-center bold">CLAVE</label>
-                                <input type="password" class="form-control" id="floatingPassword"
-                                    placeholder="Password">
+
+                            <div class="input-group  mt-4 ">
+                                <input type="text" class="input form-control" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-default" placeholder="Clave">
                             </div>
-                            <button id="ingresarButton" type="submit"
-                                class="btn custom-bg-color mt-3 d-grid gap-2 col-6 mx-auto">INGRESAR</button>
+                            
+                                <a href="/ecoaprende_sitiopublico/vistas/privada/dashboard.html" id="ingresarButton" class="btn btn-primary me-5 border-0  mt-4 d-grid mx-auto" role="button" data-bs-toggle="button">INGRESAR</a>
+
                             <script>
                                 document.getElementById("ingresarButton").addEventListener("click", function () {
                                     window.location.href = "../../Vistas/Privada/dashboard.html";
