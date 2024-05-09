@@ -2,7 +2,7 @@
 
 
 body {
-  background-image: url('../../Recursos/img/lgin.png');
+  background-image: url('/ecoaprende_sitioprivado/recursos_administrador/img_administrador/lgin.png');
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -66,6 +66,10 @@ body {
 
 .input {
   width: 20px;
+}
+
+.input::placeholder {
+ font-weight: bold;
 }
 
 
