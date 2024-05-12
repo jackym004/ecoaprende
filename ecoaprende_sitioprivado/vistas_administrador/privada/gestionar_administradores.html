@@ -18,58 +18,98 @@
 </head>
 
 <body>
-    <header class="pink-bar-top">
-        <nav class="navbar navbar-expand-lg navbar fixed-top mb-5 rosadito">
-            <div class="container">
-                <!-- Logo y nombre a la izquierda -->
-                <a class="navbar-brand" href="./dashboard.html">
-                    <img src="../../Recursos/img/4.png" alt="Logo de Eco Aprende" width="30" height="30"
-                        class="d-inline-block align-top">
-                    <strong style="font-size: 20px;">ECO APRENDE</strong>
-                </a>
-                <!-- Botón de colapso para dispositivos móviles -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <!-- Contenido de la barra de navegación -->
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mx-auto"> <!-- Utiliza mx-auto para centrar este bloque -->
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">
-                                <i class="bi bi-box me-2"></i>
-                                Gestionar pedidos
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">
-                                <i class="bi bi-gear me-2"></i>
-                                Administrar categorias
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">
-                                <i class="bi bi-person me-2"></i>
-                                Gestionar perfiles
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">
-                                <i class="bi bi-journal-text me-2"></i>
-                                Publicar
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">
-                                <i class="bi bi-chat-dots me-2"></i>
-                                Comentarios
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+    <aside id="sidebar">
+        <div class="d-flex">
+            <button class="toggle-btn" type="button">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAExJREFUSEtjZKAxYKSx+QyjFhAM4QEJov8EnYVfAYqjsfmA5hZQ6AFU7QMSBzT3Ac3jgOYW0DyIhr4FNI8Dmlsw9ONg1AcoIUDz0hQAbegGGXzv/l0AAAAASUVORK5CYII="
+                    alt="foto" />
+            </button>
+            <div class="sidebar-logo ms-3 ">
+                <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/logoeco.png" alt=""
+                    width="110px" height="80px">
             </div>
-        </nav>
-    </header>
+        </div>
+        <ul class="sidebar-nav">
+            <li class="sidebar-item mt-2 admin" onclick="Menu()">
+                <a href="#" class="sidebar-link">
+                    <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/admin.png" alt=""
+                        width="19">
+                    <span class="ms-3">nombre administrador</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item menu" onclick="categoriaProductos()">
+                <a href="#" class="menu sidebar-link">
+                    <span class="mx-auto">Menu</span>
+                </a>
+            </li>
+
+
+            <li class="sidebar-item mt-2" onclick="productosP()">
+                <a href="dashboard.html" class="sidebar-link">
+                    <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/inicio.png" alt=""
+                        width="19">
+                    <span class="ms-3">Panel
+                        Principal</span>
+                </a>
+            </li>
+
+
+            <li class="sidebar-item mt-2" onclick="entre()">
+                <a href="#" class="sidebar-link">
+                    <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/repo.png" alt=""
+                        width="19">
+                    <span class="ms-3">Gestionar
+                        Reportes</span>
+                </a>
+            </li>
+
+
+            <li class="sidebar-item mt-2">
+                <a href="administrar_categoria.html" class="sidebar-link ">
+                    <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/categoria_p.png"
+                        alt="" width="19">
+                    <span class="ms-3">Gestionar
+                        Categorias</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item mt-2" onclick="alumnos_total()">
+                <a href="gestionar_clientes.html" class="sidebar-link">
+                    <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/perfill.png" alt=""
+                        width="19">
+                    <span class="ms-3">Gestionar
+                        Clientes</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item mt-2" onclick="inscripciones()">
+                <a href="#" class="sidebar-link">
+                    <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/valo.png" alt=""
+                        width="19">
+                    <span class="ms-3">Gestionar
+                        Valoraciones</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item mt-2 libros">
+                <a href="gestionar_libros.html" class="sidebar-link">
+                    <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/libros.png" alt=""
+                        width="19">
+                    <span class="ms-3 ">Gestionar libros
+                    </span>
+                </a>
+            </li>
+
+            <li class="sidebar-item mt-4 " onclick="categoriaProfesores()">
+                <a href="index.html" class="sidebar-link">
+                    <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/cerrar.png" alt=""
+                        width="19">
+                    <span class="ms-3">Cerrar sesión</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
 
     <!-- Contenido principal del documento -->
     <main>

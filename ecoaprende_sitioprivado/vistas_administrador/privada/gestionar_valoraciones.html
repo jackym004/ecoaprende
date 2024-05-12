@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="image/png" rel="icon" href="/ecoaprende_sitiopublico/recursos/img/7.png">
+    <link type="text/css" rel="stylesheet"
+        href="/ecoaprende_sitioprivado/recursos_administrador/css_administrador/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet"
+        href="/ecoaprende_sitioprivado/recursos_administrador/css_administrador/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="/ecoaprende_sitioprivado/recursos_administrador/css_administrador/gestionar_libros.css">
+    <link rel="stylesheet" href="/ecoaprende_sitioprivado/recursos_administrador/css_administrador/sidebar.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <aside id="sidebar">
+            <div class="d-flex">
+                <button class="toggle-btn" type="button">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAExJREFUSEtjZKAxYKSx+QyjFhAM4QEJov8EnYVfAYqjsfmA5hZQ6AFU7QMSBzT3Ac3jgOYW0DyIhr4FNI8Dmlsw9ONg1AcoIUDz0hQAbegGGXzv/l0AAAAASUVORK5CYII="
+                        alt="foto" />
+                </button>
+                <div class="sidebar-logo ms-3 ">
+                    <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/logoeco.png" alt=""
+                        width="110px" height="80px">
+                </div>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-item mt-2 admin" onclick="Menu()">
+                    <a href="#" class="sidebar-link">
+                        <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/admin.png" alt=""
+                            width="19">
+                        <span class="ms-3">nombre administrador</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item menu" onclick="categoriaProductos()">
+                    <a href="#" class="menu sidebar-link">
+                        <span class="mx-auto">Menu</span>
+                    </a>
+                </li>
+
+
+                <li class="sidebar-item mt-2" onclick="productosP()">
+                    <a href="dashboard.html" class="sidebar-link">
+                        <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/inicio.png" alt=""
+                            width="19">
+                        <span class="ms-3">Panel
+                            Principal</span>
+                    </a>
+                </li>
+
+
+                <li class="sidebar-item mt-2" onclick="entre()">
+                    <a href="#" class="sidebar-link">
+                        <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/repo.png" alt=""
+                            width="19">
+                        <span class="ms-3">Gestionar
+                            Reportes</span>
+                    </a>
+                </li>
+
+
+                <li class="sidebar-item mt-2">
+                    <a href="administrar_categoria.html" class="sidebar-link ">
+                        <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/categoria_p.png"
+                            alt="" width="19">
+                        <span class="ms-3">Gestionar
+                            Categorias</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item mt-2" onclick="alumnos_total()">
+                    <a href="gestionar_clientes.html" class="sidebar-link">
+                        <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/perfill.png" alt=""
+                            width="19">
+                        <span class="ms-3">Gestionar
+                            Clientes</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item mt-2" onclick="inscripciones()">
+                    <a href="gestionar_valoraciones.html" class="sidebar-link">
+                        <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/valo.png" alt=""
+                            width="19">
+                        <span class="ms-3">Gestionar
+                            Valoraciones</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item mt-2 libros">
+                    <a href="gestionar_libros.html" class="sidebar-link">
+                        <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/libros.png" alt=""
+                            width="19">
+                        <span class="ms-3 ">Gestionar libros
+                        </span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item mt-4 " onclick="categoriaProfesores()">
+                    <a href="index.html" class="sidebar-link">
+                        <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/cerrar.png" alt=""
+                            width="19">
+                        <span class="ms-3">Cerrar sesión</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        <div class="container col-md-10">
+            <div class="container-fluid d-flex justify-content-between mt-3 align-items-center">
+                <!-- Encabezado -->
+                <h3 class="me-auto">Gestionar valoraciones</h3>
+                <!-- Buscador -->
+                <div class="mx-auto">
+                    <form id="searchForm" class="d-flex">
+                        <input type="search" class="form-control me-2" name="search" placeholder="Buscar" required>
+                        <button type="submit" class="btn btn-outline-dark me-5">Buscar</button>
+                        <button type="reset" class="btn btn-white" onclick="cargarTabla()">
+                            <i class="bi bi-arrow-clockwise"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <!-- Tabla para mostrar los registros existentes -->
+            <table class="table table-hover">
+                <!-- Cabeza de la tabla para mostrar la cantidad de registros y los títulos de las columnas -->
+                <thead>
+                    <tr>
+                        <td colspan="4" id="rowsFound"></td>
+                    </tr>
+                    <tr>
+                        <th>NOMBRE</th>
+                        <th>PRODUCTO</th>
+                        <th>COMENTARIO</th>
+                        <th>ESTADO</th>
+                        <!-- <th>FECHA DE REGISTRO</th> -->
+                    </tr>
+                </thead>
+                <!-- Cuerpo de la tabla para mostrar un registro por fila -->
+                <tbody id="tabla_hamacas"></tbody>
+            </table>
+        </div>
+
+        <!-- Componente Modal para guardar un registro -->
+        <div class="modal fade" id="saveModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="modalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="modalTitle"></h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <!-- Formulario para crear o actualizar un registro -->
+                    <form id="saveForm">
+                        <div class="modal-body row g-3">
+                            <!-- Campo oculto para asignar el id del registro al momento de modificar -->
+                            <input type="hidden" id="idHamaca" name="idHamaca">
+                            <div class="col-sm-12 col-md-6">
+                                <label for="imagenHamaca" class="form-label">Imagen</label>
+                                <input id="imagenHamaca" type="file" name="imagenHamaca" class="form-control"
+                                    accept=".png, .jpg">
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label for="nombreHamaca" class="form-label">Nombre</label>
+                                <input id="nombreHamaca" type="text" name="nombreHamaca" class="form-control"
+                                    placeholder="Ingresa el nombre de la hamaca" autocomplete="off" required>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label for="cantidadHamaca" class="form-label">Cantidad</label>
+                                <input id="cantidadHamaca" type="number" name="cantidadHamaca" min="1" step="1"
+                                    class="form-control" placeholder="Ingresa la cantidad de hamacas existentes"
+                                    autocomplete="off" required>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label for="precioHamaca" class="form-label">Precio</label>
+                                <input id="precioHamaca" type="number" name="precioHamaca" min="0.01" step="0.01"
+                                    class="form-control" placeholder="0.00" autocomplete="off" required>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label for="descripcionHamaca" class="form-label">Descripción</label>
+                                <input id="descripcionHamaca" type="text" name="descripcionHamaca" class="form-control"
+                                    placeholder="Ingresa la descripción de la hamaca" autocomplete="off" required>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label for="categorias" class="form-label">Categorías</label>
+                                <select id="categorias" name="categorias" class="form-select" required>
+                                </select>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label for="materiales" class="form-label">Materiales</label>
+                                <select id="materiales" name="materiales" class="form-select" required>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer col-sm-12 col-md-12 col-lg-12">
+                            <button type="reset" class="btn btn-outline-dark">Cancelar</button>
+                            <button type="submit" class="btn btn-outline-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalAgregarFoto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Agregar y Mostrar Fotos</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Carrusel de imágenes -->
+                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <!-- Aquí se agregarán los indicadores de cada imagen -->
+                                <!-- <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li> -->
+                            </ol>
+                            <div class="carousel-inner">
+                                <!-- Área para mostrar fotos existentes -->
+                                <div class="row mt-3" id="fotosExistenteArea">
+                                    <!-- Aquí puedes repetir este bloque para cada imagen que quieras mostrar -->
+                                    <div class="col-md-4">
+                                        <div class="card mb-4 shadow-sm">
+                                            <img src="../../../../recursos/img/hamaca chapina.jpg"
+                                                class="card-img-top img-thumbnail alto" alt="Imagen de ejemplo">
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-center align-items-center">
+                                                    <!-- Puedes agregar cualquier otro contenido adicional aquí -->
+                                                    <button type="button" class="btn btn-outline-danger">
+                                                        <i class="bi bi-trash-fill"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card mb-4 shadow-sm">
+                                            <img src="../../../../recursos/img/hamaca 3.jpg"
+                                                class="card-img-top img-thumbnail alto" alt="Imagen de ejemplo">
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-center align-items-center">
+                                                    <!-- Puedes agregar cualquier otro contenido adicional aquí -->
+                                                    <button type="button" class="btn btn-outline-danger">
+                                                        <i class="bi bi-trash-fill"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card mb-4 shadow-sm">
+                                            <img src="../../../../recursos/img/hamaca 2.jpg"
+                                                class="card-img-top img-thumbnail alto" alt="Imagen de ejemplo">
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-center align-items-center">
+                                                    <!-- Puedes agregar cualquier otro contenido adicional aquí -->
+                                                    <button type="button" class="btn btn-outline-danger">
+                                                        <i class="bi bi-trash-fill"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card mb-4 shadow-sm">
+                                            <img src="../../../../recursos/img/hamaca 6.jpg"
+                                                class="card-img-top img-thumbnail alto" alt="Imagen de ejemplo">
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-center align-items-center">
+                                                    <!-- Puedes agregar cualquier otro contenido adicional aquí -->
+                                                    <button type="button" class="btn btn-outline-danger">
+                                                        <i class="bi bi-trash-fill"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card mb-4 shadow-sm">
+                                            <img src="../../../../recursos/img/hamaca 5.jpg"
+                                                class="card-img-top img-thumbnail alto" alt="Imagen de ejemplo">
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-center align-items-center">
+                                                    <!-- Puedes agregar cualquier otro contenido adicional aquí -->
+                                                    <button type="button" class="btn btn-outline-danger">
+                                                        <i class="bi bi-trash-fill"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card mb-4 shadow-sm">
+                                            <img src="../../../../recursos/img/hamaca 4.jpg"
+                                                class="card-img-top img-thumbnail alto" alt="Imagen de ejemplo">
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-center align-items-center">
+                                                    <!-- Puedes agregar cualquier otro contenido adicional aquí -->
+                                                    <button type="button" class="btn btn-outline-danger">
+                                                        <i class="bi bi-trash-fill"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                                data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                                data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only"></span>
+                            </a>
+                        </div>
+
+                        <!-- Formulario para agregar la foto -->
+                        <form>
+                            <div class="form-group mt-3">
+                                <label for="inputFoto">Subir Foto</label>
+                                <input type="file" class="form-control-file" id="inputFoto">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="/ecoaprende_sitioprivado/recursos_administrador/js_administrador/jquery-3.6.0.min.js"></script>
+    <!-- Script de Bootstrap 5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="/ecoaprende_sitioprivado/controlador_administrador/controlador_administrador/sidebar.js"></script>
+
+    <!-- IMPORTACIÓN DE ARCHIVOS JAVASCRIPT -->
+    <script type="text/javascript"
+        src="/ecoaprende_sitioprivado/recursos_administrador/js_administrador/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

@@ -21,6 +21,8 @@
         <aside id="sidebar">
             <div class="d-flex">
                 <button class="toggle-btn" type="button">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAExJREFUSEtjZKAxYKSx+QyjFhAM4QEJov8EnYVfAYqjsfmA5hZQ6AFU7QMSBzT3Ac3jgOYW0DyIhr4FNI8Dmlsw9ONg1AcoIUDz0hQAbegGGXzv/l0AAAAASUVORK5CYII="
+                        alt="foto" />
                 </button>
                 <div class="sidebar-logo ms-3 ">
                     <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/logoeco.png" alt=""
@@ -29,7 +31,7 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item mt-2 admin" onclick="Menu()">
-                    <a href="Menu.html" class="sidebar-link">
+                    <a href="#" class="sidebar-link">
                         <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/admin.png" alt=""
                             width="19">
                         <span class="ms-3">nombre administrador</span>
@@ -37,14 +39,14 @@
                 </li>
 
                 <li class="sidebar-item menu" onclick="categoriaProductos()">
-                    <a href="" class="menu sidebar-link">
+                    <a href="#" class="menu sidebar-link">
                         <span class="mx-auto">Menu</span>
                     </a>
                 </li>
 
 
                 <li class="sidebar-item mt-2" onclick="productosP()">
-                    <a href="productosP.html" class="sidebar-link">
+                    <a href="dashboard.html" class="sidebar-link">
                         <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/inicio.png" alt=""
                             width="19">
                         <span class="ms-3">Panel
@@ -54,7 +56,7 @@
 
 
                 <li class="sidebar-item mt-2" onclick="entre()">
-                    <a href="entrenamientos.html" class="sidebar-link">
+                    <a href="#" class="sidebar-link">
                         <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/repo.png" alt=""
                             width="19">
                         <span class="ms-3">Gestionar
@@ -64,24 +66,25 @@
 
 
                 <li class="sidebar-item mt-2">
-                    <a href="#" class="sidebar-link ">
+                    <a href="administrar_categoria.html" class="sidebar-link ">
                         <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/categoria_p.png"
                             alt="" width="19">
                         <span class="ms-3">Gestionar
-                            categorias</span>
+                            Categorias</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item mt-2" onclick="alumnos_total()">
-                    <a href="alumnos_total.html" class="sidebar-link">
+                    <a href="gestionar_clientes.html" class="sidebar-link">
                         <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/perfill.png" alt=""
                             width="19">
                         <span class="ms-3">Gestionar
-                            Perfiles</span>
+                            Clientes</span>
                     </a>
                 </li>
+
                 <li class="sidebar-item mt-2" onclick="inscripciones()">
-                    <a href="inscripciones.html" class="sidebar-link">
+                    <a href="#" class="sidebar-link">
                         <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/valo.png" alt=""
                             width="19">
                         <span class="ms-3">Gestionar
@@ -90,7 +93,7 @@
                 </li>
 
                 <li class="sidebar-item mt-2 libros">
-                    <a href="#" class="sidebar-link">
+                    <a href="gestionar_libros.html" class="sidebar-link">
                         <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/libros.png" alt=""
                             width="19">
                         <span class="ms-3 ">Gestionar libros
@@ -99,20 +102,14 @@
                 </li>
 
                 <li class="sidebar-item mt-4 " onclick="categoriaProfesores()">
-                    <a href="#" class="sidebar-link">
+                    <a href="index.html" class="sidebar-link">
                         <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/cerrar.png" alt=""
                             width="19">
-                        <span class="ms-3">cerrar sesión</span>
+                        <span class="ms-3">Cerrar sesión</span>
                     </a>
                 </li>
             </ul>
         </aside>
-
-
-
-
-
-
 
         <div class="main p-3">
             <div class="text-center">
@@ -124,10 +121,9 @@
                         <div class="card agregar h-100">
                             <div class="card-header mt-5 agregar border-0">
                             </div>
-                            <div class="card-body agregar">
+                            <div class="card-body agregar" onclick="openCreate()">
                                 <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/agregar.png"
-                                    class="img-fluid mx-auto align-items-center" alt="..." data-bs-toggle="modal"
-                                    data-bs-target="#saveModal">
+                                    class="img-fluid mx-auto align-items-center" alt="...">
                             </div>
                             <div class="card-footer agregar border-0">
                             </div>
@@ -137,7 +133,7 @@
                     <div class="col">
                         <div class="card h-80">
                             <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/medicina.png"
-                                class="card-img-top">
+                                class="card-img-top" alt="...">
                             <div class="card-body custom-bg-color">
                                 <h5 class="card-title text-start ">Medicina en general</h5>
                                 <p class="card-text text-start">Estudio de la vida, la salud, las enfermedades y la
@@ -149,7 +145,7 @@
                     <div class="col">
                         <div class="card h-80">
                             <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/tec.png"
-                                class="card-img-top" height="245px">
+                                class="card-img-top" alt="..." height="245px">
                             <div class="card-body custom-bg-color2">
                                 <h5 class="card-title text-start ">Tecnología</h5>
                                 <p class="card-text text-start">Inteligencia artificial, ingeniería de datos, redes,
@@ -161,7 +157,7 @@
                     <div class="col">
                         <div class="card h-80">
                             <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/cien.png"
-                                class="card-img-top" height="245px">
+                                class="card-img-top" alt="..." height="245px">
                             <div class="card-body custom-bg-color">
                                 <h5 class="card-title text-start ">Ciencia en general</h5>
                                 <p class="card-text text-start">Ingeniería Informática.
@@ -174,7 +170,7 @@
                     <div class="col">
                         <div class="card h-80">
                             <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/idiomas.png"
-                                class="card-img-top">
+                                class="card-img-top" alt="...">
                             <div class="card-body custom-bg-color2">
                                 <h5 class="card-title text-start ">Idiomas</h5>
                                 <p class="card-text text-start">Si tu carrera exige libros no solo en español esta
@@ -186,7 +182,7 @@
                     <div class="col">
                         <div class="card h-80">
                             <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/historia.png"
-                                class="card-img-top">
+                                class="card-img-top" alt="...">
                             <div class="card-body custom-bg-color">
                                 <h5 class="card-title text-start ">Historia General</h5>
                                 <p class="card-text text-start">Inteligencia artificial, ingeniería de datos, redes,
@@ -194,27 +190,20 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
 
     <!-- Componente Modal para guardar un registro -->
     <div class="modal fade" id="saveModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="modalTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalTitle"></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
                 <!-- Formulario para guardar un registro -->
                 <form id="saveForm">
                     <div class="modal-body row g-3">
@@ -223,19 +212,21 @@
                             <!-- campo del nombre producto -->
                             <div class="col text-center">
                                 <label>Imagen de la categoria:</label>
-                                <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/agregar_cat.png" height="40" class="img-thumbnail border-0">
+                                <img src="/ecoaprende_sitioprivado/recursos_administrador/img_administrador/agregar_cat.png"
+                                    height="40" class="img-thumbnail border-0">
                             </div>
                             <!-- campo del nombre producto -->
                             <div class="col">
                                 <label for=""></label>
-                                <input type="text" class="form-control nbcat mt-1"
-                                    placeholder="Nombre de la categoría" id="nombre_cate_producto">
+                                <input type="text" class="form-control nbcat mt-1" placeholder="Nombre de la categoría"
+                                    id="nombre_cate_producto">
                             </div>
                         </div>
                         <div class="row" style="margin-top: 30px;">
                             <!-- campo del nombre producto -->
                             <div class="col text-center">
-                                <input type="file" class="form-control categoria mt-4  " placeholder="Seleccionar imagen de la categoria:" id="Imagen_producto">
+                                <input type="file" class="form-control categoria mt-4  "
+                                    placeholder="Seleccionar imagen de la categoria:" id="Imagen_producto">
                             </div>
                         </div>
                     </div>
@@ -262,12 +253,9 @@
     <!-- Llamada al controlador general de la aplicación -->
     <script type="text/javascript"
         src="/ecoaprende_sitioprivado/controlador_administrador/utilidades_administrador/components.js"></script>
-    <!-- Llamada al controlador del sitio privado -->
-    <script type="text/javascript"
-        src="/ecoaprende_sitioprivado/controlador_administrador/utilidades_administrador/admin.js"></script>
     <!-- Llamada al controlador de la página web -->
     <script type="text/javascript"
-        src="/ecoaprende_sitioprivado/controlador_administrador/controlador_administrador/administrador.js"></script>
+        src="../../controlador_administrador/controlador_administrador/categoria.js"></script>
 </body>
 
 </html>

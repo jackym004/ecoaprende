@@ -20,23 +20,18 @@ const SAVE_FORM = document.getElementById('saveForm'),
 
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', () => {
-    // Llamada a la función para mostrar el encabezado y pie del documento.
-    loadTemplate();
-    // Se establece el título del contenido principal.
-    MAIN_TITLE.textContent = 'Gestionar administradores';
-    // Llamada a la función para llenar la tabla con los registros existentes.
-    fillTable();
+    
 });
 
-// Método del evento para cuando se envía el formulario de buscar.
-SEARCH_FORM.addEventListener('submit', (event) => {
-    // Se evita recargar la página web después de enviar el formulario.
-    event.preventDefault();
-    // Constante tipo objeto con los datos del formulario.
-    const FORM = new FormData(SEARCH_FORM);
-    // Llamada a la función para llenar la tabla con los resultados de la búsqueda.
-    fillTable(FORM);
-});
+// // Método del evento para cuando se envía el formulario de buscar.
+// SEARCH_FORM.addEventListener('submit', (event) => {
+//     // Se evita recargar la página web después de enviar el formulario.
+//     event.preventDefault();
+//     // Constante tipo objeto con los datos del formulario.
+//     const FORM = new FormData(SEARCH_FORM);
+//     // Llamada a la función para llenar la tabla con los resultados de la búsqueda.
+//     fillTable(FORM);
+// });
 
 // Método del evento para cuando se envía el formulario de guardar.
 SAVE_FORM.addEventListener('submit', async (event) => {
@@ -111,11 +106,9 @@ const fillTable = async (form = null) => {
 const openCreate = () => {
     // Se muestra la caja de diálogo con su título.
     SAVE_MODAL.show();
+    MODAL_TITLE.textContent = 'Crear administrador';
     // Se prepara el formulario.
     SAVE_FORM.reset();
-    ALIAS_ADMINISTRADOR.disabled = false;
-    CLAVE_ADMINISTRADOR.disabled = false;
-    CONFIRMAR_CLAVE.disabled = false;
 }
 
 /*
