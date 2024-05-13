@@ -1,12 +1,17 @@
+// Constante para completar la ruta de la API.
+const USER_API = 'servicios/administrador.php';
+
 // Constante para establecer el formulario de registro del primer usuario.
 const SIGNUP_FORM = document.getElementById('signupForm');
 // Constante para establecer el formulario de inicio de sesión.
 const LOGIN_FORM = document.getElementById('loginForm');
 
+// Constante para establecer el elemento del título principal.
+const MAIN_TITLE = document.getElementById('mainTitle');
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', async () => {
     // Llamada a la función para mostrar el encabezado y pie del documento.
-    loadTemplate();
+
     // Petición para consultar los usuarios registrados.
     const DATA = await fetchData(USER_API, 'readUsers');
     // Se comprueba si existe una sesión, de lo contrario se sigue con el flujo normal.
@@ -53,9 +58,14 @@ LOGIN_FORM.addEventListener('submit', async (event) => {
     // Petición para iniciar sesión.
     const DATA = await fetchData(USER_API, 'logIn', FORM);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+    try{
     if (DATA.status) {
         sweetAlert(1, DATA.message, true, 'dashboard.html');
     } else {
         sweetAlert(2, DATA.error, false);
+    }
+    }catch(error){
+        console.log(err)
+        sweetAlert(2, error, false);
     }
 });

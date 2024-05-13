@@ -2,8 +2,9 @@
 
 
 body {
-  background-image: url('/ecoaprende_sitioprivado/recursos_administrador/img_administrador/lgin.png');
-  background-size: cover;
+  background-image: url('../img_administrador/lgin.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   background-position: center;
   height: 100vh;
   margin: 0;
@@ -41,6 +42,18 @@ body {
 
 #ingresarButton{
   background-color: #FF5C77;
+  color: white;
+  width: 120px;
+}
+
+btn-secondary{
+  background-color: #FF5C77;
+  color: white;
+  width: 120px;
+}
+
+btn-primary{
+  background-color: #FFB7C3;
   color: white;
   width: 120px;
 }
