@@ -4,7 +4,7 @@ require_once('../auxiliar/database.php');
 /*
  *  Clase para manejar el comportamiento de los datos de la tabla administrador.
  */
-class AdministradorHandler{
+class CrearadministradorHandler{
     /*
      *  Declaración de atributos para el manejo de datos.
      */
@@ -88,7 +88,7 @@ class AdministradorHandler{
         $sql = 'SELECT id_administrador, nombre_administrador, correo_administrador
                 FROM tb_administradores
                 WHERE nombre_administrador LIKE ?';
-        $params = array($value);
+        $params = array($value, $value);
         return Database::getRows($sql, $params);
     }
 

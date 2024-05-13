@@ -176,8 +176,8 @@
                             <!-- Campo oculto para asignar el id del registro al momento de modificar -->
                             <input type="hidden" id="idHamaca" name="idHamaca">
                             <div class="col-sm-12 col-md-6">
-                                <label for="imagenHamaca" class="form-label">Imagen</label>
-                                <input id="imagenHamaca" type="file" name="imagenHamaca" class="form-control"
+                                <label for="imagenLibro" class="form-label">Imagen</label>
+                                <input id="imagenLibro" type="file" name="imagenLibro" class="form-control"
                                     accept=".png, .jpg">
                             </div>
                             <div class="col-sm-12 col-md-6">
@@ -186,30 +186,15 @@
                                     placeholder="Ingresa el nombre de la hamaca" autocomplete="off" required>
                             </div>
                             <div class="col-sm-12 col-md-6">
-                                <label for="cantidadHamaca" class="form-label">Cantidad</label>
-                                <input id="cantidadHamaca" type="number" name="cantidadHamaca" min="1" step="1"
-                                    class="form-control" placeholder="Ingresa la cantidad de hamacas existentes"
+                                <label for="cantidadLibro" class="form-label">Cantidad</label>
+                                <input id="cantidadLibro" type="number" name="cantidadLibro" min="1" step="1"
+                                    class="form-control" placeholder="Ingresar la cantidad de libros en stock"
                                     autocomplete="off" required>
                             </div>
                             <div class="col-sm-12 col-md-6">
-                                <label for="precioHamaca" class="form-label">Precio</label>
-                                <input id="precioHamaca" type="number" name="precioHamaca" min="0.01" step="0.01"
+                                <label for="precioLibro" class="form-label">Precio</label>
+                                <input id="precioLibro" type="number" name="precioLibro" min="0.01" step="0.01"
                                     class="form-control" placeholder="0.00" autocomplete="off" required>
-                            </div>
-                            <div class="col-sm-12 col-md-6">
-                                <label for="descripcionHamaca" class="form-label">Descripción</label>
-                                <input id="descripcionHamaca" type="text" name="descripcionHamaca" class="form-control"
-                                    placeholder="Ingresa la descripción de la hamaca" autocomplete="off" required>
-                            </div>
-                            <div class="col-sm-12 col-md-6">
-                                <label for="categorias" class="form-label">Categorías</label>
-                                <select id="categorias" name="categorias" class="form-select" required>
-                                </select>
-                            </div>
-                            <div class="col-sm-12 col-md-6">
-                                <label for="materiales" class="form-label">Materiales</label>
-                                <select id="materiales" name="materiales" class="form-select" required>
-                                </select>
                             </div>
                         </div>
                         <div class="modal-footer col-sm-12 col-md-12 col-lg-12">
@@ -236,6 +221,9 @@
     <!-- Llamada al controlador de la página web -->
     <script type="text/javascript"
         src="../../controlador_administrador/controlador_administrador/producto.js"></script>
+
+
+    <script type="text/javascript" src="../../controlador_administrador/controlador_administrador/libros.js"></script>
 
 </body>
 
