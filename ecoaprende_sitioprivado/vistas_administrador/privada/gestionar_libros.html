@@ -148,11 +148,11 @@
                     </tr>
                     <tr>
                         <th>IMAGEN</th>
-                        <th>TITUTLO</th>
+                        <th>TITULO</th>
                         <th>AUTOR</th>
-                        <th>ESTADO</th>
-                        <th>CANT. EN STOCK</th>
-                        <th>PRECIO</th>
+                        <th>EDITORIAL</th>
+                        <th>CATEGORIA</th>
+                        <th>DESCRIPCION</th>
                         <!-- <th>FECHA DE REGISTRO</th> -->
                     </tr>
                 </thead>
@@ -174,27 +174,41 @@
                     <form id="saveForm">
                         <div class="modal-body row g-3">
                             <!-- Campo oculto para asignar el id del registro al momento de modificar -->
-                            <input type="hidden" id="idHamaca" name="idHamaca">
+                            <input type="hidden" id="idLibro" name="idLibro">
+                            <div class="col-sm-12 col-md-6">
+                                <label for="nombreLibro" class="form-label">Nombre</label>
+                                <input id="nombreLibro" type="text" name="nombreLibro" class="form-control"
+                                    required>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label for="descripcionLibro" class="form-label">Descripción</label>
+                                <input id="descripcionLibro" type="text" name="descripcionLibro"
+                                    class="form-control" required>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label for="precioLibro" class="form-label">Precio (US$)</label>
+                                <input id="precioLibro" type="number" name="precioLibro" min="0.01" step="0.01"
+                                    class="form-control" required>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label for="existenciasLibro" class="form-label">Existencias</label>
+                                <input id="existenciasLibro" type="number" name="existenciasLibro" min="1"
+                                    step="1" class="form-control" required>
+                            </div>
+                            <div class="col-sm-12 col-md-6 mt-3 ">
+                                <label for="categoriaLibro" class="form-label">Categoría</label>
+                                <select id="categoriaLibro" name="categoriaLibro" class="form-select" required>
+                                </select>
+                            </div>
                             <div class="col-sm-12 col-md-6">
                                 <label for="imagenLibro" class="form-label">Imagen</label>
                                 <input id="imagenLibro" type="file" name="imagenLibro" class="form-control"
                                     accept=".png, .jpg">
                             </div>
-                            <div class="col-sm-12 col-md-6">
-                                <label for="nombreHamaca" class="form-label">Nombre</label>
-                                <input id="nombreHamaca" type="text" name="nombreHamaca" class="form-control"
-                                    placeholder="Ingresa el nombre de la hamaca" autocomplete="off" required>
-                            </div>
-                            <div class="col-sm-12 col-md-6">
-                                <label for="cantidadLibro" class="form-label">Cantidad</label>
-                                <input id="cantidadLibro" type="number" name="cantidadLibro" min="1" step="1"
-                                    class="form-control" placeholder="Ingresar la cantidad de libros en stock"
-                                    autocomplete="off" required>
-                            </div>
-                            <div class="col-sm-12 col-md-6">
-                                <label for="precioLibro" class="form-label">Precio</label>
-                                <input id="precioLibro" type="number" name="precioLibro" min="0.01" step="0.01"
-                                    class="form-control" placeholder="0.00" autocomplete="off" required>
+                            <div class="form-check form-switch form-check-reverse">
+                                <input class="form-check-input" type="checkbox" id="estadoLibro"
+                                    name="estadoLibro" checked>
+                                <label class="form-check-label" for="estadoLibro">Estado</label>
                             </div>
                         </div>
                         <div class="modal-footer col-sm-12 col-md-12 col-lg-12">
