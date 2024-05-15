@@ -1,6 +1,3 @@
-// Constante para completar la ruta de la API.
-const USER_API = 'servicios/administrador.php';
-
 // Constante para establecer el formulario de registro del primer usuario.
 const SIGNUP_FORM = document.getElementById('signupForm');
 // Constante para establecer el formulario de inicio de sesión.

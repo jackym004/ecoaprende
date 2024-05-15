@@ -4,6 +4,9 @@
 // Constante para establecer la ruta base del servidor.
 const SERVER_URL = 'http://localhost/ecoaprende/ecoaprende/ecoaprende_sitioprivado/api_sitioprivado/';
 
+// Constante para completar la ruta de la API.
+const USER_API = 'servicios/administrador.php';
+
 /*
 *   Función para mostrar un mensaje de confirmación. Requiere la librería sweetalert para funcionar.
 *   Parámetros: message (mensaje de confirmación).
