@@ -67,19 +67,19 @@ if (isset($_GET['action'])) {
                 if (
                     !$libro->setId($_POST['idLibro']) or
                     !$libro->setFilename() or
-                    !$libro->setNombre($_POST['nombrelibro']) or
-                    !$libro->setDescripcion($_POST['descripcionlibro']) or
-                    !$libro->setPrecio($_POST['preciolibro']) or
-                    !$libro->setCategoria($_POST['categorialibro']) or
-                    !$libro->setEstado(isset($_POST['estadolibro']) ? 1 : 0) or
-                    !$libro->setImagen($_FILES['imagenlibro'], $libro->getFilename())
+                    !$libro->setNombre($_POST['nombreLibro']) or
+                    !$libro->setDescripcion($_POST['descripcionLibro']) or
+                    !$libro->setPrecio($_POST['precioLibro']) or
+                    !$libro->setCategoria($_POST['categoriaLibro']) or
+                    !$libro->setEstado(isset($_POST['estadoLibro']) ? 1 : 0) or
+                    !$libro->setImagen($_FILES['imagenLibro'], $libro->getFilename())
                 ) {
                     $result['error'] = $libro->getDataError();
                 } elseif ($libro->updateRow()) {
                     $result['status'] = 1;
                     $result['message'] = 'libro modificado correctamente';
                     // Se asigna el estado del archivo después de actualizar.
-                    $result['fileStatus'] = Validator::changeFile($_FILES['imagenlibro'], $libro::RUTA_IMAGEN, $libro->getFilename());
+                    $result['fileStatus'] = Validator::changeFile($_FILES['imagenLibro'], $libro::RUTA_IMAGEN, $libro->getFilename());
                 } else {
                     $result['error'] = 'Ocurrió un problema al modificar el libro';
                 }

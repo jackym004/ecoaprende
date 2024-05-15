@@ -64,7 +64,7 @@ class LibroHandler
 
     public function readFilename()
     {
-        $sql = 'SELECT imagen_libri
+        $sql = 'SELECT imagen_libro
                 FROM tb_libro
                 WHERE id_libro = ?';
         $params = array($this->id);
