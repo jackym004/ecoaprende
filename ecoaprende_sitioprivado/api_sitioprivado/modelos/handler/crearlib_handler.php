@@ -28,8 +28,8 @@ class LibroHandler
     {
         $value = '%' . Validator::getSearchValue() . '%';
         $sql = 'SELECT id_libro, imagen_libro, nombre_libro, descripcion_libro, precio_libro, nombre_categoria, estado_libro
-                FROM tb_libro
-                INNER JOIN tb_categoria USING(id_categoria)
+                FROM tb_libros
+                INNER JOIN tb_categorias USING(id_categoria)
                 WHERE nombre_libro LIKE ? OR descripcion_libro LIKE ?
                 ORDER BY nombre_libro';
         $params = array($value, $value);
@@ -38,7 +38,7 @@ class LibroHandler
 
     public function createRow()
     {
-        $sql = 'INSERT INTO tb_libro(nombre_libro, descripcion_libro, precio_libro, existencias_libro, imagen_libro, estado_libro, id_categoria, id_administrador)
+        $sql = 'INSERT INTO tb_libros(nombre_libro, descripcion_libro, precio_libro, existencias_libro, imagen_libro, estado_libro, id_categoria, id_administrador)
                 VALUES(?, ?, ?, ?, ?, ?, ?, ?)';
         $params = array($this->nombre, $this->descripcion, $this->precio, $this->existencias, $this->imagen, $this->estado, $this->categoria, $_SESSION['idAdministrador']);
         return Database::executeRow($sql, $params);
@@ -47,8 +47,8 @@ class LibroHandler
     public function readAll()
     {
         $sql = 'SELECT id_libro, imagen_libro, nombre_libro, descripcion_libro, precio_libro, nombre_categoria, estado_libro
-                FROM tb_libro
-                INNER JOIN tb_categoria USING(id_categoria)
+                FROM tb_libros
+                INNER JOIN tb_categorias USING(id_categoria)
                 ORDER BY nombre_libro';
         return Database::getRows($sql);
     }
@@ -56,7 +56,7 @@ class LibroHandler
     public function readOne()
     {
         $sql = 'SELECT id_libro,  nombre_libro, descripcion_libro, precio_libro, existencias_libro, imagen_libro, id_categoria, estado_libro
-                FROM tb_libro
+                FROM tb_libros
                 WHERE id_libro = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
@@ -65,7 +65,7 @@ class LibroHandler
     public function readFilename()
     {
         $sql = 'SELECT imagen_libro
-                FROM tb_libro
+                FROM tb_libros
                 WHERE id_libro = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
@@ -73,7 +73,7 @@ class LibroHandler
 
     public function updateRow()
     {
-        $sql = 'UPDATE tb_libro
+        $sql = 'UPDATE tb_libros
                 SET imagen_libro = ?, nombre_libro = ?, descripcion_libro = ?, precio_libro = ?, estado_libro = ?, id_categoria = ?
                 WHERE id_libro = ?';
         $params = array($this->imagen, $this->nombre, $this->descripcion, $this->precio, $this->estado, $this->categoria, $this->id);
@@ -82,7 +82,7 @@ class LibroHandler
 
     public function deleteRow()
     {
-        $sql = 'DELETE FROM tb_libro
+        $sql = 'DELETE FROM tb_libros
                 WHERE id_libro = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
@@ -91,8 +91,8 @@ class LibroHandler
     public function readLibrosCategoria()
     {
         $sql = 'SELECT id_libro, imagen_libro, nombre_libro, descripcion_libro, precio_libro, existencias_libro
-                FROM tb_libro
-                INNER JOIN tb_categoria USING(id_categoria)
+                FROM tb_libros
+                INNER JOIN tb_categorias USING(id_categoria)
                 WHERE id_categoria = ? AND estado_libro = true
                 ORDER BY nombre_libro';
         $params = array($this->categoria);

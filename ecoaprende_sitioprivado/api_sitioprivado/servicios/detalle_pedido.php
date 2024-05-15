@@ -1,58 +1,27 @@
 <?php
 // Se incluye la clase del modelo.
-require_once('../modelos/data/pedidos_data.php');
+require_once('../modelos/data/detalle_pedido_data.php');
 // Se comprueba si existe una acción a realizar, de lo contrario se finaliza el script con un mensaje de error.
 if (isset($_GET['action'])) {
     // Se crea una sesión o se reanuda la actual para poder utilizar variables de sesión en el script.
     session_start();
     // Se instancia la clase correspondiente.
-    $pedido = new PedidosData;
+    $pedido = new DetallesPedidosData;
     // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
     $result = array('status' => 0, 'message' => null, 'dataset' => null, 'error' => null, 'exception' => null, 'fileStatus' => null);
     // Se verifica si existe una sesión iniciada como administrador, de lo contrario se finaliza el script con un mensaje de error.
     if (isset($_SESSION['idAdministrador'])) {
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
-            case 'searchRows':
-                if (!Validator::validateSearch($_POST['search'])) {
-                    $result['error'] = Validator::getSearchError();
-                } elseif ($result['dataset'] = $pedido->searchRows()) {
-                    $result['status'] = 1;
-                    $result['message'] = 'Existen ' . count($result['dataset']) . ' coincidencias';
-                } else {
-                    $result['error'] = 'No hay coincidencias';
-                }
-                break;
-            case 'readAll':
-                if ($result['dataset'] = $pedido->readAll()) {
-                    $result['status'] = 1;
-                    $result['message'] = 'Existen ' . count($result['dataset']) . ' registros';
-                } else {
-                    $result['error'] = 'No hay pedidos registrados';
-                }
-                break;
-                // Ver uno
+                // Leer detalles pedidos
             case 'readOne':
                 if (!$pedido->setId($_POST['idPedido'])) {
                     $result['error'] = 'Pedido incorrecto';
                 } elseif ($result['dataset'] = $pedido->readOne()) {
                     $result['status'] = 1;
+                    $result['message'] = 'Existen ' . count($result['dataset']) . ' registros';
                 } else {
                     $result['error'] = 'Pedido inexistente';
-                }
-                break;
-            // Estado
-            case 'changeState':
-                if (
-                    !$pedido->setId($_POST['idPedido']) or
-                    !$pedido->setEstado($_POST['estado'])
-                ) {
-                    $result['error'] = $pedido->getDataError();
-                } elseif ($pedido->changeState()) {
-                    $result['status'] = 1;
-                    $result['message'] = 'Estado del pedidos cambiado correctamente';
-                } else {
-                    $result['error'] = 'Ocurrió un problema al alterar el estado del cliente';
                 }
                 break;
             default:

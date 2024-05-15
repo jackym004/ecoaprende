@@ -33,7 +33,7 @@ class CategoriaHandler
 
     public function createRow()
     {
-        $sql = 'INSERT INTO tb_categoria(nombre_categoria, imagen_categoria, descripcion_categoria)
+        $sql = 'INSERT INTO tb_categorias(nombre_categoria, imagen_categoria, descripcion_categoria)
                 VALUES(?, ?, ?)';
         $params = array($this->nombre, $this->imagen, $this->descripcion);
         return Database::executeRow($sql, $params);
@@ -42,7 +42,7 @@ class CategoriaHandler
     public function readAll()
     {
         $sql = 'SELECT id_categoria, nombre_categoria, imagen_categoria, descripcion_categoria
-                FROM tb_categoria
+                FROM tb_categorias
                 ORDER BY nombre_categoria';
         return Database::getRows($sql);
     }
@@ -50,7 +50,7 @@ class CategoriaHandler
     public function readOne()
     {
         $sql = 'SELECT id_categoria, nombre_categoria, imagen_categoria, descripcion_categoria
-                FROM tb_categoria
+                FROM tb_categorias
                 WHERE id_categoria = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
@@ -59,7 +59,7 @@ class CategoriaHandler
     public function readFilename()
     {
         $sql = 'SELECT imagen_categoria
-                FROM tb_categoria
+                FROM tb_categorias
                 WHERE id_categoria = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
@@ -67,7 +67,7 @@ class CategoriaHandler
 
     public function updateRow()
     {
-        $sql = 'UPDATE tb_categoria
+        $sql = 'UPDATE tb_categorias
                 SET imagen_categoria = ?, nombre_categoria = ?, descripcion_categoria = ?
                 WHERE id_categoria = ?';
         $params = array($this->imagen, $this->nombre, $this->descripcion, $this->id);
@@ -76,7 +76,7 @@ class CategoriaHandler
 
     public function deleteRow()
     {
-        $sql = 'DELETE FROM tb_categoria
+        $sql = 'DELETE FROM tb_categorias
                 WHERE id_categoria = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);

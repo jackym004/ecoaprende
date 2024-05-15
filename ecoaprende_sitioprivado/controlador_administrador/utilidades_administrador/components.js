@@ -31,6 +31,28 @@ const confirmAction = (message) => {
     });
 }
 
+const confirmUpdateAction = (message) => {
+    return swal({
+        title: 'Aviso',
+        text: message,
+        icon: 'info',
+        closeOnClickOutside: false,
+        closeOnEsc: false,
+        buttons: {
+            cancel: {
+                text: 'No',
+                value: false,
+                visible: true
+            },
+            confirm: {
+                text: 'Sí',
+                value: true,
+                visible: true
+            }
+        }
+    });
+}
+
 /*
 *   Función asíncrona para manejar los mensajes de notificación al usuario. Requiere la librería sweetalert para funcionar.
 *   Parámetros: type (tipo de mensaje), text (texto a mostrar), timer (uso de temporizador) y url (valor opcional con la ubicación de destino).

@@ -1,145 +1,238 @@
 // Constante para completar la ruta de la API.
-const PEDIDO_API = 'services/public/pedido.php';
-// Constante para establecer el cuerpo de la tabla.
-const TABLE_BODY = document.getElementById('tableBody');
-// Constante para establecer la caja de diálogo de cambiar producto.
-const ITEM_MODAL = new bootstrap.Modal('#itemModal');
-// Constante para establecer el formulario de cambiar producto.
-const ITEM_FORM = document.getElementById('itemForm');
+const PEDIDOS_API = 'servicios/pedidos.php';
+const DETALLE_PEDIDO_API = 'servicios/detalle_pedido.php';
+// Constante para establecer el formulario de buscar.
+const SEARCH_FORM = document.getElementById('searchForm');
+// Constantes para establecer los elementos de la tabla.
+const TABLE_BODY = document.getElementById('tabla_envios'),
+    ROWS_FOUND = document.getElementById('rowsFound');
+// Constantes para establecer los elementos del componente Modal.
+const SAVE_MODAL = new bootstrap.Modal('#saveModal'),
+    MODAL_TITLE = document.getElementById('modalTitle');
+// Constantes para establecer los elementos del formulario de guardar.
+const SAVE_FORM = document.getElementById('saveForm'),
+    ID_PEDIDO = document.getElementById('idPedido'),
+    ESTADO = document.getElementById('estado');
+const DETAIL_MODAL = new bootstrap.Modal('#detailModal'),
+    MODAL_TITLE_DETAIL = document.getElementById('exampleModalLabel');
 
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', () => {
-    // Llamada a la función para mostrar el encabezado y pie del documento.
-    loadTemplate();
-    // Se establece el título del contenido principal.
-    MAIN_TITLE.textContent = 'Carrito de compras';
     // Llamada a la función para mostrar los productos del carrito de compras.
-    readDetail();
+    fillTable();
 });
 
-// Método del evento para cuando se envía el formulario de cambiar cantidad de producto.
-ITEM_FORM.addEventListener('submit', async (event) => {
+
+const lista_datos = [
+    {
+        estado: "Entregado",
+        id: "Entregado",
+    },
+    {
+        estado: 'En camino',
+        id: 'En camino',
+    },
+    {
+        estado: 'Cancelado',
+        id: 'Cancelado',
+    }
+];
+
+// Función para poblar un combobox (select) con opciones quemadas
+const fillSelected = (data, action, selectId, selectedValue = null) => {
+    const selectElement = document.getElementById(selectId);
+
+    // Limpiar opciones previas del combobox
+    selectElement.innerHTML = '';
+
+    // Crear opción por defecto
+    const defaultOption = document.createElement('option');
+    defaultOption.value = '';
+    defaultOption.textContent = 'Selecciona a el estado';
+    selectElement.appendChild(defaultOption);
+
+    // Llenar el combobox con los datos proporcionados
+    data.forEach(item => {
+        const option = document.createElement('option');
+        option.value = item.estado; // Suponiendo que hay una propiedad 'id' en los datos
+        option.textContent = item.estado; // Cambia 'horario' al nombre de la propiedad que deseas mostrar en el combobox
+        selectElement.appendChild(option);
+    });
+
+    // Seleccionar el valor especificado si se proporciona
+    if (selectedValue !== null) {
+        selectElement.value = selectedValue;
+    }
+};
+
+
+const openDetail = async (id) => {
+    // Se define un objeto con los datos del registro seleccionado.
+    const FORM = new FormData();
+    FORM.append('idPedido', id);
+    // Se muestra la caja de diálogo con su título.
+    DETAIL_MODAL.show();
+    MODAL_TITLE_DETAIL.textContent = 'Detalle del pedido ' + id;
+    fillDetail(FORM);
+}
+
+/*
+*   Función asíncrona para cambiar el estado de un registro.
+*   Parámetros: id (identificador del registro seleccionado).
+*   Retorno: ninguno.
+*/
+const openState = async (id) => {
+    try {
+        // Se define un objeto con los datos del registro seleccionado.
+        const FORM = new FormData();
+        FORM.append('idPedido', id);
+        // Petición para obtener los datos del registro solicitado.
+        const DATA = await fetchData(PEDIDOS_API, 'readOne', FORM);
+        // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+        if (DATA.status) {
+            // Se muestra la caja de diálogo con su título.
+            SAVE_MODAL.show();
+            MODAL_TITLE.textContent = 'Actualizar estado';
+            // Se prepara el formulario.
+            SAVE_FORM.reset();
+            // Se inicializan los campos con los datos.
+            const ROW = DATA.dataset;
+            ID_PEDIDO.value = ROW.ID;
+            fillSelected(lista_datos, 'readAll', 'estado', ROW.estado_pedido);
+        } else {
+            sweetAlert(2, DATA.error, false);
+        }
+    } catch (Error) {
+        console.log(Error);
+    }
+
+}
+
+
+/*
+*   Función asíncrona para llenar la tabla con los registros disponibles.
+*   Parámetros: form (objeto opcional con los datos de búsqueda).
+*   Retorno: ninguno.
+*/
+const fillTable = async (form = null) => {
+    // Se inicializa el contenido de la tabla.
+    ROWS_FOUND.textContent = '';
+    TABLE_BODY.innerHTML = '';
+    // Se verifica la acción a realizar.
+    (form) ? action = 'searchRows' : action = 'readAll';
+    // Petición para obtener los registros disponibles.
+    const DATA = await fetchData(PEDIDOS_API, action, form);
+    console.log(DATA);
+
+    if (DATA.status) {
+        // Mostrar elementos obtenidos de la API
+        DATA.dataset.forEach(row => {
+            TABLE_BODY.innerHTML += `
+                <tr class="${getRowBackgroundColor(row.estado_pedido)}">
+                    <td>${row.nombre_cliente}</td>
+                    <td>${row.direccion_pedido}</td>
+                    <td>${row.fecha_pedido}</td>
+                    <td class="${getRowColor(row.estado_pedido)}">${row.estado_pedido}</td>
+                <td>
+                        <button type="button" class="btn btn-outline-info" onclick="openDetail(${row.ID})">
+                            <i class="bi bi-card-list"></i>
+                        </button>
+                        <button type="button" class="btn btn-outline-primary" onclick="openState(${row.ID})">
+                        <i class="bi bi-exclamation-octagon"></i>
+                        </button>
+                </td>
+            </tr>
+                `;
+        });
+        // Se muestra un mensaje de acuerdo con el resultado.
+        ROWS_FOUND.textContent = DATA.message;
+    } else {
+        sweetAlert(4, DATA.error, true);
+    }
+}
+
+/*
+*   Función asíncrona para llenar la tabla con los registros disponibles.
+*   Parámetros: form (objeto opcional con los datos de búsqueda).
+*   Retorno: ninguno.
+*/
+const fillDetail = async (form = null) => {
+    const cargarTabla = document.getElementById('tabla_detalle');
+    cargarTabla.innerHTML = '';
+    // Petición para obtener los registros disponibles.
+    const DATA = await fetchData(DETALLE_PEDIDO_API, 'readOne', form);
+    if (DATA.status) {
+        // Mostrar elementos obtenidos de la API
+        DATA.dataset.forEach(row => {
+            const tablaHtml = `
+            <tr>
+                    <td>${row.nombre_libro}</td>
+                    <td>${row.cantidad_comprada}</td>
+                    <td>${row.precio_producto}</td>
+            </tr>
+                `;
+            cargarTabla.innerHTML += tablaHtml;
+        });
+    } else {
+        sweetAlert(4, DATA.error, true);
+    }
+}
+
+function getRowColor(estado) {
+    switch (estado) {
+        case 'En camino':
+            return 'text-warning';
+        case 'Cancelado':
+            return 'text-danger';
+        case 'Entregado':
+            return 'text-success';
+        default:
+            return '';
+    }
+}
+
+function getRowBackgroundColor(estado) {
+    switch (estado) {
+        case 'En camino':
+            return 'border-warning';
+        case 'Cancelado':
+            return 'border-danger';
+        case 'Entregado':
+            return 'border-success';
+        default:
+            return '';
+    }
+}
+
+// Método del evento para cuando se envía el formulario de buscar.
+SEARCH_FORM.addEventListener('submit', (event) => {
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     // Constante tipo objeto con los datos del formulario.
-    const FORM = new FormData(ITEM_FORM);
-    // Petición para actualizar la cantidad de producto.
-    const DATA = await fetchData(PEDIDO_API, 'updateDetail', FORM);
-    // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
-    if (DATA.status) {
-        // Se actualiza la tabla para visualizar los cambios.
-        readDetail();
-        // Se cierra la caja de diálogo del formulario.
-        ITEM_MODAL.hide();
-        // Se muestra un mensaje de éxito.
-        sweetAlert(1, DATA.message, true);
-    } else {
-        sweetAlert(2, DATA.error, false);
-    }
+    const FORM = new FormData(SEARCH_FORM);
+    // Llamada a la función para llenar la tabla con los resultados de la búsqueda.
+    fillTable(FORM);
 });
 
-/*
-*   Función para obtener el detalle del carrito de compras.
-*   Parámetros: ninguno.
-*   Retorno: ninguno.
-*/
-async function readDetail() {
-    // Petición para obtener los datos del pedido en proceso.
-    const DATA = await fetchData(PEDIDO_API, 'readDetail');
+// Método del evento para cuando se envía el formulario de guardar.
+SAVE_FORM.addEventListener('submit', async (event) => {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    // Se verifica la acción a realizar.
+    // Constante tipo objeto con los datos del formulario.
+    const FORM = new FormData(SAVE_FORM);
+    // Petición para guardar los datos del formulario.
+    const DATA = await fetchData(PEDIDOS_API, 'changeState', FORM);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
     if (DATA.status) {
-        // Se inicializa el cuerpo de la tabla.
-        TABLE_BODY.innerHTML = '';
-        // Se declara e inicializa una variable para calcular el importe por cada producto.
-        let subtotal = 0;
-        // Se declara e inicializa una variable para sumar cada subtotal y obtener el monto final a pagar.
-        let total = 0;
-        // Se recorre el conjunto de registros fila por fila a través del objeto row.
-        DATA.dataset.forEach(row => {
-            subtotal = row.precio_producto * row.cantidad_producto;
-            total += subtotal;
-            // Se crean y concatenan las filas de la tabla con los datos de cada registro.
-            TABLE_BODY.innerHTML += `
-                <tr>
-                    <td>${row.nombre_producto}</td>
-                    <td>${row.precio_producto}</td>
-                    <td>${row.cantidad_producto}</td>
-                    <td>${subtotal.toFixed(2)}</td>
-                    <td>
-                        <button type="button" onclick="openUpdate(${row.id_detalle}, ${row.cantidad_producto})" class="btn btn-info">
-                            <i class="bi bi-plus-slash-minus"></i>
-                        </button>
-                        <button type="button" onclick="openDelete(${row.id_detalle})" class="btn btn-danger">
-                            <i class="bi bi-cart-dash"></i>
-                        </button>
-                    </td>
-                </tr>
-            `;
-        });
-        // Se muestra el total a pagar con dos decimales.
-        document.getElementById('pago').textContent = total.toFixed(2);
+        // Se cierra la caja de diálogo.
+        SAVE_MODAL.hide();
+        // Se muestra un mensaje de éxito.
+        sweetAlert(1, DATA.message, true);
+        // Se carga nuevamente la tabla para visualizar los cambios.
+        fillTable();
     } else {
-        sweetAlert(4, DATA.error, false, 'index.html');
+        sweetAlert(2, DATA.error, false);
+        console.error(DATA.exception);
     }
-}
-
-/*
-*   Función para abrir la caja de diálogo con el formulario de cambiar cantidad de producto.
-*   Parámetros: id (identificador del producto) y quantity (cantidad actual del producto).
-*   Retorno: ninguno.
-*/
-function openUpdate(id, quantity) {
-    // Se abre la caja de diálogo que contiene el formulario.
-    ITEM_MODAL.show();
-    // Se inicializan los campos del formulario con los datos del registro seleccionado.
-    document.getElementById('idDetalle').value = id;
-    document.getElementById('cantidadProducto').value = quantity;
-}
-
-/*
-*   Función asíncrona para mostrar un mensaje de confirmación al momento de finalizar el pedido.
-*   Parámetros: ninguno.
-*   Retorno: ninguno.
-*/
-async function finishOrder() {
-    // Llamada a la función para mostrar un mensaje de confirmación, capturando la respuesta en una constante.
-    const RESPONSE = await confirmAction('¿Está seguro de finalizar el pedido?');
-    // Se verifica la respuesta del mensaje.
-    if (RESPONSE) {
-        // Petición para finalizar el pedido en proceso.
-        const DATA = await fetchData(PEDIDO_API, 'finishOrder');
-        // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
-        if (DATA.status) {
-            sweetAlert(1, DATA.message, true, 'index.html');
-        } else {
-            sweetAlert(2, DATA.error, false);
-        }
-    }
-}
-
-/*
-*   Función asíncrona para mostrar un mensaje de confirmación al momento de eliminar un producto del carrito.
-*   Parámetros: id (identificador del producto).
-*   Retorno: ninguno.
-*/
-async function openDelete(id) {
-    // Llamada a la función para mostrar un mensaje de confirmación, capturando la respuesta en una constante.
-    const RESPONSE = await confirmAction('¿Está seguro de remover el producto?');
-    // Se verifica la respuesta del mensaje.
-    if (RESPONSE) {
-        // Se define un objeto con los datos del producto seleccionado.
-        const FORM = new FormData();
-        FORM.append('idDetalle', id);
-        // Petición para eliminar un producto del carrito de compras.
-        const DATA = await fetchData(PEDIDO_API, 'deleteDetail', FORM);
-        // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
-        if (DATA.status) {
-            await sweetAlert(1, DATA.message, true);
-            // Se carga nuevamente la tabla para visualizar los cambios.
-            readDetail();
-        } else {
-            sweetAlert(2, DATA.error, false);
-        }
-    }
-}
-
+});
