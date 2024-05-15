@@ -1,0 +1,17 @@
+.bg-color-custom{
+    background-color: #D9D9D9;
+    }
+    
+    .bg-color-custom1{
+        background-color: #FFB7C3;
+    }
+    
+    .nombre{
+        font-weight: bold;
+        font-size: 20px;
+    }
+    
+    a{
+        text-decoration: none;
+        color: black;
+    }
