@@ -4,7 +4,7 @@ const CATEGORIA_API = 'servicios/catlib.php';
 // Constante para establecer el formulario de buscar.
 const SEARCH_FORM = document.getElementById('searchForm');
 // Constantes para establecer el contenido de la tabla.
-const TABLE_BODY = document.getElementById('tableBody'),
+const TABLE_BODY = document.getElementById('tabla_libros'),
     ROWS_FOUND = document.getElementById('rowsFound');
 // Constantes para establecer los elementos del componente Modal.
 const SAVE_MODAL = new bootstrap.Modal('#saveModal'),
@@ -17,13 +17,13 @@ const SAVE_FORM = document.getElementById('saveForm'),
     PRECIO_LIBRO = document.getElementById('precioLibro'),
     EXISTENCIAS_LIBRO = document.getElementById('existenciasLibro'),
     ESTADO_LIBRO = document.getElementById('estadoLibro');
+// Constante para establecer el elemento del título principal.
+const MAIN_TITLE = document.getElementById('mainTitle');
 
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', () => {
-    // Llamada a la función para mostrar el encabezado y pie del documento.
-    loadTemplate();
     // Se establece el título del contenido principal.
-    MAIN_TITLE.textContent = 'Gestionar productos';
+    MAIN_TITLE.textContent = 'Libros registrados';
     // Llamada a la función para llenar la tabla con los registros existentes.
     fillTable();
 });
@@ -43,7 +43,7 @@ SAVE_FORM.addEventListener('submit', async (event) => {
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     // Se verifica la acción a realizar.
-    (ID_PRODUCTO.value) ? action = 'updateRow' : action = 'createRow';
+    (ID_LIBRO.value) ? action = 'updateRow' : action = 'createRow';
     // Constante tipo objeto con los datos del formulario.
     const FORM = new FormData(SAVE_FORM);
     // Petición para guardar los datos del formulario.
@@ -168,7 +168,7 @@ const openDelete = async (id) => {
         const FORM = new FormData();
         FORM.append('idlibro', id);
         // Petición para eliminar el registro seleccionado.
-        const DATA = await fetchData(LIBROS_API_API, 'deleteRow', FORM);
+        const DATA = await fetchData(LIBROS_API, 'deleteRow', FORM);
         // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
         if (DATA.status) {
             // Se muestra un mensaje de éxito.
