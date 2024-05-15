@@ -1,15 +1,20 @@
 .chartCard {
-    width: 40vw;
-    height: calc(40vh - 0px);
+    width: 47vw;
+    height: calc(47vh - 0px);
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: 200px;
   }
 
   .chartBox {
-    width: 80%;
+    width: 90%;
     height: 80%;
     border-radius: 20px;
-    border: solid 3px black;
     background: white;
+  }
+
+  .container{
+    width: 50%;
+    margin-left: 500px;
   }
