@@ -106,8 +106,8 @@
                     </a>
                 </li>
 
-                <li class="sidebar-item mt-4 " onclick="categoriaProfesores()">
-                    <a href="index.html" class="sidebar-link">
+                <li class="sidebar-item mt-4 " onclick="logOut()">
+                    <a href="#" class="sidebar-link">
                         <img src="../../recursos_administrador/img_administrador/cerrar.png" alt="" width="19">
                         <span class="ms-3">Cerrar sesión</span>
                     </a>
@@ -170,7 +170,7 @@
                     <form id="saveForm">
                         <div class="modal-body row g-3">
                             <!-- Campo oculto para asignar el id del registro al momento de modificar -->
-                            <input type="hidden" id="idLibro" name="idLibro">
+                            <input type="number" id="idLibro" name="idLibro" class="invisible">
                             <div class="col-sm-12 col-md-6">
                                 <label for="nombreLibro" class="form-label">Nombre</label>
                                 <input id="nombreLibro" type="text" name="nombreLibro" class="form-control" required>
