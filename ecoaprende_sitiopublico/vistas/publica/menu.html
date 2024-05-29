@@ -15,70 +15,7 @@
 
 <body>
   <header>
-    <nav class="navbar bg-body-tertiary fixed-top">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <img src="/ecoaprende_sitiopublico/recursos/img/Sitio_Público-removebg-preview.png" alt="Logo" width="50" height="45">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-          aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-              <li class="nav-item mt-2">
-                <a class="dropdown-item"
-                  href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Tecnologia</a>
-              </li>
-              <li class="nav-item mt-2">
-                <a class="dropdown-item" href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Medicina
-                  General</a>
-              </li>
-
-              <li class="nav-item mt-2">
-                <a class="dropdown-item" href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Ciencia
-                  en general</a>
-              </li>
-
-              <li class="nav-item mt-2">
-                <a class="dropdown-item" href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Autores
-                  populares</a>
-              </li>
-
-              <li class="nav-item mt-2">
-                <a class="dropdown-item"
-                  href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Editoriales</a>
-              </li>
-
-              <li class="nav-item mt-2">
-                <a class="dropdown-item"
-                  href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Idiomas</a>
-              </li>
-
-            </ul>
-            <form class="d-flex mt-3" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </nav>
-    <!-- contralador de el header -->
-    <style>
-      .navbar {
-        background-color: rgba(119, 127, 71, 1) !important;
-      }
-
-      li {
-        font-family: 'Ropa Sans';
-      }
-    </style>
+    <script src="/ecoaprende_sitiopublico/controlador/publico/header.js"></script>
   </header>
 
   <!-- Contenido principal carrousel -->
