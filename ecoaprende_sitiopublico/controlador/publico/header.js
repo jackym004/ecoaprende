@@ -45,6 +45,10 @@ HEADER.innerHTML = `
                 <a class="dropdown-item"
                   href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Idiomas</a>
               </li>
+
+              <li class="nav-item mt-4 custom-color">
+              <a class="dropdown-item" href="/ecoaprende_sitiopublico/vistas/publica/index.html">Cerrar sesion</a>
+             </li>
              
             </ul>
             
@@ -59,6 +63,9 @@ HEADER.innerHTML = `
       }
       li {
         font-family: 'Ropa Sans';
+      }
+      .custom-color{
+          color: rgba(119, 127, 71, 1) !important;
       }
     </style>
 
