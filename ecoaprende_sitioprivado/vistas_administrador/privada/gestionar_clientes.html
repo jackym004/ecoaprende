@@ -109,8 +109,8 @@
                     </a>
                 </li>
 
-                <li class="sidebar-item mt-4 " onclick="categoriaProfesores()">
-                    <a href="index.html" class="sidebar-link">
+                <li class="sidebar-item mt-4 " onclick="logOut()">
+                    <a href="#" class="sidebar-link">
                         <img src="../../recursos_administrador/img_administrador/cerrar.png" alt="" width="19">
                         <span class="ms-3">Cerrar sesión</span>
                     </a>
@@ -135,9 +135,6 @@
                     </form>
                 </div>
 
-                <button class="btn btn-save ms-auto" type="submit" onclick="openCreate()">Agregar
-                    administrador</button>
-
             </div>
             <!-- Tabla para mostrar los registros existentes -->
             <table class="table table-hover">
@@ -149,12 +146,13 @@
                     <tr>
                         <th>NOMBRE</th>
                         <th>CORREO</th>
+                        <th>ESTADO</th>
                         <th>ACCIONES</th>
                         <!-- <th>FECHA DE REGISTRO</th> -->
                     </tr>
                 </thead>
                 <!-- Cuerpo de la tabla para mostrar un registro por fila -->
-                <tbody id="tabla_admins"></tbody>
+                <tbody id="tabla_clientes"></tbody>
             </table>
         </div>
 
@@ -167,37 +165,6 @@
                         <h1 class="modal-title fs-5" id="modalTitle"></h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <!-- Formulario para crear o actualizar un registro -->
-                    <form id="saveForm">
-                        <div class="modal-body row g-3">
-                            <!-- Campo oculto para asignar el id del registro al momento de modificar -->
-                            <!--Correccion-->
-                            <input type="hidden" id="idAdministrador" name="idAdministrador">
-                            <div class="col-sm-12 col-md-6">
-                                <label for="nombreAdministrador" class="form-label">Nombre administrador</label>
-                                <input id="nombreAdministrador" type="text" name="nombreAdministrador"
-                                    class="form-control" placeholder="Ingresa el nombre del administrador"
-                                    autocomplete="off" required>
-                            </div>
-                            <div class="col-sm-12 col-md-6">
-                                <label for="correoAdministrador" class="form-label">Correo administrador</label>
-                                <input id="correoAdministrador" type="text" name="correoAdministrador"
-                                    class="form-control" placeholder="Ingresar el correo del administrador "
-                                    autocomplete="off" required>
-                            </div>
-                            <div class="col-sm-12 col-md-6">
-                                <label for="claveAdministrador" class="form-label">Clave administrador</label>
-                                <input id="claveAdministrador" type="text" name="claveAdministrador"
-                                    class="form-control" placeholder="Ingresar la clave del administrador"
-                                    autocomplete="off" required>
-                            </div>
-                        </div>
-                        <div class="modal-footer col-sm-12 col-md-12 col-lg-12">
-                            <button type="reset" class="btn btn-outline-dark">Cancelar</button>
-                            <button type="submit" class="btn btn-outline-primary">Guardar</button>
-                        </div>
-                    </form>
-                </div>
             </div>
         </div>
 
@@ -257,12 +224,9 @@
     <!-- Llamada al controlador general de la aplicación -->
     <script type="text/javascript"
         src="../../controlador_administrador/utilidades_administrador/components.js"></script>
-    <!-- Llamada al controlador del sitio privado -->
-    <script type="text/javascript"
-        src="../../controlador_administrador/utilidades_administrador/admin.js"></script>
     <!-- Llamada al controlador de la página web -->
     <script type="text/javascript"
-        src="../../controlador_administrador/controlador_administrador/administrador.js"></script>
+        src="../../controlador_administrador/controlador_administrador/cliente.js"></script>
 </body>
 
 </html>

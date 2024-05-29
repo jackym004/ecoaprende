@@ -89,3 +89,42 @@ SELECT fn_nuevo_pedido('A0022');
 SELECT fn_nuevo_pedido('A0023');
 SELECT fn_nuevo_pedido('A0024');
 SELECT fn_nuevo_pedido('A0025');
+
+
+
+DROP PROCEDURE IF EXISTS actualizar_estado_pedido;
+DELIMITER $$
+CREATE PROCEDURE actualizar_estado_pedido(
+    IN p_id_pedido INT,
+    IN p_estado_pedido ENUM('Entregado', 'En camino', 'Cancelado')
+)
+BEGIN
+    -- Actualizar el estado del pedido en la tabla pedidos
+    UPDATE tb_pedidos
+    SET estado_pedido = p_estado_pedido
+    WHERE id_pedido = p_id_pedido;
+END
+$$
+
+DROP PROCEDURE IF EXISTS cambiar_estado_cliente;
+DELIMITER $$
+CREATE PROCEDURE cambiar_estado_cliente(IN cliente_id INT)
+BEGIN
+    DECLARE cliente_estado BOOLEAN;
+    
+    -- Obtener el estado actual del administrador
+    SELECT estado_cliente INTO cliente_estado
+    FROM tb_clientes
+    WHERE id_cliente = cliente_id;
+    
+    -- Actualizar el estado del administrador
+    IF cliente_estado = 1 THEN
+        UPDATE tb_clientes
+        SET estado_cliente = 0
+        WHERE id_cliente = cliente_id;
+    ELSE
+        UPDATE tb_clientes
+        SET estado_cliente = 1
+        WHERE id_cliente = cliente_id;
+    END IF;
+END $$

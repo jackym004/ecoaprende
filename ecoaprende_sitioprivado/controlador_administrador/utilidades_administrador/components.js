@@ -4,6 +4,9 @@
 // Constante para establecer la ruta base del servidor.
 const SERVER_URL = 'http://localhost/ecoaprende/ecoaprende/ecoaprende_sitioprivado/api_sitioprivado/';
 
+// Constante para completar la ruta de la API.
+const USER_API = 'servicios/administrador.php';
+
 /*
 *   Función para mostrar un mensaje de confirmación. Requiere la librería sweetalert para funcionar.
 *   Parámetros: message (mensaje de confirmación).
@@ -14,6 +17,28 @@ const confirmAction = (message) => {
         title: 'Advertencia',
         text: message,
         icon: 'warning',
+        closeOnClickOutside: false,
+        closeOnEsc: false,
+        buttons: {
+            cancel: {
+                text: 'No',
+                value: false,
+                visible: true
+            },
+            confirm: {
+                text: 'Sí',
+                value: true,
+                visible: true
+            }
+        }
+    });
+}
+
+const confirmUpdateAction = (message) => {
+    return swal({
+        title: 'Aviso',
+        text: message,
+        icon: 'info',
         closeOnClickOutside: false,
         closeOnEsc: false,
         buttons: {
