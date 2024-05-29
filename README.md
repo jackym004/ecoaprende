@@ -12,3 +12,5 @@ Integrantes:
 - Coordinadora: Melanie Jackeline Martínez Ramírez, 20190148, 2A.
 
 - Anderson René Figueroa Coto. 20220105, 2A.
+
+- José Miguel Ángel Castillo. 20220235, 2A.
