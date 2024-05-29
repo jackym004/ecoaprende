@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pagina principal</title>
-      <!-- librerias sobre iconos,css y bootstrap -->
+  <!-- librerias sobre iconos,css y bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/css2?family=Ropa+Sans:ital@0;1&display=swap" rel="stylesheet">
@@ -15,12 +15,73 @@
 
 <body>
   <header>
-        <!-- contralador de el header -->
-    <script src="../../controlador/publico/header.js"></script>
+    <nav class="navbar bg-body-tertiary fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="/ecoaprende_sitiopublico/recursos/img/Sitio_Público-removebg-preview.png" alt="Logo" width="50" height="45">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item mt-2">
+                <a class="dropdown-item"
+                  href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Tecnologia</a>
+              </li>
+              <li class="nav-item mt-2">
+                <a class="dropdown-item" href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Medicina
+                  General</a>
+              </li>
 
+              <li class="nav-item mt-2">
+                <a class="dropdown-item" href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Ciencia
+                  en general</a>
+              </li>
+
+              <li class="nav-item mt-2">
+                <a class="dropdown-item" href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Autores
+                  populares</a>
+              </li>
+
+              <li class="nav-item mt-2">
+                <a class="dropdown-item"
+                  href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Editoriales</a>
+              </li>
+
+              <li class="nav-item mt-2">
+                <a class="dropdown-item"
+                  href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Idiomas</a>
+              </li>
+
+            </ul>
+            <form class="d-flex mt-3" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- contralador de el header -->
+    <style>
+      .navbar {
+        background-color: rgba(119, 127, 71, 1) !important;
+      }
+
+      li {
+        font-family: 'Ropa Sans';
+      }
+    </style>
   </header>
 
-          <!-- Contenido principal carrousel -->
+  <!-- Contenido principal carrousel -->
   <main class="margin">
     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
@@ -133,11 +194,11 @@
 
     </section>
   </main>
-          <!-- contralador de footer -->
+  <!-- contralador de footer -->
   <footer class="fixed-bottom"><i class="bi bi-person-plus-fill fs-2"></i><i class="bi bi-shield-lock-fill fs-2"></i>
   </footer>
 </body>
-          <!-- contralador de js -->
+<!-- contralador de js -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../../controlador/publico/footer.js"></script>
 </body>
