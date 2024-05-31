@@ -1,10 +1,12 @@
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 
 
 h1 {
-  color: white;
-  font-size: 31px;
-  font-family: 'Ropa Sans';
+  color: #273B09;
+  font-size: 40px;
+  font-family: 'IBM Plex Mono';
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 input,
@@ -12,7 +14,7 @@ input::placeholder {
   font: 1.25rem/3 sans-serif;
   font-weight: bold;
   color: black;
-  font-family: 'Ropa Sans';
+  font-family: 'IBM Plex Mono';
 }
 
 body {
@@ -23,6 +25,7 @@ body {
   background-size: cover;
   height: 100vh;
   background-position: 80%;
+  background-image: url(../../img/fondo.PNG);
 }
 
 
@@ -35,7 +38,6 @@ body {
   border-radius: 20px;
   top: 100px;
   padding: 3%;
-  background-color: rgba(119, 127, 71, 1);
 
 }
 
@@ -50,39 +52,41 @@ body {
 
 #correo {
   width: 80%;
-  margin-left: 20%;
+  margin-left: 10%;
   margin-top: -40px;
+  border: 2px solid #777F47;
+  height: 60px;
 }
 
 #clave {
   width: 80%;
-  margin-left: 20%;
+  margin-left: 10%;
   margin-top: -40px;
+  border: 2px solid #777F47;
+  height: 60px;
+  margin-bottom: 30px;
 }
 
 .btn-primary {
   width: 100%;
   border: none;
   margin-top: 10%;
-  background-color: rgba(39, 59, 9, 1);
+  background-color: #777F47;
   color: white;
   font-weight: bold;
   color: white;
-  font-family: 'Ropa Sans';
-  margin-left: 60%;
+  font-family: 'IBM Plex Mono';
+  margin-left: 50%;
+  height: 40px;
 }
 
 
-.registro{
-color: white;
-text-decoration: none;
-font-family: 'Ropa Sans';
-}
+
 
 .recuperacion{
   color: white;
   text-decoration: none;
-  font-family: 'Ropa Sans';
+  font-family: 'IBM Plex Mono';
   }
 
 
@@ -98,3 +102,15 @@ font-family: 'Ropa Sans';
     width: 100%;
 
   }
+
+
+  .olvido{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    justify-content: end;
+    font-family: "IBM Plex Mono";
+    margin-top: 2rem;
+    margin-left: 23rem;
+  }
+

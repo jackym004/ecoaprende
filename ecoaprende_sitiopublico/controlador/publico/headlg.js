@@ -17,11 +17,11 @@ HEADERLG.innerHTML = `
         <li class="nav-item  ">
         </li>
       </ul>
-      <span class="navbar-text me-4">
-      <a class="nav-link justify-content-end ms-auto active" aria-current="page">¿No tienes cuenta aun?</a>
+      <span class="navbar-text me-5">
+      <a class="nav-link justify-content-end ms-auto active no" aria-current="page">¿No tienes cuenta aun?</a>
       </span>
       <span class="navbar-text me-4">
-      <button type="button justify-content-end " class="btn">Inicia aqui</button>
+      <button type="button justify-content-end " class="btn regist">Inicia aqui</button>
       </span>
     </div>
   </div>
@@ -37,13 +37,17 @@ HEADERLG.innerHTML = `
   .custom-color{
       color: rgba(119, 127, 71, 1) !important;
   }
-  .btn{
+  .regist{
     background-color: rgba(39, 59, 9, 1);
     color: white;
+    width:150px
   }
   .navbar-nav{
     text-align: rigth;
     justify-contend:end;
+  }
+  .no{
+    font-weigth:bold;
   }
 </style>
 
