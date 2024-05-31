@@ -1,16 +1,9 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
-
-* {
-    padding: 0;
-    margin: 0;
-    height: 100%;
+.footer{
     background-color: rgba(119, 127, 71, 1);
 }
-
-
-
 
 #card {
     border: none;
@@ -30,9 +23,8 @@ input {
 
 .btn-primary {
     border: none;
-    background-color: rgba(39, 59, 9, 1);
+    background-color: #777F47;
     color: white;
-    font-weight: bold;
     color: white;
     font-family: 'Ropa Sans';
     margin-left: 50%;
