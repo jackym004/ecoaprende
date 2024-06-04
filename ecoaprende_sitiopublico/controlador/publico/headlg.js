@@ -6,7 +6,7 @@ HEADERLG.innerHTML = `
     
   </div>
 </nav>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
   <img src="/ecoaprende_sitiopublico/recursos/img/lg.png" alt="lg" width="100" height="55"  >
   </a>
@@ -30,6 +30,7 @@ HEADERLG.innerHTML = `
 <style>
   .navbar {
     background-color: rgba(119, 127, 71, 1) !important;
+      width: 100%;
   }
   li {
     font-family: 'Ropa Sans';
@@ -44,7 +45,6 @@ HEADERLG.innerHTML = `
   }
   .navbar-nav{
     text-align: rigth;
-    justify-contend:end;
   }
   .no{
     font-weigth:bold;

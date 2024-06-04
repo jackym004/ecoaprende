@@ -36,15 +36,16 @@ body {
 .card {
   width: 20% !important;
   border-radius: 20px;
-  top: 100px;
+  top: 40px;
   padding: 3%;
+  height: 20%;
 
 }
 
 
 @media only screen and (max-width:6000px) {
   .card {
-    width: 70% !important;
+    width: 60% !important;
   }
 }
 
@@ -111,6 +112,5 @@ body {
     justify-content: end;
     font-family: "IBM Plex Mono";
     margin-top: 2rem;
-    margin-left: 23rem;
   }
 
