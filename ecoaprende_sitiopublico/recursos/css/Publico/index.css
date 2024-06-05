@@ -28,11 +28,6 @@ body {
   background-image: url(../../img/fondo.PNG);
 }
 
-
-
-
-
-
 .card {
   width: 20% !important;
   border-radius: 20px;
@@ -42,14 +37,11 @@ body {
 
 }
 
-
 @media only screen and (max-width:6000px) {
   .card {
     width: 60% !important;
   }
 }
-
-
 
 #correo {
   width: 80%;
@@ -81,36 +73,30 @@ body {
   justify-content: center;
 }
 
-
-
-
-.recuperacion{
+.recuperacion {
   color: white;
   text-decoration: none;
   font-family: 'IBM Plex Mono';
-  }
+}
 
+.btn-secondary {
+  border: none;
+  margin-top: 10%;
+  background-color: rgba(39, 59, 9, 1);
+  color: white;
+  font-weight: bold;
+  color: white;
+  font-family: 'Ropa Sans';
+  margin-left: 60%;
+  width: 100%;
 
-  .btn-secondary {
-    border: none;
-    margin-top: 10%;
-    background-color: rgba(39, 59, 9, 1);
-    color: white;
-    font-weight: bold;
-    color: white;
-    font-family: 'Ropa Sans';
-    margin-left: 60%;
-    width: 100%;
+}
 
-  }
-
-
-  .olvido{
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    justify-content: end;
-    font-family: "IBM Plex Mono";
-    margin-top: 2rem;
-  }
-
+.olvido {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  justify-content: end;
+  font-family: "IBM Plex Mono";
+  margin-top: 2rem;
+}

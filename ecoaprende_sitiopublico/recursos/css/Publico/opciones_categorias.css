@@ -39,3 +39,17 @@ body {
 a{
     text-decoration: none;
 }
+
+.btn-primary {
+    width: 80%;
+    border: none;
+    margin-top: 10%;
+    background-color: #777F47;
+    color: white;
+    font-weight: bold;
+    color: white;
+    font-family: 'IBM Plex Mono';
+    font-size: 120%;
+    height: 40px;
+    justify-content: center;
+}
