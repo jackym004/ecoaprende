@@ -55,7 +55,6 @@ body {
   width: 80%;
   margin-left: 10%;
   margin-top: -40px;
-  border: 2px solid #777F47;
   height: 60px;
 }
 
@@ -69,7 +68,7 @@ body {
 }
 
 .btn-primary {
-  width: 100%;
+  width: 150%;
   border: none;
   margin-top: 10%;
   background-color: #777F47;
@@ -77,8 +76,9 @@ body {
   font-weight: bold;
   color: white;
   font-family: 'IBM Plex Mono';
-  margin-left: 50%;
+  margin-left: 25%;
   height: 40px;
+  justify-content: center;
 }
 
 
