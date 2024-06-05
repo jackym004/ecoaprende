@@ -35,7 +35,7 @@ if (isset($_GET['action'])) {
                     !$libro->setEstado(isset($_POST['estadoLibro']) ? 1 : 0) or
                     !$libro->setImagen($_FILES['imagenLibro'])
                 ) {
-                    $result['error'] = $producto->getDataError();
+                    $result['error'] = $libro->getDataError();
                 } elseif ($libro->createRow()) {
                     $result['status'] = 1;
                     $result['message'] = 'Producto creado correctamente';

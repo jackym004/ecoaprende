@@ -2,7 +2,7 @@
 *   CONTROLADOR DE USO GENERAL EN TODAS LAS PÁGINAS WEB.
 */
 // Constante para establecer la ruta base del servidor.
-const SERVER_URL = 'http://localhost/ecoaprende/ecoaprende/ecoaprende_sitioprivado/api_sitioprivado/';
+const SERVER_URL = 'http://localhost/ecoaprende/ecoaprende_sitioprivado/api_sitioprivado/';
 
 // Constante para completar la ruta de la API.
 const USER_API = 'servicios/administrador.php';
@@ -12,6 +12,7 @@ const USER_API = 'servicios/administrador.php';
 *   Parámetros: message (mensaje de confirmación).
 *   Retorno: resultado de la promesa.
 */
+
 const confirmAction = (message) => {
     return swal({
         title: 'Advertencia',

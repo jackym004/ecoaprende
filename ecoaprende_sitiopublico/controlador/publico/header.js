@@ -19,31 +19,16 @@ HEADER.innerHTML = `
              
               <li class="nav-item m">
                 <a class="dropdown-item"
-                  href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Tecnologia</a>
+                  href="/ecoaprende_sitiopublico/vistas/publica/menu.html">Inicio</a>
               </li>
               <li class="nav-item mt-2">
-                <a class="dropdown-item" href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Medicina
-                  General</a>
+                <a class="dropdown-item" href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Libros</a>
               </li>
-
               <li class="nav-item mt-2">
-                <a class="dropdown-item" href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Ciencia
-                  en general</a>
+                <a class="dropdown-item" href="/ecoaprende_sitiopublico/vistas/publica/carrito.html">Carrito</a>
               </li>
-
               <li class="nav-item mt-2">
-                <a class="dropdown-item" href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Autores
-                  populares</a>
-              </li>
-
-              <li class="nav-item mt-2">
-                <a class="dropdown-item"
-                  href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Editoriales</a>
-              </li>
-
-              <li class="nav-item mt-2">
-                <a class="dropdown-item"
-                  href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Idiomas</a>
+                <a class="dropdown-item" href="/ecoaprende_sitiopublico/vistas/publica/usuario.html">Perfil</a>
               </li>
 
               <li class="nav-item mt-4 custom-color">
