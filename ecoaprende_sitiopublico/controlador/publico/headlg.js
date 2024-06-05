@@ -8,7 +8,7 @@ HEADERLG.innerHTML = `
 </nav>
 <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-  <img src="/ecoaprende_sitiopublico/recursos/img/lg.png" alt="lg" width="100" height="55"  >
+  <img src="../../recursos/img/lg.png" alt="lg" width="100" height="55"  >
   </a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -21,7 +21,7 @@ HEADERLG.innerHTML = `
       <a class="nav-link justify-content-end ms-auto active no" aria-current="page">¿No tienes cuenta aun?</a>
       </span>
       <span class="navbar-text me-4">
-      <a type="button justify-content-end" href="/ecoaprende_sitiopublico/vistas/publica/Registro.html" class="btn regist text-white">Inicia aqui</a>
+      <a type="button justify-content-end" href="../../vistas/publica/Registro.html" class="btn regist text-white">Inicia aqui</a>
       </span>
     </div>
   </div>

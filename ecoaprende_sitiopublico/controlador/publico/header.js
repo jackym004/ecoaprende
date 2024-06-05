@@ -4,7 +4,7 @@ HEADER.innerHTML = `
 <nav class="navbar bg-body-tertiary fixed-top">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
-          <img src="/ecoaprende_sitiopublico/recursos/img/Sitio_Público-removebg-preview.png" alt="Logo" width="50" height="45">
+          <img src="../../recursos/img/Sitio_Público-removebg-preview.png" alt="Logo" width="50" height="45">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
           aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -12,27 +12,27 @@ HEADER.innerHTML = `
         </button>
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
           <div class="offcanvas-header">
-            <img src="/ecoaprende_sitiopublico/recursos/img/Sitio_Público__1_-removebg-preview.png" alt="Logo" width="200" >
+            <img src="../../recursos/img/Sitio_Público__1_-removebg-preview.png" alt="Logo" width="200" >
           </div>
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
              
               <li class="nav-item m">
                 <a class="dropdown-item"
-                  href="/ecoaprende_sitiopublico/vistas/publica/menu.html">Inicio</a>
+                  href="../../vistas/publica/menu.html">Inicio</a>
               </li>
               <li class="nav-item mt-2">
-                <a class="dropdown-item" href="/ecoaprende_sitiopublico/vistas/publica/opciones_categoria.html">Libros</a>
+                <a class="dropdown-item" href="../../vistas/publica/opciones_categoria.html">Libros</a>
               </li>
               <li class="nav-item mt-2">
-                <a class="dropdown-item" href="/ecoaprende_sitiopublico/vistas/publica/carrito.html">Carrito</a>
+                <a class="dropdown-item" href="../../vistas/publica/carrito.html">Carrito</a>
               </li>
               <li class="nav-item mt-2">
-                <a class="dropdown-item" href="/ecoaprende_sitiopublico/vistas/publica/usuario.html">Perfil</a>
+                <a class="dropdown-item" href="../../vistas/publica/usuario.html">Perfil</a>
               </li>
 
               <li class="nav-item mt-4 custom-color">
-              <a class="dropdown-item" href="/ecoaprende_sitiopublico/vistas/publica/index.html">Cerrar sesion</a>
+              <a class="dropdown-item" href="../../vistas/publica/index.html">Cerrar sesion</a>
              </li>
              
             </ul>
