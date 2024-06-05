@@ -21,7 +21,7 @@ HEADERLG.innerHTML = `
       <a class="nav-link justify-content-end ms-auto active no" aria-current="page">¿No tienes cuenta aun?</a>
       </span>
       <span class="navbar-text me-4">
-      <button type="button justify-content-end " class="btn regist">Inicia aqui</button>
+      <a type="button justify-content-end" href="/ecoaprende_sitiopublico/vistas/publica/Registro.html" class="btn regist text-white">Inicia aqui</a>
       </span>
     </div>
   </div>
