@@ -10,6 +10,11 @@ class ClientesHandler
      *  Declaración de atributos para el manejo de datos.
      */
     protected $id = null;
+    protected $nombre = null;
+    protected $correo = null;
+    protected $telefono = null;
+    protected $dui = null;
+    protected $clave = null;
 
     /*
      *  Métodos para realizar las operaciones SCRUD (search, create, read, update, and delete).
@@ -43,11 +48,33 @@ class ClientesHandler
         return Database::getRows($sql);
     }
 
-    //Función para cambiar el estado de un cliente.
+    // Función para cambiar el estado de un cliente.
     public function changeState()
     {
         $sql = 'CALL cambiar_estado_cliente(?);';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
+
+    // Función para editar los campos del cliente: Nombre, Correo, Telefono y DUI.
+    public function editProfile()
+    {
+        $sql = 'UPDATE tb_clientes
+                SET nombre_cliente = ?, correo_cliente = ?, telefono_cliente = ?, dui_cliente = ?
+                WHERE id_administrador = ?';
+        $params = array($this->nombre, $this->correo, $this->telefono, $this->dui);
+        return Database::executeRow($sql, $params);
+    }
+
+
+    // Función para cambiar la contraseña.
+    public function changePassword()
+    {
+        $sql = 'UPDATE tb_clientes
+                SET clave_cliente = ?
+                WHERE id_cliente = ?';
+        $params = array($this->clave);
+        return Database::executeRow($sql, $params);
+    }
+
 }
