@@ -1,12 +1,16 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
-.footer{
+.footer {
     background-color: rgba(119, 127, 71, 1);
 }
 
 #card {
     border: none;
+}
+
+.title {
+    color: rgba(119, 127, 71, 1)
 }
 
 .img {
@@ -39,10 +43,51 @@ input {
     padding: 2%;
 }
 
-
-
 a {
     text-decoration: none;
     font-family: 'Ropa Sans';
 
+}
+
+.navbar {
+    background-color: rgba(119, 127, 71, 1) !important;
+    width: 100%;
+}
+
+li {
+    font-family: 'Ropa Sans';
+}
+
+.custom-color {
+    color: rgba(119, 127, 71, 1) !important;
+}
+
+.regist {
+    background-color: rgba(39, 59, 9, 1);
+    color: white;
+    width: 150px
+}
+
+.navbar-nav {
+    text-align: rigth;
+}
+
+.no {
+    font-style: bold;
+}
+
+input::placeholder {
+    font: 1.25rem/3 sans-serif;
+    font-weight: bold;
+    color: black;
+    font-family: 'IBM Plex Mono';
+  } 
+
+.cuadrotexto{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: -40px;
+    border: 2px solid #777F47;
+    height: 60px;
+    margin-bottom: 30px;
 }

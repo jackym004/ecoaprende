@@ -9,41 +9,61 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Ropa+Sans:ital@0;1&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/ecoaprende_sitiopublico/recursos/css/Publico/registro.css">
-    <link rel="icon" href="/ecoaprende_sitiopublico/recursos/img/eco.png">
+    <link rel="stylesheet" href="../../recursos/css/Publico/registro.css">
+    <link rel="icon" href="../../img/eco.png">
 </head>
 
 <body>
     <!-- Header-->
-    <header>
-        <div class="footer container-fluid py-5"></div>
+    <header class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <img src="../../recursos/img/lg.png" alt="lg" width="100" height="55">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item  ">
+                    </li>
+                    <li class="nav-item  ">
+                    </li>
+                </ul>
+                <span class="navbar-text me-5">
+                    <a class="nav-link justify-content-end ms-auto active no" aria-current="page"> Volver al inicio de sesión</a>
+                </span>
+                <span class="navbar-text me-4">
+                    <a type="button justify-content-end" href="../../vistas/publica/index.html"
+                        class="btn regist text-white">Click aquí</a>
+                </span>
+            </div>
+        </div>
     </header>
     <!-- Main-->
     <main>
         <div class="container-fluid py-5">
-            <h1 class="text-center text-success">¡Bienvenido a EcoAprende!</h1>
+            <h1 class="text-center title">¡Bienvenido a EcoAprende!</h1>
             <h3 class="text-center">Registra tú usuario para que disfrutes de nuestro sitio.</h3>
+            <div class="py-3"></div>
             <div class="container">
                 <div class="row text-center">
                     <div class="col">
-                        <div class="py-3"></div>
-                        <input type="nombre_completo" class="form-control mt-1 py-2" placeholder="Nombre:" id="nombre"
+                        <div class="py-1"></div>
+                        <input type="nombre_completo" class="form-control mt-1 py-1 cuadrotexto" placeholder="Nombre:" id="nombre"
                             id="exampleInputUsuario" aria-describedby="Usuario">
-                            <div class="py-3"></div>
-                        <input type="correo" class="form-control mt-1 py-2" placeholder="Correo electrónico:"
+                        <div class="py-1"></div>
+                        <input type="correo" class="form-control mt-1 py-1 cuadrotexto" placeholder="Correo electrónico:"
                             id="correo" id="exampleInputUsuario" aria-describedby="Usuario">
-                            <div class="py-3"></div>
-                        <input type="password" class="form-control mt-1 py-2" placeholder="Clave:" id="clave"
+                        <div class="py-1"></div>
+                        <input type="password" class="form-control mt-1 py-1 cuadrotexto" placeholder="Clave:" id="clave"
                             id="exampleInputUsuario" aria-describedby="Usuario">
-                            <div class="py-3"></div>
-                        <input type="telefono" class="form-control mt-1 py-2" placeholder="Número de teléfono:"
+                        <div class="py-1"></div>
+                        <input type="telefono" class="form-control mt-1 py-2 cuadrotexto" placeholder="Número de teléfono:"
                             id="telefono" id="exampleInputUsuario" aria-describedby="Usuario">
-                            <div class="py-3"></div>
-                        <input type="identificacion" class="form-control mt-1 py-2" placeholder="DUI:" id="dui"
+                        <div class="py-1"></div>
+                        <input type="identificacion" class="form-control mt-1 py-1 cuadrotexto" placeholder="DUI:" id="dui"
                             id="exampleInputUsuario" aria-describedby="Usuario">
-                        <div class="py-3"></div>
+                        <div class="py-1"></div>
                         <div class="text-center">
-                            <a class="btn btn-primary fs-5" href="../../vistas/publica/index.html" role="button"> REGISTRATE </a>
+                            <a class="btn btn-primary fs-5" href="../../vistas/publica/index.html"
+                                role="btn btn-primary regist"> REGISTRATE </a>
                         </div>
                     </div>
                     <div class="col">
@@ -53,38 +73,13 @@
             </div>
         </div>
     </main>
+
+    <div class="py-3"></div>
+
     <!-- Footer-->
-    <footer>
-        <div class="footer container-fluid fixed-bottom">
-            <div class="container py-3">
-            </div>
-            <div class="container">
-                <div class="row mx-auto">
-                    <div class="col-sm-4 col-md-4 col-lg-4 mx-auto">
-                        <p class="text-white">
-                            <i class="bi bi-c-circle-fill text-black"></i> Copyright 2024 Ecoaprende
-                        </p>
-                    </div>
-                    <div class="col-sm-4 col-md-4 col-lg-4 mx-auto">
-                        <img class="img-fluid" src="../../recursos/img/Sitio_Público__1_-removebg-preview.png"
-                            alt="Logo" height="80" width="260">
-                    </div>
-                    <div class="col-sm-4 col-md-4 col-lg-4 mx-auto">
-                        <div class="row mx-auto">
-                            <a href="https://www.facebook.com/"><p class="text-white">Facebook</p></a>
-                        </div>
-                        <div class="row mx-auto">
-                            <a href="https://www.tiktok.com/"><p class="text-white">Tiktok</p></a>
-                        </div>
-                        <div class="row mx-auto">
-                            <a href="https://www.google.com/intl/es/gmail/about/"><p class="text-white">Correo electronico</p></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <footer></footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../controlador/publico/footer_index.js"></script>
 </body>
 
 </html>
