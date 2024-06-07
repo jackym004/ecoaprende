@@ -62,6 +62,15 @@ class LibroHandler
         return Database::getRow($sql, $params);
     }
 
+    public function readOnePublic()
+    {
+        $sql = 'SELECT id_libro,  nombre_libro, descripcion_libro, precio_libro, existencias_libro, imagen_libro, id_categoria, estado_libro
+                FROM tb_libros
+                WHERE id_libro = ?';
+        $params = array($this->id);
+        return Database::getRows($sql, $params);
+    }
+
     public function readFilename()
     {
         $sql = 'SELECT imagen_libro
@@ -90,7 +99,11 @@ class LibroHandler
 
     public function readLibrosCategoria()
     {
-        $sql = 'SELECT id_libro, imagen_libro, nombre_libro, descripcion_libro, precio_libro, existencias_libro
+        $sql = 'SELECT id_libro, imagen_libro, nombre_libro, descripcion_libro, precio_libro, existencias_libro, 
+        CASE 
+                WHEN estado_libro = 1 THEN "Disponible"
+                WHEN estado_libro = 0 THEN "No disponible"
+                END AS "estado_libro"
                 FROM tb_libros
                 INNER JOIN tb_categorias USING(id_categoria)
                 WHERE id_categoria = ? AND estado_libro = true

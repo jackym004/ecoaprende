@@ -19,6 +19,15 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Categoría inexistente';
                 }
                 break;
+                case 'readOne':
+                    if (!$libro->setId($_POST['idProducto'])) {
+                        $result['error'] = $libro->getDataError();
+                    } elseif ($result['dataset'] = $libro->readOnePublic()) {
+                        $result['status'] = 1;
+                    } else {
+                        $result['error'] = 'Producto inexistente';
+                    }
+                    break;
             default:
                 $result['error'] = 'Acción no disponible dentro de la sesión';
         }

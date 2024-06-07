@@ -66,7 +66,6 @@ class ClientesHandler
         return Database::executeRow($sql, $params);
     }
 
-
     // Función para cambiar la contraseña.
     public function changePassword()
     {
@@ -77,4 +76,20 @@ class ClientesHandler
         return Database::executeRow($sql, $params);
     }
 
+    public function checkUser($mail, $password)
+    {
+        $sql = 'SELECT id_cliente, correo_cliente, clave_cliente, estado_cliente
+                FROM tb_clientes
+                WHERE correo_cliente = ?';
+        $params = array($mail);
+        $data = Database::getRow($sql, $params);
+        if (password_verify($password, $data['clave_cliente'])) {
+            $this->id = $data['id_cliente'];
+            $this->correo = $data['correo_cliente'];
+            $this->estado = $data['estado_cliente'];
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

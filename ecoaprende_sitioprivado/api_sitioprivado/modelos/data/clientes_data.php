@@ -58,26 +58,29 @@ class ClientesData extends ClientesHandler
     }
 
     // Validador del Telefono del cliente.
-    public function setId($value)
+    public function setTelefono($value)
     {
-        if (Validator::validateNaturalNumber($value)) {
-            $this->id = $value;
+        if (Validator::validatePhone($value)) {
+            $this->telefono = $value;
             return true;
         } else {
-            $this->data_error = 'El identificador del cliente es incorrecto';
+            $this->data_error = 'El teléfono debe tener el formato (2, 6, 7)###-####';
             return false;
         }
     }
 
     // Validador del DUI del cliente.
-    public function setId($value)
+    public function setDUI($value)
     {
-        if (Validator::validateNaturalNumber($value)) {
-            $this->id = $value;
-            return true;
-        } else {
-            $this->data_error = 'El identificador del cliente es incorrecto';
+        if (!Validator::validateDUI($value)) {
+            $this->data_error = 'El DUI debe tener el formato ########-#';
             return false;
+        } elseif($this->checkDuplicate($value)) {
+            $this->data_error = 'El DUI ingresado ya existe';
+            return false;
+        } else {
+            $this->dui = $value;
+            return true;
         }
     }
 

@@ -27,7 +27,8 @@
                     </li>
                 </ul>
                 <span class="navbar-text me-5">
-                    <a class="nav-link justify-content-end ms-auto active no" aria-current="page"> Volver al inicio de sesión</a>
+                    <a class="nav-link justify-content-end ms-auto active no" aria-current="page"> Volver al inicio de
+                        sesión</a>
                 </span>
                 <span class="navbar-text me-4">
                     <a type="button justify-content-end" href="../../vistas/publica/index.html"
@@ -45,26 +46,58 @@
             <div class="container">
                 <div class="row text-center">
                     <div class="col">
-                        <div class="py-1"></div>
-                        <input type="nombre_completo" class="form-control mt-1 py-1 cuadrotexto" placeholder="Nombre:" id="nombre"
-                            id="exampleInputUsuario" aria-describedby="Usuario">
-                        <div class="py-1"></div>
-                        <input type="correo" class="form-control mt-1 py-1 cuadrotexto" placeholder="Correo electrónico:"
-                            id="correo" id="exampleInputUsuario" aria-describedby="Usuario">
-                        <div class="py-1"></div>
-                        <input type="password" class="form-control mt-1 py-1 cuadrotexto" placeholder="Clave:" id="clave"
-                            id="exampleInputUsuario" aria-describedby="Usuario">
-                        <div class="py-1"></div>
-                        <input type="telefono" class="form-control mt-1 py-2 cuadrotexto" placeholder="Número de teléfono:"
-                            id="telefono" id="exampleInputUsuario" aria-describedby="Usuario">
-                        <div class="py-1"></div>
-                        <input type="identificacion" class="form-control mt-1 py-1 cuadrotexto" placeholder="DUI:" id="dui"
-                            id="exampleInputUsuario" aria-describedby="Usuario">
-                        <div class="py-1"></div>
-                        <div class="text-center">
-                            <a class="btn btn-primary fs-5" href="../../vistas/publica/index.html"
-                                role="btn btn-primary regist"> REGISTRATE </a>
-                        </div>
+                        <form class="row g-3" id="signupForm">
+                            <div class="py-1"></div>
+
+                            <!--  
+                            <div>
+                            <label for="nombreCliente" class="form-label">Nombre:</label>
+                            <input type="text" id="nombreCliente" name="nombreCliente" class="form-control mt-1 py-1 cuadrotexto" required>
+                            </div>
+
+                            <div>
+                            <label for="correoCliente" class="form-label">Correo electrónico:</label>
+                            <input type="email" id="correoCliente" name="correoCliente" maxlength="100" class="form-control mt-1 py-1 cuadrotexto" required>
+                            </div>
+
+                            <div>
+                            <label for="claveCliente" class="form-label">Clave:</label>
+                            <input type="password" id="claveCliente" name="claveCliente" class="form-control mt-1 py-1 cuadrotexto" required>
+                            </div>
+
+                            <div>
+                            <label for="telefonoCliente" class="form-label">Número de teléfono:</label>
+                            <input type="text" id="telefonoCliente" name="telefonoCliente" placeholder="0000-0000" class="form-control mt-1 py-1 cuadrotexto" required>
+                            </div>
+
+                            <div>
+                            <label for="duiCliente" class="form-label">DUI:</label>
+                            <input type="email" id="duiCliente" name="duiCliente" placeholder="00000000-0" class="form-control mt-1 py-1 cuadrotexto" required>
+                            </div>
+                            -->
+
+                            <input type="nombre_completo" class="form-control mt-1 py-1 cuadrotexto"
+                                placeholder="Nombre:" id="nombre" id="exampleInputUsuario" aria-describedby="Usuario">
+                            <div class="py-1"></div>
+                            <input type="correo" class="form-control mt-1 py-1 cuadrotexto"
+                                placeholder="Correo electrónico:" id="correo" id="exampleInputUsuario"
+                                aria-describedby="Usuario">
+                            <div class="py-1"></div>
+                            <input type="password" class="form-control mt-1 py-1 cuadrotexto" placeholder="Clave:"
+                                id="clave" id="exampleInputUsuario" aria-describedby="Usuario">
+                            <div class="py-1"></div>
+                            <input type="telefono" class="form-control mt-1 py-2 cuadrotexto"
+                                placeholder="Número de teléfono:" id="telefono" id="exampleInputUsuario"
+                                aria-describedby="Usuario">
+                            <div class="py-1"></div>
+                            <input type="identificacion" class="form-control mt-1 py-1 cuadrotexto" placeholder="DUI:"
+                                id="dui" id="exampleInputUsuario" aria-describedby="Usuario">
+                            <div class="py-1"></div>
+                            <div class="text-center">
+                                <a class="btn btn-primary fs-5 regist" href="../../vistas/publica/index.html"
+                                    role="button"> REGISTRATE </a>
+                            </div>
+                        </form>
                     </div>
                     <div class="col">
                         <img class="img-fluid" src="../../recursos/img/registro.jpg" alt=" Imagen de registro">
@@ -78,8 +111,12 @@
 
     <!-- Footer-->
     <footer></footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../controlador/publico/footer_index.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="../../controlador/publico/footer_index.js"></script>
+    <script type="text/javascript" src="../../recursos/js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="../../controlador/publico/signup.js"></script>
+    <script type="text/javascript" src="../"></script>
 </body>
 
 </html>

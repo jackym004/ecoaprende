@@ -3,7 +3,7 @@ const PRODUCTO_API = 'servicios/producto.php';
 // Constante tipo objeto para obtener los parámetros disponibles en la URL.
 const PARAMS = new URLSearchParams(location.search);
 const PRODUCTOS = document.getElementById('productos');
-const MAIN_TITLE = document.getElementById('mainTitle')
+const MAIN_TITLE = document.getElementById('mainTitle');
 // Método manejador de eventos para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', async () => {
     // Se define un objeto con los datos de la categoría seleccionada.
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                             <li class="list-group-item">Existencias: ${row.existencias_libro}</li>
                         </ul>
                         <div class="card-body text-center">
-                            <a href="detail.html?id=${row.id_libro}" class="btn btn-primary">Ver detalle</a>
+                            <a href="detalle_libro.html?id=${row.id_libro}" class="btn btn-primary">Ver detalle</a>
                         </div>
                     </div>
                 </div>
