@@ -12,6 +12,7 @@ body {
 .contenedorImg {
     min-height: 50vh;
     max-height: 50vh;
+    margin-top: 20px;
 }
 
 .contenedor2 {
@@ -30,7 +31,9 @@ body {
 }
 
 .contenedorInfo {
-    background-color: #D9D9D9;
+    background-color: #CFD2CD;
+    height: 28rem;
+    border-radius: 20px;
 }
 
 h3 {
@@ -66,4 +69,16 @@ h3 {
 a{
     text-decoration: none;
     color: black;
+}
+
+.espacio{
+    margin-top: 3rem;
+}
+
+.clasifi{
+    margin-top: 100px;
+}
+
+.lib{
+    margin-top: 100px;
 }

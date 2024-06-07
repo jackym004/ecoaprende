@@ -21,7 +21,8 @@
     </header>
     <main>
         <div class="row container col-12 col-sm-7 col-md-6 ms-5 border-0">
-            <div class="card row justify-content-start border-0 " id="sessionForm">
+            <form id="sessionForm" id="gRecaptchaResponse" name="gRecaptchaResponse">
+            <div class="card row justify-content-start border-0 " >
                 <div class="card-body border-0">
                     <h1>INICIO DE SESIÓN</h1>
                     <div class="mb-3 ">
@@ -35,15 +36,14 @@
                             class="form-control text-start mt-2" required>
                     </div>
 
-                    <div>
-                        <a class="olvido mt-4" href="../../vistas/publica/">¿Olvido su clave?</a>
-                    </div>
+                   
                     <div class="col-6 text-center">
-                        <a class="btn btn-primary text-center mt-4" href="../../vistas/publica/menu.html"
-                            role="button">INICIAR SESIÓN </a>
+                        <button class="btn btn-primary text-center mt-4"
+                          type="submit" >INICIAR SESIÓN </button>
                     </div>
                 </div>
             </div>
+        </form>
         </div>
 
     </main>
@@ -51,12 +51,17 @@
     <footer class="fixed-bottom"><i class="bi bi-person-plus-fill fs-2"></i><i class="bi bi-shield-lock-fill fs-2"></i>
 
     </footer>
-    <script src="../../controlador/publico/footer_index.js"></script>
-    <script src="../../controlador/publico/login.js"></script>
-    <script src="../../controlador/utilidades/public.js"></script>
+
+
+        <!-- Inclusión de la librería del reCAPTCHA. Para más información https://developers.google.com/recaptcha/docs/v3 -->
+        <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?render=6LdBzLQUAAAAAJvH-aCUUJgliLOjLcmrHN06RFXT"></script>
+    
+  
     <script src="../../../ecoaprende_sitioprivado/controlador_administrador/utilidades_administrador/components.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../controlador/publico/footer_index.js"></script>
+    <script type="text/javascript" src="../../recursos/js/sweetalert.min.js"></script>
+  <script src="../../controlador/publico/login.js"></script>
 </body>
 
 </html>

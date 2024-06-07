@@ -1,12 +1,21 @@
 // Constante para establecer el formulario de iniciar sesión.
+const USER_API = 'servicios/clientes.php';
+
 const SESSION_FORM = document.getElementById('sessionForm');
 
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', async () => {
-    // Llamada a la función para mostrar el encabezado y pie del documento.
-    loadTemplate();
-    // Se establece el título del contenido principal.
-    MAIN_TITLE.textContent = 'Iniciar sesión';
+   // Petición para consultar los usuarios registrados.
+   const DATA = await fetchData(USER_API, 'readUsers');
+   // Se comprueba si existe una sesión, de lo contrario se sigue con el flujo normal.
+   if (DATA.session) {
+       // Se direcciona a la página web de bienvenida.
+       location.href = 'menu.html';
+   } else if (DATA.status) {
+       // Se muestra el formulario para iniciar sesión.
+       LOGIN_FORM.classList.remove('d-none');
+       sweetAlert(4, DATA.message, true);
+   }
 });
 
 // Método del evento para cuando se envía el formulario de iniciar sesión.
