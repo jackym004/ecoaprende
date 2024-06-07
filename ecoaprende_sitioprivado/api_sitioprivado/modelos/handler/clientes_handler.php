@@ -16,6 +16,7 @@ class ClientesHandler
     protected $dui = null;
     protected $clave = null;
 
+    protected $estado = null;
     /*
      *  Métodos para realizar las operaciones SCRUD (search, create, read, update, and delete).
      */
@@ -35,6 +36,16 @@ class ClientesHandler
         $params = array($value);
         return Database::getRows($sql, $params);
     }
+
+    // Función para leer todo
+    public function createRow()
+    {
+        $sql = 'INSERT INTO tb_clientes(nombre_cliente, correo_cliente, telefono_cliente, dui_cliente, clave_cliente)
+                VALUES(?, ?, ?, ?, ?)';
+        $params = array($this->nombre, $this->correo, $this->telefono, $this->dui,  $this->clave);
+        return Database::executeRow($sql, $params);
+    }
+
     // Función para leer todo
     public function readAll()
     {
@@ -91,5 +102,25 @@ class ClientesHandler
         } else {
             return false;
         }
+    }
+
+    public function checkStatus()
+    {
+        if ($this->estado) {
+            $_SESSION['idCliente'] = $this->id;
+            $_SESSION['correoCliente'] = $this->correo;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function checkDuplicate($value)
+    {
+        $sql = 'SELECT id_cliente
+                FROM tb_clientes
+                WHERE dui_cliente = ? OR correo_cliente = ?';
+        $params = array($value, $value);
+        return Database::getRow($sql, $params);
     }
 }

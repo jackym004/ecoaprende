@@ -37,6 +37,18 @@ input {
     margin-top: -2;
 }
 
+.btn-secondary {
+    border: none;
+    background-color: #777F47;
+    color: white;
+    color: white;
+    font-family: 'Ropa Sans';
+    margin-left: 50%;
+    width: 50%;
+    padding: 2%;
+    margin-top: -2;
+}
+
 .bibi {
     margin-right: 100%;
     width: 50%;
