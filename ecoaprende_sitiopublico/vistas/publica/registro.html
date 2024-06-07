@@ -75,26 +75,29 @@
                             <input type="email" id="duiCliente" name="duiCliente" placeholder="00000000-0" class="form-control mt-1 py-1 cuadrotexto" required>
                             </div>
                             -->
+                            <label for="nombreCliente" class="form-label">Nombre:</label>
+                            <input type="text" id="nombreCliente" name="nombreCliente"
+                                class="form-control mt-1 cuadrotexto" required>
 
-                            <input type="nombre_completo" class="form-control mt-1 py-1 cuadrotexto"
-                                placeholder="Nombre:" id="nombre" id="exampleInputUsuario" aria-describedby="Usuario">
-                            <div class="py-1"></div>
-                            <input type="correo" class="form-control mt-1 py-1 cuadrotexto"
-                                placeholder="Correo electrónico:" id="correo" id="exampleInputUsuario"
-                                aria-describedby="Usuario">
-                            <div class="py-1"></div>
-                            <input type="password" class="form-control mt-1 py-1 cuadrotexto" placeholder="Clave:"
-                                id="clave" id="exampleInputUsuario" aria-describedby="Usuario">
-                            <div class="py-1"></div>
-                            <input type="telefono" class="form-control mt-1 py-2 cuadrotexto"
-                                placeholder="Número de teléfono:" id="telefono" id="exampleInputUsuario"
-                                aria-describedby="Usuario">
-                            <div class="py-1"></div>
-                            <input type="identificacion" class="form-control mt-1 py-1 cuadrotexto" placeholder="DUI:"
-                                id="dui" id="exampleInputUsuario" aria-describedby="Usuario">
+                            <label for="correoCliente" class="form-label">Correo electrónico:</label>
+                            <input type="email" id="correoCliente" name="correoCliente" maxlength="100"
+                                class="form-control mt-1 cuadrotexto" required>
+
+                            <label for="claveCliente" class="form-label">Clave:</label>
+                            <input type="password" id="claveCliente" name="claveCliente"
+                                class="form-control mt-1 cuadrotexto" required>
+
+                            <label for="telefonoCliente" class="form-label">Número de teléfono:</label>
+                            <input type="text" id="telefonoCliente" name="telefonoCliente" placeholder="0000-0000"
+                                class="form-control mt-1 cuadrotexto" required>
+
+                            <label for="duiCliente" class="form-label">DUI:</label>
+                            <input type="text" id="duiCliente" name="duiCliente" placeholder="00000000-0"
+                                class="form-control mt-1 py-1 cuadrotexto" required>
                             <div class="py-1"></div>
                             <div class="text-center">
-                                <a class="btn btn-primary fs-5 regist" href="../../vistas/publica/index.html"
+                                <button type="submit" class="btn btn-primary fs-5 submit"><i class="bi bi-person-fill"></i> REGISTRATE</button>
+                                <a class="btn btn-primary fs-5 submit" href="../../vistas/publica/index.html"
                                     role="button"> REGISTRATE </a>
                             </div>
                         </form>
@@ -105,18 +108,21 @@
                 </div>
             </div>
         </div>
+        <!-- Inclusión de la librería de mascaras. Para más información https://github.com/text-mask/text-mask -->
+        <script type="text/javascript" src="../../recursos/js/vanillaTextMask.js"></script>
+        <!-- Inclusión de la librería del reCAPTCHA. Para más información https://developers.google.com/recaptcha/docs/v3 -->
+        <script type="text/javascript"
+            src="https://www.google.com/recaptcha/api.js?render=6LdBzLQUAAAAAJvH-aCUUJgliLOjLcmrHN06RFXT"></script>
     </main>
 
     <div class="py-3"></div>
 
     <!-- Footer-->
     <footer></footer>
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="../../controlador/publico/footer_index.js"></script>
     <script type="text/javascript" src="../../recursos/js/sweetalert.min.js"></script>
     <script type="text/javascript" src="../../controlador/publico/signup.js"></script>
-    <script type="text/javascript" src="../"></script>
 </body>
 
 </html>
