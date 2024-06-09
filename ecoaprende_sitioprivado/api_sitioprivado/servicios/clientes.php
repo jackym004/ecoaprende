@@ -54,19 +54,8 @@ if (isset($_GET['action'])) {
         // Se imprime el resultado en formato JSON y se retorna al controlador.
         print(json_encode($result));
     } else {
-        case 'logIn':
-            $_POST = Validator::validateForm($_POST);
-            if (!$cliente->checkUser($_POST['correo'], $_POST['clave'])) {
-                $result['error'] = 'Datos incorrectos';
-            } elseif ($cliente->checkStatus()) {
-                $result['status'] = 1;
-                $result['message'] = 'Autenticación correcta';
-            } else {
-                $result['error'] = 'La cuenta ha sido desactivada';
-            }
-            break;
-        default:
-            $result['error'] = 'Acción no disponible fuera de la sesión';    }
+        print(json_encode('Acceso denegado'));
+    }
 } else {
     print(json_encode('Recurso no disponible'));
 }
