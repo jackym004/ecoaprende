@@ -32,7 +32,7 @@ HEADER.innerHTML = `
               </li>
 
               <li class="nav-item mt-4 custom-color">
-              <a class="dropdown-item" href="../../vistas/publica/index.html">Cerrar sesion</a>
+              <a class="dropdown-item" onclick="logOut()">Cerrar sesion</a>
              </li>
              
             </ul>

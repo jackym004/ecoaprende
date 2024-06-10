@@ -1,12 +1,12 @@
 // Constante para establecer el formulario de iniciar sesión.
-const USER_API = 'servicios/clientes.php';
+const USUARIO_API = 'servicios/cliente/clientes.php';
 
 const SESSION_FORM = document.getElementById('sessionForm');
 
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', async () => {
    // Petición para consultar los usuarios registrados.
-   const DATA = await fetchData(USER_API, 'readUsers');
+   const DATA = await fetchData(USUARIO_API, 'readUsers');
    // Se comprueba si existe una sesión, de lo contrario se sigue con el flujo normal.
    if (DATA.session) {
        // Se direcciona a la página web de bienvenida.
@@ -25,7 +25,7 @@ SESSION_FORM.addEventListener('submit', async (event) => {
     // Constante tipo objeto con los datos del formulario.
     const FORM = new FormData(SESSION_FORM);
     // Petición para determinar si el cliente se encuentra registrado.
-    const DATA = await fetchData(USER_API, 'logIn', FORM);
+    const DATA = await fetchData(USUARIO_API, 'logIn', FORM);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
     if (DATA.status) {
         sweetAlert(1, DATA.message, true, 'menu.html');

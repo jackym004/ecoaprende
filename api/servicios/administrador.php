@@ -178,6 +178,13 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Credenciales incorrectas';
                 }
                 break;
+                case 'logOut':
+                    if (session_destroy()) {
+                        $result['status'] = 1;
+                        $result['message'] = 'Sesión eliminada correctamente';
+                    } else {
+                        $result['error'] = 'Ocurrió un problema al cerrar la sesión';
+                    }
             default:
                 $result['error'] = 'Acción no disponible fuera de la sesión';
         }

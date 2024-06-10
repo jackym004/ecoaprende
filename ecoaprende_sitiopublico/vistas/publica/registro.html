@@ -47,6 +47,8 @@
                 <div class="row text-center">
                     <div class="col">
                         <form class="row g-3" id="signupForm">
+                            <!-- Campo oculto para asignar el token del reCAPTCHA -->
+                            <input type="text" class="d-none" id="gRecaptchaResponse" name="gRecaptchaResponse">
                             <div class="py-1"></div>
 
                             <!--  
@@ -97,7 +99,7 @@
                             <div class="py-1"></div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary fs-5 submit"><i class="bi bi-person-fill"></i> REGISTRATE</button>
-                                <a class="btn btn-primary fs-5 submit" href="../../vistas/publica/index.html"
+                                <a class="btn btn-primary fs-5 submit d-none" href="../../vistas/publica/index.html"
                                     role="button"> REGISTRATE </a>
                             </div>
                         </form>
@@ -122,6 +124,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="../../controlador/publico/footer_index.js"></script>
     <script type="text/javascript" src="../../recursos/js/sweetalert.min.js"></script>
+    <script src="../../../ecoaprende_sitioprivado/controlador_administrador/utilidades_administrador/components.js"></script>
     <script type="text/javascript" src="../../controlador/publico/signup.js"></script>
 </body>
 
