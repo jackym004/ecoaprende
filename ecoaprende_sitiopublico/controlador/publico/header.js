@@ -16,7 +16,6 @@ HEADER.innerHTML = `
           </div>
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-             
               <li class="nav-item m">
                 <a class="dropdown-item"
                   href="../../vistas/publica/menu.html">Inicio</a>
@@ -25,18 +24,18 @@ HEADER.innerHTML = `
                 <a class="dropdown-item" href="../../vistas/publica/opciones_categoria.html">Libros</a>
               </li>
               <li class="nav-item mt-2">
-                <a class="dropdown-item" href="../../vistas/publica/carrito.html">Carrito</a>
+                <a class="dropdown-item" href="../../vistas/publica/carrito_compra.html">Carrito</a>
+              </li>
+              <li class="nav-item mt-2">
+                <a class="dropdown-item" href="../../vistas/publica/historial_pedidos.html">Historial</a>
               </li>
               <li class="nav-item mt-2">
                 <a class="dropdown-item" href="../../vistas/publica/usuario.html">Perfil</a>
               </li>
-
               <li class="nav-item mt-4 custom-color">
               <a class="dropdown-item" onclick="logOut()">Cerrar sesion</a>
              </li>
-             
             </ul>
-            
           </div>
         </div>
       </div>

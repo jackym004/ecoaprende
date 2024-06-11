@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Historial</title>
+    <!-- librerias sobre iconos,css y bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Ropa+Sans:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="icon" href="/ecoaprende_sitiopublico/recursos/img/eco.png">
+    <link rel="stylesheet" href="../../recursos/css/Publico/index.css">
+    <link rel="stylesheet" href="../../recursos/css/Publico/detalle_libro.css">
+</head>
+
+<body>
+    <header>
+        <script src="../../cont rolador/publico/header.js"></script>
+    </header>
+    <main>
+        <div class="py-5"></div>
+        <section class="container-fluid">
+            <div class="col-10 m-5">
+                <h3>Historial de compras</h3>
+                <!-- Tabla para mostrar los registros existentes -->
+                <table class="table table-hover">
+                    <!-- Encabezado de la tabla para mostrar la cantidad de registros y los títulos de las columnas -->
+                    <thead>
+                        <tr>
+                            <td colspan="5" id="rowsFound"></td>
+                        </tr>
+                        <tr>
+                            <th>PRODUCTO</th>
+                            <th>TITULO</th>
+                            <th>PRECIO</th>
+                            <th>CANTIDAD</th>
+                            <th>SUBTOTAL</th>
+                        </tr>
+                    </thead>
+                    <!-- Cuerpo de la tabla para mostrar un registro por fila -->
+                    <tbody id="tableBody">
+                        <tr>
+                            <td><img src="../../recursos/img/tec.png" class="card-img-fluid" height="150px"
+                                    width="150px" alt="..."></td>
+                            <td>EL LIBRO DE LA MEDICINA
+                                (THE MEDICINE BOOK).</td>
+                            <td>$45.00</td>
+                            <td>1</td>
+                            <td>$45.00</td>
+                        </tr>
+                        <tr>
+                            <td><img src="../../recursos/img/tec.png" class="card-img-fluid" height="150px"
+                                    width="150px" alt="..."></td>
+                            <td>EL LIBRO DE LA MEDICINA
+                                (THE MEDICINE BOOK).</td>
+                            <td>$50.00</td>
+                            <td>1</td>
+                            <td>$50.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </br>
+                <div class="text-end">
+                    <strong class="text-success">Total: <span class="text-success">$95.00</span></strong>
+                </div>
+            </div>
+        </section>
+        <article class="text-end ">
+            <button class="btn btn-success" type="submit"><i class="bi bi-cart"></i> Finalizar compra</button>
+        </article>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
