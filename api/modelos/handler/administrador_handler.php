@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase para trabajar con la base de datos.
-require_once('../auxiliar/database.php'); 
+require_once('../../auxiliar/database.php'); 
 /*
  *  Clase para manejar el comportamiento de los datos de la tabla administrador.
  */

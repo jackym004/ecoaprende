@@ -1,8 +1,8 @@
 <?php
 // Se incluye la clase para validar los datos de entrada.
-require_once('../auxiliar/validator.php');
+require_once('../../auxiliar/validator.php');
 // Se incluye la clase padre.
-require_once('../modelos/handler/detalle_pedido_handler.php');
+require_once('../../modelos/handler/detalle_pedido_handler.php');
 /*
  *  Clase para manejar el encapsulamiento de los datos de la tabla USUARIO.
  */

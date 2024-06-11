@@ -33,6 +33,14 @@ SIGNUP_FORM.addEventListener('submit', async (event) => {
     }
 });
 
+
+// Método del evento para cuando el documento ha cargado.
+document.addEventListener('DOMContentLoaded', () => {
+    // LLamada a la función para asignar el token del reCAPTCHA al formulario.
+    reCAPTCHA();
+});
+
+
 /*
 *   Función para obtener un token del reCAPTCHA y asignarlo al formulario.
 *   Parámetros: ninguno.

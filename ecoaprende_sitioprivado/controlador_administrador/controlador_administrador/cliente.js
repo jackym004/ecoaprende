@@ -1,5 +1,5 @@
 // Constantes para completar las rutas de la API.
-const CLIENTES_API = 'servicios/clientes.php';
+const CLIENTES_API = 'servicios/administrador/clientes.php';
 
 // Constante para establecer el formulario de buscar.
 const SEARCH_FORM = document.getElementById('searchForm');

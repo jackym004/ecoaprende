@@ -1,5 +1,5 @@
 // Constante para completar la ruta de la API.
-const PEDIDO_API = 'services/public/pedido.php';
+const PEDIDO_API = 'servicios/cliente/pedido.php';
 // Constante para establecer el cuerpo de la tabla.
 const TABLE_BODY = document.getElementById('tableBody');
 // Constante para establecer la caja de diálogo de cambiar producto.

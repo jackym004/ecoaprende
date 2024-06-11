@@ -1,6 +1,6 @@
 // Constantes para completar las rutas de la API.
-const LIBROS_API = 'servicios/libros.php';
-const CATEGORIA_API = 'servicios/catlib.php';
+const LIBROS_API = 'servicios/administrador/libros.php';
+const CATEGORIA_API = 'servicios/administrador/catlib.php';
 // Constante para establecer el formulario de buscar.
 const SEARCH_FORM = document.getElementById('searchForm');
 // Constantes para establecer el contenido de la tabla.

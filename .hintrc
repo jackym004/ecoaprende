@@ -27,6 +27,12 @@
       {
         "document-title": "off"
       }
+    ],
+    "axe/forms": [
+      "default",
+      {
+        "label": "off"
+      }
     ]
   }
 }

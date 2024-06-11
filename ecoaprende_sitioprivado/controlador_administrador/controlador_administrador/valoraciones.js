@@ -1,5 +1,5 @@
 // Constantes para completar las rutas de la API.
-const VALORACIONES_API = 'servicios/valoraciones.php';
+const VALORACIONES_API = 'servicios/administrador/valoraciones.php';
 
 // Constante para establecer el formulario de buscar.
 const SEARCH_FORM = document.getElementById('searchForm');
