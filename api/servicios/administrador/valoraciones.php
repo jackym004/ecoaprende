@@ -27,6 +27,24 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'No hay coincidencias';
                 }
                 break;
+
+            case 'createRow':
+                $_POST = Validator::validateForm($_POST);
+                if (
+                    !$valoracion->setIdDetalle($_POST['idDetalle'])or
+                    !$valoracion->setComentario($_POST['comentario'])or
+                    !$valoracion->setCalificacion($_POST['calificacion'])
+                ) {
+                    $result['error'] = $valoracion->getDataError();
+                } elseif ($valoracion->createRow()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Comentario creado correctamente';
+                    // Se asigna el estado del archivo después de insertar.
+                        
+                } else {
+                    $result['error'] = 'Ocurrió un problema al registrar el comentario';
+                }
+                break;
                 // Ver todo
             case 'readAll':
                 if ($result['dataset'] = $valoracion->readAll()) {

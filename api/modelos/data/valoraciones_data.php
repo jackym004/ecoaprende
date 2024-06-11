@@ -23,6 +23,42 @@ class ValoracionesData extends ValoracionesHandler
         }
     }
  
+    public function setIdDetalle($value)
+    {
+        if (Validator::validateNaturalNumber($value)) {
+            $this->idDetalle = $value;
+            return true;
+        } else {
+            $this->data_error = 'El identificador de detalles pedidos es incorrecto';
+            return false;
+        }
+    }
+
+    public function setCalificacion($value)
+    {
+        if (Validator::validateNaturalNumber($value)) {
+            $this->puntuacion = $value;
+            return true;
+        } else {
+            $this->data_error = 'El número de la calificacion tiene que ser un numero natural';
+            return false;
+        }
+    }
+
+    public function setComentario($value, $min = 4, $max = 250)
+    {
+        if (!Validator::validateString($value)) {
+            $this->data_error = 'El mensaje contiene caracteres prohibidos.';
+            return false;
+        } elseif (Validator::validateLength($value, $min, $max)) {
+            $this->mensaje = $value;
+            return true;
+        } else {
+            $this->data_error = 'El mensaje debe tener una longitud entre ' . $min . ' y ' . $max;
+            return false;
+        }
+    }
+
     public function setEstado($value)
     {
         if (Validator::validateNaturalNumber($value)) {

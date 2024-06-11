@@ -10,6 +10,9 @@ class ValoracionesHandler
      *  Declaración de atributos para el manejo de datos.
      */
     protected $id = null;
+    protected $comentario = null;
+    protected $calificacion = null;
+    protected $idDetalle = null;
 
     /*
      *  Métodos para realizar las operaciones SCRUD (search, create, read, update, and delete).
@@ -38,6 +41,17 @@ class ValoracionesHandler
         $params = array($value);
         return Database::getRows($sql, $params);
     }
+
+    // Función para crear un comentario
+    public function createRow()
+    {
+        $sql = 'INSERT INTO tb_valoraciones(id_detalles_pedidos,comentario_producto,calificacion_producto,
+        fecha_valoracion,estado_comentario) VALUES(?,?,?,now(),false)';
+        $params = array($this->idDetalle, $this->comentario, $this->calificacion);
+        return Database::executeRow($sql, $params);
+    }
+
+
     // Función para leer todo
     public function readAll()
     {
