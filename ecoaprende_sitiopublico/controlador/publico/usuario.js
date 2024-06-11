@@ -45,30 +45,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <P><i class="bi bi-escape fs-2"></i>Cerrar sesion</P>
                 </a>
             </div>
-            <div class="row" id="informacion" style="margin-top: 10px;">
-                <div class="input-group mb-3 col">
-                    <input type="text" placeholder:="Nombre completo" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default">${row.nombre_cliente}
-                </div>
-                <div class="input-group mb-3 col">
-                    <input type="text" placeholder="DUI" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default">${row.dui_cliente}
-                </div>
-            </div>
-            <div class="row" style="margin-top: 30px;">
-                <div class="input-group mb-3 col">
-                    <input type="text" placeholder="Correo Electronico" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default">${row.correo_cliente}
-                </div>
-                <div class="input-group mb-3 col">
-                    <input type="text" placeholder="Telefono" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default">${row.telefono_cliente}
-                </div>
-
-                <a href="/ecoaprende_sitiopublico/vistas/publica/index.html" class="mt-4 text-black">
-                    <P><i class="bi bi-escape fs-2"></i>Cerrar sesion</P>
-                </a>
-            </div>
             `;
         });
     }

@@ -19,7 +19,7 @@ class LibroHandler
     protected $estado = null;
 
     // Constante para establecer la ruta de las imágenes.
-    const RUTA_IMAGEN = '../imagenes/categoria/';
+    const RUTA_IMAGEN = '../../imagenes/categoria/';
 
     /*
     *   Métodos para realizar las operaciones SCRUD (search, create, read, update, and delete).
