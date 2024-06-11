@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Ropa+Sans:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../recursos/css/Publico/usuario.css">
-    <link rel="icon" href="/ecoaprende_sitiopublico/recursos/img/eco.png">
+    <link rel="icon" href="../../recursos/img/eco.png">
 
     <title>Usuario</title>
 </head>
@@ -23,43 +23,20 @@
 
         <h1 class="ms-5 mt-3"> Perfil</h1>
 
-        <div class="card text-center  mx-auto border-0" style="width: 18rem;">
-            <div class="card-body">
-                <img src="../../recursos/img/perfil.png" class="" alt=" perfil" width="305">
-                <h3 class="ms-5 mt-2">Nombre de perfil</h3>
-            </div>
-            <div class="row" style="margin-top: 10px;">
-                <div class="col">
+        <div class="card text-center mx-auto border-0" id="informacion" style="width: 18rem;">
 
-                    <P id="pp"><i class="bi bi-person-fill fs-2 px-5"></i>Nombre completo</P>
-                </div>
-                <div class="col">
-
-                    <P id="ppp"><i class="bi bi-person-vcard-fill fs-2 "></i>Universidad</P>
-                </div>
-            </div>
-            <div class="row" style="margin-top: 30px;">
-                <div class="col">
-
-                    <P id="pp"><i class="material-icons  fs-2 px-5">email</i>Correo Electronico</P>
-                </div>
-                <div class="col">
-                    <i class="material-icons fs-2 ">school</i>
-                    <P id="ppp">Carrera</P>
-                </div>
-
-                <a href="/ecoaprende_sitiopublico/vistas/publica/index.html" class="mt-4 text-black">
-                    <P><i class="bi bi-escape fs-2"></i>Cerrar sesion</P>
-                </a>
-            </div>
         </div>
 
     </main>
 
     <footer>
         <script src="../../controlador/publico/footer_index.js"></script>
-        <script src="../../controlador/publico/usuario.js"></script>
     </footer>
+    <script type="text/javascript" src="../../recursos/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="../../recursos/js/sweetalert.min.js"></script>
+    <script type="text/javascript"
+        src="../../../ecoaprende_sitioprivado/controlador_administrador/utilidades_administrador/components.js"></script>
+    <script src=".././../controlador/publico/usuario.js"></script>
 </body>
 
 </html>

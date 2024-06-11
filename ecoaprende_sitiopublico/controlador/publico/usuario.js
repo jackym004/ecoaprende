@@ -1,15 +1,11 @@
 // Constante para completar la ruta de la API.
 const USUARIO_API = 'servicios/cliente/clientes.php';
 // Constante tipo objeto para obtener los parámetros disponibles en la URL.
-const PARAMS = new URLSearchParams(location.search);
 const DETALLES = document.getElementById('informacion');
 // Método manejador de eventos para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', async () => {
-    // Se define un objeto con los datos de la categoría seleccionada.
-    const FORM = new FormData();
-    FORM.append('id_cliente', PARAMS.get('id'));
     // Petición para solicitar los productos de la categoría seleccionada.
-    const DATA = await fetchData(USUARIO_API, 'readOne', FORM);
+    const DATA = await fetchData(USUARIO_API, 'readAll');
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
     if (DATA.status) {
         // Se inicializa el contenedor de productos.
