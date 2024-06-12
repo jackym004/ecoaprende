@@ -21,13 +21,7 @@ HEADER.innerHTML = `
                   href="../../vistas/publica/menu.html">Inicio</a>
               </li>
               <li class="nav-item mt-2">
-                <a class="dropdown-item" href="../../vistas/publica/opciones_categoria.html">Libros</a>
-              </li>
-              <li class="nav-item mt-2">
                 <a class="dropdown-item" href="../../vistas/publica/carrito_compra.html">Carrito</a>
-              </li>
-              <li class="nav-item mt-2">
-                <a class="dropdown-item" href="../../vistas/publica/historial_pedidos.html">Historial</a>
               </li>
               <li class="nav-item mt-2">
                 <a class="dropdown-item" href="../../vistas/publica/usuario.html">Perfil</a>

@@ -35,6 +35,15 @@ class PedidosHandler
         return Database::getRows($sql);
     }
 
+    public function readAllTable()
+    {
+        $sql = 'SELECT l.nombre_libro, precio_producto, cantidad_comprada, p.direccion_pedido, p.fecha_pedido FROM tb_detalles_pedidos dp
+        INNER JOIN tb_libros l ON dp.id_libro = l.id_libro
+        INNER JOIN tb_pedidos p ON dp.id_pedido = p.id_pedido 
+        ORDER BY p.fecha_pedido DESC;';
+        return Database::getRows($sql);
+    }
+
     //Función para leer un pedido del historial.
     public function readOne()
     {
