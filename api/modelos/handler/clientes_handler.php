@@ -59,21 +59,39 @@ class ClientesHandler
         return Database::getRows($sql);
     }
 
+    // Función para leer uno
+    public function readOne()
+    {
+        $sql = 'SELECT id_cliente AS ID, nombre_cliente AS NOMBRE, correo_cliente AS CORREO,
+         telefono_cliente AS TELEFONO, dui_cliente AS DUI, 
+        CASE 
+        WHEN estado_cliente = 1 THEN "Activo"
+        WHEN estado_cliente = 0 THEN "Bloqueado"
+        END AS ESTADO FROM tb_clientes
+        WHERE id_cliente = ?';
+        $params = array($_SESSION['idCliente']);
+        return Database::getRows($sql, $params);
+    }
+
+    // Función para leer uno
+    public function readOneEditProfile()
+    {
+        $sql = 'SELECT id_cliente AS ID, nombre_cliente AS NOMBRE, correo_cliente AS CORREO,
+         telefono_cliente AS TELEFONO, dui_cliente AS DUI, 
+        CASE 
+        WHEN estado_cliente = 1 THEN "Activo"
+        WHEN estado_cliente = 0 THEN "Bloqueado"
+        END AS ESTADO FROM tb_clientes
+        WHERE id_cliente = ?';
+        $params = array($_SESSION['idCliente']);
+        return Database::getRow($sql, $params);
+    }
+
     // Función para cambiar el estado de un cliente.
     public function changeState()
     {
         $sql = 'CALL cambiar_estado_cliente(?);';
         $params = array($this->id);
-        return Database::executeRow($sql, $params);
-    }
-
-    // Función para editar los campos del cliente: Nombre, Correo, Telefono y DUI.
-    public function editProfile()
-    {
-        $sql = 'UPDATE tb_clientes
-                SET nombre_cliente = ?, correo_cliente = ?, telefono_cliente = ?, dui_cliente = ?
-                WHERE id_administrador = ?';
-        $params = array($this->nombre, $this->correo, $this->telefono, $this->dui);
         return Database::executeRow($sql, $params);
     }
 
@@ -130,5 +148,14 @@ class ClientesHandler
                 WHERE dui_cliente = ? OR correo_cliente = ?';
         $params = array($value, $value);
         return Database::getRow($sql, $params);
+    }
+    
+    public function editProfile()
+    {
+        $sql = 'UPDATE tb_clientes
+                SET nombre_cliente = ?, correo_cliente = ?, telefono_cliente = ?
+                WHERE id_cliente = ?';
+        $params = array($this->nombre, $this->correo, $this->telefono, $_SESSION['idCliente']);
+        return Database::executeRow($sql, $params);
     }
 }

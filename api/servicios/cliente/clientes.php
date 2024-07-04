@@ -31,6 +31,37 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al cerrar la sesión';
                 }
                 break;
+            // Ver perfil
+            case 'readOne':
+                if ($result['dataset'] = $cliente->readOne()) {
+                    $result['status'] = 1;
+                } else {
+                    $result['error'] = 'Perfil inexistente';
+                }
+                break;
+                // Ver perfil
+                case 'readEditProfile':
+                    if ($result['dataset'] = $cliente->readOneEditProfile()) {
+                        $result['status'] = 1;
+                    } else {
+                        $result['error'] = 'Perfil inexistente';
+                    }
+                    break;
+            case 'updateRow':
+                $_POST = Validator::validateForm($_POST);
+                if (
+                    !$cliente->setNombre($_POST['nombreCliente']) or
+                    !$cliente->setCorreo($_POST['correoCliente'])or
+                    !$cliente->setTelefono($_POST['telefonoCliente'])
+                ) {
+                    $result['error'] = $cliente->getDataError();
+                } elseif ($cliente->editProfile()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Cliente modificado correctamente';
+                } else {
+                    $result['error'] = 'Ocurrió un problema al modificar el Cliente';
+                }
+                break;
             default:
                 $result['error'] = 'Acción no disponible dentro de la sesión';
         }

@@ -27,6 +27,47 @@
 
         </div>
 
+
+        <!-- Componente Modal para guardar un registro -->
+    <div class="modal fade" id="saveModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalTitle"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!-- Formulario para guardar un registro -->
+            <form id="saveForm">
+                <div class="modal-body row g-3">
+                    <!-- Campo oculto para asignar el id del registro al momento de modificar -->
+                    <input type="number" id="idCliente" name="idCliente" class="invisible">
+                    <div class="col-sm-12 col-md-6">
+                        <label for="nombreCliente" class="form-label">Nombre</label>
+                        <input id="nombreCliente" type="text" name="nombreCliente" class="form-control"
+                            required>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <label for="correoCliente" class="form-label">Correo</label>
+                        <input id="correoCliente" type="text" name="correoCliente"
+                            class="form-control">
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <label for="telefonoCliente" class="form-label">Telefono</label>
+                        <input id="telefonoCliente" type="text" name="telefonoCliente"
+                            class="form-control">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
     </main>
 
     <footer>
@@ -36,7 +77,7 @@
     <script type="text/javascript" src="../../recursos/js/sweetalert.min.js"></script>
     <script type="text/javascript"
         src="../../../ecoaprende_sitioprivado/controlador_administrador/utilidades_administrador/components.js"></script>
-    <script src=".././../controlador/publico/usuario.js"></script>
+    <script type="text/javascript" src=".././../controlador/publico/usuario.js"></script>
 </body>
 
 </html>

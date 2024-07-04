@@ -32,8 +32,8 @@ if (isset($_GET['action'])) {
                 $_POST = Validator::validateForm($_POST);
                 if (
                     !$valoracion->setIdDetalle($_POST['idDetalle'])or
-                    !$valoracion->setComentario($_POST['comentario'])or
-                    !$valoracion->setCalificacion($_POST['calificacion'])
+                    !$valoracion->setComentario($_POST['comentarioProducto'])or
+                    !$valoracion->setCalificacion($_POST['calificacionProducto'])
                 ) {
                     $result['error'] = $valoracion->getDataError();
                 } elseif ($valoracion->createRow()) {

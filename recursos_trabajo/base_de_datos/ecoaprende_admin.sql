@@ -22,7 +22,7 @@ CREATE TABLE tb_administradores (
 	id_administrador INT AUTO_INCREMENT PRIMARY KEY NOT NULL, #UNIQUE
     nombre_administrador  VARCHAR(50) NOT NULL,
     correo_administrador  VARCHAR(100) NOT NULL, #UNIQUE
-    clave_administrador  VARCHAR(200) NOT NULL
+    clave_administrador  VARCHAR(100) NOT NULL
 );
 
 ALTER TABLE tb_administradores ADD
@@ -37,7 +37,7 @@ CREATE TABLE tb_clientes (
 	id_cliente INT AUTO_INCREMENT PRIMARY KEY NOT NULL, #UNIQUE
     nombre_cliente VARCHAR(50) NOT NULL,
     correo_cliente VARCHAR(100) NOT NULL, #UNIQUE
-    clave_cliente VARCHAR(30) NOT NULL,
+    clave_cliente VARCHAR(100) NOT NULL,
     telefono_cliente VARCHAR(9) NOT NULL, #CHECK UNIQUE
     estado_cliente BOOLEAN DEFAULT 1 NULL,
     dui_cliente VARCHAR(10) NOT NULL, #CHECK UNIQUE

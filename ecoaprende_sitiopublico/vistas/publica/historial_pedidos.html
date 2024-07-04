@@ -21,55 +21,66 @@
     </header>
     <main>
         <div class="py-5"></div>
-        <section class="container-fluid">
-            <div class="col-10 m-5">
-                <h3>Historial de compras</h3>
-                <!-- Tabla para mostrar los registros existentes -->
-                <table class="table table-hover">
-                    <!-- Encabezado de la tabla para mostrar la cantidad de registros y los títulos de las columnas -->
-                    <thead>
-                        <tr>
-                            <td colspan="5" id="rowsFound"></td>
-                        </tr>
-                        <tr>
-                            <th>PRODUCTO</th>
-                            <th>TITULO</th>
-                            <th>PRECIO</th>
-                            <th>CANTIDAD</th>
-                            <th>SUBTOTAL</th>
-                        </tr>
-                    </thead>
-                    <!-- Cuerpo de la tabla para mostrar un registro por fila -->
-                    <tbody id="tableBody">
-                        <tr>
-                            <td><img src="../../recursos/img/tec.png" class="card-img-fluid" height="150px"
-                                    width="150px" alt="..."></td>
-                            <td>EL LIBRO DE LA MEDICINA
-                                (THE MEDICINE BOOK).</td>
-                            <td>$45.00</td>
-                            <td>1</td>
-                            <td>$45.00</td>
-                        </tr>
-                        <tr>
-                            <td><img src="../../recursos/img/tec.png" class="card-img-fluid" height="150px"
-                                    width="150px" alt="..."></td>
-                            <td>EL LIBRO DE LA MEDICINA
-                                (THE MEDICINE BOOK).</td>
-                            <td>$50.00</td>
-                            <td>1</td>
-                            <td>$50.00</td>
-                        </tr>
-                    </tbody>
-                </table>
-                </br>
-                <div class="text-end">
-                    <strong class="text-success">Total: <span class="text-success">$95.00</span></strong>
+        <div class="col-10 m-5">
+            <h3>Historial de compras</h3>
+            <!-- Tabla para mostrar los registros existentes -->
+            <table class="table table-hover">
+                <!-- Encabezado de la tabla para mostrar la cantidad de registros y los títulos de las columnas -->
+                <thead>
+                    <tr>
+                        <th>PRODUCTO</th>
+                        <th>PRECIO</th>
+                        <th>CANTIDAD</th>
+                        <th>DIRECCIÓN</th>
+                        <th>FECHA</th>
+                        <th>AGREGAR COMENTARIO</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla_envios">
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Componente Modal  -->
+        <div class="modal fade" id="saveModal2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="modalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content ">
+                    <div class="modal-header">
+                        <!-- Título del modal -->
+                        <h1></h1>
+                        <!-- Botón de cierre del modal -->
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <!-- Formulario para crear o actualizar un registro -->
+                    <form id="saveForm">
+                        <div class="modal-body row gx-5">
+                            <!-- Campo oculto para asignar el id del registro al momento de modificar -->
+                            <input type="hidden" id="idDetalle" name="idDetalle">
+
+                            <div class="col-sm-12 col-md-12">
+                                <label for="comentarioProducto" class="form-label">Mensaje</label>
+                                <textarea id="comentarioProducto" name="comentarioProducto" class="form-control"
+                                    rows="6"></textarea>
+                            </div>
+                            <div class="col-12 mt-4 mb-2 text-center">
+                                <label for="calificacionProducto" class="form-label">Puntuación</label>
+                                <input id="calificacionProducto" name="comentarioProducto">
+                            </div>
+                            <div class="col-sm-12 col-md-6" id="fechaDiv">
+                                <label for="fechaComentario" class="form-label">Fecha</label>
+                                <input id="fechaComentario" type="text" name="fechaComentario" class="form-control">
+                            </div>
+
+                        </div>
+                        <!-- Pie del modal con el botón de guardar -->
+                        <div class="modal-footer border-0">
+                            <button type="submit">Guardar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </section>
-        <article class="text-end ">
-            <button class="btn btn-success" type="submit"><i class="bi bi-cart"></i> Finalizar compra</button>
-        </article>
+        </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -77,7 +88,7 @@
     <!-- Llamada al controlador general de la aplicación -->
     <script type="text/javascript" src="../../../ecoaprende_sitioprivado/controlador_administrador/utilidades_administrador/components.js"></script>
     <!-- Llamada al controlador de la página web -->
-    <script type="text/javascript" src="../../controlador/publico/valoracion.js"></script>
+    <script type="text/javascript" src="../../../ecoaprende_sitioprivado/controlador_administrador/controlador_administrador/pedidos.js"></script>
 </body>
 
 </html>

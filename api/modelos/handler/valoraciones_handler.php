@@ -73,6 +73,7 @@ class ValoracionesHandler
         return Database::getRows($sql);
     }
 
+
     //Función para cambiar el estado de un cliente.
     public function changeState()
     {
