@@ -87,6 +87,29 @@ if (isset($_GET['action'])) {
                 break;
             default:
                 $result['error'] = 'Acción no disponible fuera de la sesión';
+
+
+                case 'ingresoMovil':
+                    $_POST = Validator::validateForm($_POST);
+                    if (
+                        !$cliente->setNombre($_POST['nombreCliente']) or
+                        !$cliente->setCorreo($_POST['correoCliente']) or
+                        !$cliente->setDUI($_POST['duiCliente']) or
+                        !$cliente->setTelefono($_POST['telefonoCliente']) or
+                        !$cliente->setClave($_POST['claveCliente'])
+                    ) {
+                        $result['error'] = $cliente->getDataError();
+                    } elseif ($cliente->ingresoMovil()) {
+                        $result['status'] = 1;
+                        $result['message'] = 'Cuenta registrada correctamente';
+                    } else {
+                        $result['error'] = 'Ocurrió un problema al registrar la cuenta';
+                    }
+                    break;
+    
+    
+                default:
+                    $result['error'] = 'Acción no disponible fuera de la sesión';
         }
     }
     // Se obtiene la excepción del servidor de base de datos por si ocurrió un problema.
