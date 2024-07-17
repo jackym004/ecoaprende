@@ -81,7 +81,7 @@ class LibroData extends LibroHandler
     public function setImagen($file, $filename = null)
     {
         if (Validator::validateImageFile($file, 1000)) {
-            $this->imagen = Validator::getFileName();
+            $this->imagen = Validator::getFilename();
             return true;
         } elseif (Validator::getFileError()) {
             $this->data_error = Validator::getFileError();
@@ -90,7 +90,7 @@ class LibroData extends LibroHandler
             $this->imagen = $filename;
             return true;
         } else {
-            $this->imagen = 'default.png';
+            $this->imagen = 'default-book.jpg';
             return true;
         }
     }
