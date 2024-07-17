@@ -137,10 +137,6 @@ if (isset($_GET['action'])) {
                         $result['error'] = 'Ocurrió un problema al registrar la cuenta';
                     }
                     break;
-    
-    
-                default:
-                    $result['error'] = 'Acción no disponible fuera de la sesión';
         }
     }
     // Se obtiene la excepción del servidor de base de datos por si ocurrió un problema.

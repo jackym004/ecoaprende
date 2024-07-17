@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase para generar archivos PDF.
-require_once('../../libraries/fpdf185/fpdf.php');
+require_once('../../librerias/fpdf185/fpdf.php');
 
 /*
 *   Clase para definir las plantillas de los reportes del sitio privado.
@@ -9,7 +9,7 @@ require_once('../../libraries/fpdf185/fpdf.php');
 class Report extends FPDF
 {
     // Constante para definir la ruta de las vistas del sitio privado.
-    const CLIENT_URL = 'http://localhost/coffeeshop/views/admin/';
+    const CLIENT_URL = 'http://localhost/ecoaprende/ecoaprende_sitioprivado/vistas_administrador/privada/';
     // Propiedad para guardar el título del reporte.
     private $title = null;
 
