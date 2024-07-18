@@ -105,14 +105,6 @@ class ClientesHandler
         return Database::executeRow($sql, $params);
     }
 
-    public function ingresoMovil()
-    {
-        $sql = 'INSERT INTO tb_clientes(nombre_cliente, correo_cliente, telefono_cliente, dui_cliente, clave_cliente)
-                VALUES(?, ?, ?, ?, ?)';
-        $params = array($this->nombre,$this->correo, $this->dui, $this->telefono, $this->clave);
-        return Database::executeRow($sql, $params);
-    }
-
     public function checkUser($mail, $password)
     {
         $sql = 'SELECT id_cliente, correo_cliente, clave_cliente, estado_cliente
