@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase del modelo.
-require_once('../../modelos/data/clientes_data.php');
+require_once ('../../modelos/data/clientes_data.php');
 
 // Se comprueba si existe una acción a realizar, de lo contrario se finaliza el script con un mensaje de error.
 if (isset($_GET['action'])) {
@@ -39,19 +39,19 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Perfil inexistente';
                 }
                 break;
-                // Ver perfil
-                case 'readEditProfile':
-                    if ($result['dataset'] = $cliente->readOneEditProfile()) {
-                        $result['status'] = 1;
-                    } else {
-                        $result['error'] = 'Perfil inexistente';
-                    }
-                    break;
+            // Ver perfil
+            case 'readEditProfile':
+                if ($result['dataset'] = $cliente->readOneEditProfile()) {
+                    $result['status'] = 1;
+                } else {
+                    $result['error'] = 'Perfil inexistente';
+                }
+                break;
             case 'updateRow':
                 $_POST = Validator::validateForm($_POST);
                 if (
                     !$cliente->setNombre($_POST['nombreCliente']) or
-                    !$cliente->setCorreo($_POST['correoCliente'])or
+                    !$cliente->setCorreo($_POST['correoCliente']) or
                     !$cliente->setTelefono($_POST['telefonoCliente'])
                 ) {
                     $result['error'] = $cliente->getDataError();
@@ -105,6 +105,24 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al registrar la cuenta';
                 }
                 break;
+            case 'IngresoMovil':
+                $_POST = Validator::validateForm($_POST);
+                if (
+                    !$cliente->setNombre($_POST['nombreRegistro']) or
+                    !$cliente->setCorreo($_POST['correoRegistro']) or
+                    !$cliente->setDUI($_POST['duiRegistro']) or
+                    !$cliente->setTelefono($_POST['telefonoRegistro']) or
+                    !$cliente->setClave($_POST['claveRegistro'])
+                ) {
+                    $result['error'] = $cliente->getDataError();
+                } elseif ($cliente->createRow()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Cuenta registrada correctamente';
+                    // Se asigna el estado del archivo después de insertar.
+                } else {
+                    $result['error'] = 'Ocurrió un problema al registrar la cuenta';
+                }
+                break;
             case 'logIn':
                 $_POST = Validator::validateForm($_POST);
                 if (!$cliente->checkUser($_POST['correo'], $_POST['clave'])) {
@@ -125,7 +143,7 @@ if (isset($_GET['action'])) {
     // Se indica el tipo de contenido a mostrar y su respectivo conjunto de caracteres.
     header('Content-type: application/json; charset=utf-8');
     // Se imprime el resultado en formato JSON y se retorna al controlador.
-    print(json_encode($result));
+    print (json_encode($result));
 } else {
-    print(json_encode('Recurso no disponible'));
+    print (json_encode('Recurso no disponible'));
 }
