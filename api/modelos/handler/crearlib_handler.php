@@ -135,18 +135,17 @@ class LibroHandler
         return Database::getRows($sql);
     }
 */
-    /*
-    *   Métodos para generar reportes.
+
+ /*Métodos para generar reportes.*/
     
-    public function productosCategoria()
+    public function librosCategoria()
     {
-        $sql = 'SELECT nombre_producto, precio_producto, estado_producto
-                FROM producto
-                INNER JOIN categoria USING(id_categoria)
+        $sql = 'SELECT nombre_libro, precio_libro, estado_libro
+                FROM tb_libros
+                INNER JOIN tb_categorias USING(id_categoria)
                 WHERE id_categoria = ?
-                ORDER BY nombre_producto';
+                ORDER BY nombre_libro';
         $params = array($this->categoria);
         return Database::getRows($sql, $params);
     }
-    */
 }
