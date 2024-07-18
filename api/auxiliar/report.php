@@ -1,7 +1,6 @@
 <?php
 // Se incluye la clase para generar archivos PDF.
-require_once('../../librerias/fpdf185/fpdf.php');
-
+require_once('../librerias/fpdf185/fpdf.php');
 /*
 *   Clase para definir las plantillas de los reportes del sitio privado.
 *   Para más información http://www.fpdf.org/

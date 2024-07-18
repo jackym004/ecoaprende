@@ -1,9 +1,9 @@
 <?php
 // Se incluye la clase con las plantillas para generar reportes.
-require_once('../../auxiliar/report.php');
+require_once('../auxiliar/report.php');
 // Se incluyen las clases para la transferencia y acceso a datos.
-require_once('../../modelos/data/libro_data.php');
-require_once('../../modelos/data/categorialib_data.php');
+require_once('../modelos/data/libro_data.php');
+require_once('../modelos/data/categorialib_data.php');
 
 // Se instancia la clase para crear el reporte.
 $pdf = new Report;
