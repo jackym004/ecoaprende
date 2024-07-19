@@ -46,14 +46,26 @@ body {
   width: 120px;
 }
 
-btn-secondary{
+.btn-secondary{
   background-color: #FF5C77;
   color: white;
   width: 120px;
 }
 
-btn-primary{
-  background-color: #FFB7C3;
+.btn-primary{
+  background-color: #FF5C77;
+  color: white;
+  width: 120px;
+}
+
+.btn-primary:hover{
+  background-color: #0000;
+  color: white;
+  width: 120px;
+}
+
+.btn-secondary:hover{
+  background-color: #0000;
   color: white;
   width: 120px;
 }
