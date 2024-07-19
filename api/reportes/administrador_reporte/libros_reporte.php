@@ -1,9 +1,9 @@
 <?php
 // Se incluye la clase con las plantillas para generar reportes.
-require_once('../auxiliar/report.php');
+require_once('../../auxiliar/report.php');
 // Se incluyen las clases para la transferencia y acceso a datos.
-require_once('../modelos/data/libro_data.php');
-require_once('../modelos/data/categorialib_data.php');
+require_once('../../modelos/data/libro_data.php');
+require_once('../../modelos/data/categorialib_data.php');
 
 // Se instancia la clase para crear el reporte.
 $pdf = new Report;
@@ -39,10 +39,10 @@ if ($dataCategorias = $categoria->readAll()) {
             if ($dataProductos = $producto->librosCategoria()) {
                 // Se recorren los registros fila por fila.
                 foreach ($dataProductos as $rowProducto) {
-                    ($rowProducto['estado_producto']) ? $estado = 'Activo' : $estado = 'Inactivo';
+                    ($rowProducto['estado_libro']) ? $estado = 'Activo' : $estado = 'Inactivo';
                     // Se imprimen las celdas con los datos de los productos.
                     $pdf->cell(126, 10, $pdf->encodeString($rowProducto['nombre_libro']), 1, 0);
-                    $pdf->cell(30, 10, $rowProducto['precio_producto'], 1, 0);
+                    $pdf->cell(30, 10, $rowProducto['precio_libro'], 1, 0);
                     $pdf->cell(30, 10, $estado, 1, 1);
                 }
             } else {

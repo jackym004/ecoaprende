@@ -4,6 +4,7 @@ require_once('../../auxiliar/validator.php');
 // Se incluye la clase padre.
 require_once('../../modelos/handler/categorialib_handler.php');
 /*
+
  *  Clase para manejar el encapsulamiento de los datos de la tabla CATEGORIA.
  */
 class CategoriaData extends CategoriaHandler

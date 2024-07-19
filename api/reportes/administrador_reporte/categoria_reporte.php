@@ -1,19 +1,19 @@
 <?php
 // Se incluye la clase con las plantillas para generar reportes.
-require_once('../../helpers/report.php');
+require_once('../../auxiliar/report.php');
 
 // Se instancia la clase para crear el reporte.
 $pdf = new Report;
 // Se verifica si existe un valor para la categoría, de lo contrario se muestra un mensaje.
-if (isset($_GET['idCategoria'])) {
+if (isset($_GET['id_categoria'])) {
     // Se incluyen las clases para la transferencia y acceso a datos.
-    require_once('../../models/data/categoria_data.php');
-    require_once('../modelos/data/libro_data.php');
+    require_once('../../modelos/data/libro_data.php');
+    require_once('../../modelos/data/categorialib_data.php');
     // Se instancian las entidades correspondientes.
     $categoria = new CategoriaData;
     $producto = new LibroData;
     // Se establece el valor de la categoría, de lo contrario se muestra un mensaje.
-    if ($categoria->setId($_GET['idCategoria']) && $producto->setCategoria($_GET['idCategoria'])) {
+    if ($categoria->setId($_GET['id_categoria']) && $producto->setCategoria($_GET['id_categoria'])) {
         // Se verifica si la categoría existe, de lo contrario se muestra un mensaje.
         if ($rowCategoria = $categoria->readOne()) {
             // Se inicia el reporte con el encabezado del documento.
@@ -32,10 +32,10 @@ if (isset($_GET['idCategoria'])) {
                 $pdf->setFont('Arial', '', 11);
                 // Se recorren los registros fila por fila.
                 foreach ($dataProductos as $rowProducto) {
-                    ($rowProducto['estado_producto']) ? $estado = 'Activo' : $estado = 'Inactivo';
+                    ($rowProducto['estado_libro']) ? $estado = 'Activo' : $estado = 'Inactivo';
                     // Se imprimen las celdas con los datos de los productos.
-                    $pdf->cell(126, 10, $pdf->encodeString($rowProducto['nombre_producto']), 1, 0);
-                    $pdf->cell(30, 10, $rowProducto['precio_producto'], 1, 0);
+                    $pdf->cell(126, 10, $pdf->encodeString($rowProducto['nombre_libro']), 1, 0);
+                    $pdf->cell(30, 10, $rowProducto['precio_libro'], 1, 0);
                     $pdf->cell(30, 10, $estado, 1, 1);
                 }
             } else {
