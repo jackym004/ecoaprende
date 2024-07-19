@@ -49,8 +49,8 @@ class PedidoHandler
         if ($this->getOrder()) {
             return true;
         } else {
-            $sql = 'INSERT INTO tb_pedidos(estado_pedido, direccion_pedido, id_cliente)
-                    VALUES("En camino", "San Salvador, Mejicanos", ?)';
+            $sql = 'INSERT INTO tb_pedidos(direccion_pedido, id_cliente)
+                    VALUES("San Salvador, Mejicanos", ?)';
             $params = array($_SESSION['idCliente']);
             // Se obtiene el ultimo valor insertado de la llave primaria en la tabla pedido.
             if ($_SESSION['idPedido'] = Database::getLastRow($sql, $params)) {
