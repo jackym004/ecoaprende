@@ -111,7 +111,7 @@ CHECK (descripcion_libro <> '');
 
 CREATE TABLE tb_pedidos(
 id_pedido INT AUTO_INCREMENT PRIMARY KEY,
-estado_pedido ENUM('Entregado', 'En camino', 'Cancelado') NOT NULL,
+estado_pedido ENUM('Pendiente', 'Entregado', 'En camino', 'Cancelado') NULL DEFAULT 'Pendiente',
 fecha_pedido DATETIME DEFAULT NOW(),
 direccion_pedido VARCHAR(50) NOT NULL,
 id_cliente INT NOT NULL
