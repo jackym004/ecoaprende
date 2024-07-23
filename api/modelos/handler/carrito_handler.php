@@ -79,8 +79,8 @@ class PedidoHandler
                 FROM tb_detalles_pedidos
                 INNER JOIN tb_pedidos USING(id_pedido)
                 INNER JOIN tb_libros USING(id_libro)
-                WHERE id_pedido = ?';
-        $params = array($_SESSION['idPedido']);
+                WHERE id_pedido = (SELECT id_pedido FROM tb_pedidos WHERE id_cliente = ? AND estado_pedido = "Pendiente" LIMIT 1)';
+        $params = array($_SESSION['idCliente']);
         return Database::getRows($sql, $params);
     }
 
