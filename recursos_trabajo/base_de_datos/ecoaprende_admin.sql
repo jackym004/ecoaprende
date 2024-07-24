@@ -22,7 +22,7 @@ CREATE TABLE tb_administradores (
 	id_administrador INT AUTO_INCREMENT PRIMARY KEY NOT NULL, #UNIQUE
     nombre_administrador  VARCHAR(50) NOT NULL,
     correo_administrador  VARCHAR(100) NOT NULL, #UNIQUE
-    clave_administrador  VARCHAR(100) NOT NULL
+    clave_administrador  VARCHAR(200) NOT NULL
 );
 
 ALTER TABLE tb_administradores ADD
@@ -39,7 +39,7 @@ CREATE TABLE tb_clientes (
     correo_cliente VARCHAR(100) NOT NULL, #UNIQUE
     clave_cliente VARCHAR(100) NOT NULL,
     telefono_cliente VARCHAR(9) NOT NULL, #CHECK UNIQUE
-    estado_cliente BOOLEAN DEFAULT 1 NULL,
+	estado_cliente BOOLEAN DEFAULT 1 NULL,
     dui_cliente VARCHAR(10) NOT NULL, #CHECK UNIQUE
     id_carrera INT #FK
 );
@@ -111,7 +111,7 @@ CHECK (descripcion_libro <> '');
 
 CREATE TABLE tb_pedidos(
 id_pedido INT AUTO_INCREMENT PRIMARY KEY,
-estado_pedido ENUM('Pendiente', 'Entregado', 'En camino', 'Cancelado') NULL DEFAULT 'Pendiente',
+estado_pedido ENUM('Entregado', 'En camino', 'Cancelado') NOT NULL,
 fecha_pedido DATETIME DEFAULT NOW(),
 direccion_pedido VARCHAR(50) NOT NULL,
 id_cliente INT NOT NULL
@@ -163,5 +163,43 @@ CONSTRAINT fk_valoracion_detallepedido
 FOREIGN KEY (id_detalles_pedidos)
 REFERENCES tb_detalles_pedidos(id_detalles_pedidos);
 
-insert into tb_pedidos (estado_pedido, fecha_pedido, direccion_pedido)
-values (Entregado, 2024-5-20, San_salvador);
+DROP PROCEDURE IF EXISTS actualizar_estado_pedido;
+DELIMITER $$
+CREATE PROCEDURE actualizar_estado_pedido(
+    IN p_id_pedido INT,
+    IN p_estado_pedido ENUM('Entregado', 'En camino', 'Cancelado')
+)
+BEGIN
+    -- Actualizar el estado del pedido en la tabla pedidos
+    UPDATE tb_pedidos
+    SET estado_pedido = p_estado_pedido
+    WHERE id_pedido = p_id_pedido;
+END
+$$
+
+DROP PROCEDURE IF EXISTS cambiar_estado_cliente;
+DELIMITER $$
+CREATE PROCEDURE cambiar_estado_cliente(IN cliente_id INT)
+BEGIN
+    DECLARE cliente_estado BOOLEAN;
+    
+    -- Obtener el estado actual del administrador
+    SELECT estado_cliente INTO cliente_estado
+    FROM tb_clientes
+    WHERE id_cliente = cliente_id;
+    
+    -- Actualizar el estado del administrador
+    IF cliente_estado = 1 THEN
+        UPDATE tb_clientes
+        SET estado_cliente = 0
+        WHERE id_cliente = cliente_id;
+    ELSE
+        UPDATE tb_clientes
+        SET estado_cliente = 1
+        WHERE id_cliente = cliente_id;
+    END IF;
+END $$
+
+SELECT * FROM tb_clientes;
+
+SELECT * FROM tb_administradores;

@@ -202,6 +202,128 @@ const pieGraph = (canvas, legends, values, title) => {
 }
 
 /*
+*   Función para generar un gráfico de barras verticales. Requiere la librería chart.js para funcionar.
+*   Parámetros: canvas (identificador de la etiqueta canvas), xAxis (datos para el eje X), yAxis (datos para el eje Y), legend (etiqueta para los datos) y title (título del gráfico).
+*   Retorno: ninguno.
+*/
+const lineGraph = (canvas, legends, values, title) => {
+    // Destruir gráfico existente si lo hay para evitar superposiciones.
+    if (existingLineChart) {
+        existingLineChart.destroy();
+    }
+
+    let colors = [];
+    values.forEach(() => {
+        colors.push('#' + (Math.random().toString(16)).substring(2, 8));
+    });
+    existingLineChart = new Chart(document.getElementById(canvas), {
+        type: 'line',
+        data: {
+            labels: legends,
+            datasets: [{
+                data: values,
+                borderColor: colors[0],
+                fill: false
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: title
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
+
+
+/*
+*   Función para generar un gráfico de barras verticales. Requiere la librería chart.js para funcionar.
+*   Parámetros: canvas (identificador de la etiqueta canvas), xAxis (datos para el eje X), yAxis (datos para el eje Y), legend (etiqueta para los datos) y title (título del gráfico).
+*   Retorno: ninguno.
+*/
+
+
+const radarGraph = (canvas, legends, values, title) => {
+    // Destruir gráfico existente si lo hay para evitar superposiciones.
+    if (existingRadarChart) {
+        existingRadarChart.destroy();
+    }
+
+    let colors = [];
+    values.forEach(() => {
+        colors.push('#' + (Math.random().toString(16)).substring(2, 8));
+    });
+    existingRadarChart = new Chart(document.getElementById(canvas), {
+        type: 'radar',
+        data: {
+            labels: legends,
+            datasets: [{
+                data: values,
+                backgroundColor: colors[0]
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: title
+                }
+            }
+        }
+    });
+}
+
+/*
+*   Función para generar un gráfico de barras verticales. Requiere la librería chart.js para funcionar.
+*   Parámetros: canvas (identificador de la etiqueta canvas), xAxis (datos para el eje X), yAxis (datos para el eje Y), legend (etiqueta para los datos) y title (título del gráfico).
+*   Retorno: ninguno.
+*/
+
+const doughnutGraph = (canvas, legends, values, title) => {
+    // Destruir el gráfico existente si existe
+    if (existingDoughnutChart) {
+        existingDoughnutChart.destroy();
+    }
+
+    let colors = [];
+    values.forEach(() => {
+        colors.push('#' + (Math.random().toString(16)).substring(2, 8));
+    });
+
+    // Crear el nuevo gráfico y guardar la referencia
+    existingDoughnutChart = new Chart(document.getElementById(canvas), {
+        type: 'doughnut',
+        data: {
+            labels: legends,
+            datasets: [{
+                data: values,
+                backgroundColor: colors
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: title
+                }
+            }
+        }
+    });
+}
+
+
+
+
+
+
+/*
 *   Función asíncrona para cerrar la sesión del usuario.
 *   Parámetros: ninguno.
 *   Retorno: ninguno.

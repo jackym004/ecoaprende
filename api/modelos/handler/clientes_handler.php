@@ -105,6 +105,18 @@ class ClientesHandler
         return Database::executeRow($sql, $params);
     }
 
+    
+    public function cantidadUsuariosEstado()
+    {
+        $sql = 'SELECT nombre_categoria, COUNT(id_libro) cantidad
+                FROM tb_libros
+                INNER JOIN tb_categorias USING(id_categoria)
+                GROUP BY nombre_categoria ORDER BY cantidad DESC LIMIT 5';
+        return Database::getRows($sql);
+    }
+
+
+
     public function checkUser($mail, $password)
     {
         $sql = 'SELECT id_cliente, correo_cliente, clave_cliente, estado_cliente
@@ -150,4 +162,9 @@ class ClientesHandler
         $params = array($this->nombre, $this->correo, $this->telefono, $_SESSION['idCliente']);
         return Database::executeRow($sql, $params);
     }
+
+
+
 }
+
+
