@@ -126,6 +126,80 @@ class LibroHandler
         return Database::getRows($sql);
     }
 
+    public function ventaLibrosCategoria()
+    {
+        $sql = 'SELECT nombre_categoria, COUNT(id_libro) cantidad
+                FROM tb_libros
+                INNER JOIN tb_categorias USING(id_categoria)
+                GROUP BY nombre_categoria ORDER BY cantidad DESC LIMIT 5';
+        return Database::getRows($sql);
+    }
+
+    
+    /*
+    *   Métodos para generar gráficos.
+    
+
+    public function PrediccionProximosMeses()
+    {
+        $sql = 'WITH VentasUltimosMeses AS (
+                SELECT
+                    DATE_FORMAT(p.fecha_registro, "%Y-%m") AS mes,
+                    SUM(dp.cantidad_producto * dp.precio_producto) AS monto_ventas
+                FROM
+                    detalle_pedido dp
+                INNER JOIN
+                    pedido p ON dp.id_pedido = p.id_pedido
+                WHERE
+                    p.fecha_registro BETWEEN DATE_SUB(CURDATE(), INTERVAL 5 MONTH) AND CURDATE()
+                GROUP BY
+                    DATE_FORMAT(p.fecha_registro, "%Y-%m")
+                ORDER BY
+                    DATE_FORMAT(p.fecha_registro, "%Y-%m")
+            ),
+            IncrementoPromedio AS (
+                SELECT
+                    AVG(incremento) AS promedio_incremento
+                FROM (
+                    SELECT
+                        monto_ventas - LAG(monto_ventas) OVER (ORDER BY mes) AS incremento
+                    FROM
+                        VentasUltimosMeses
+                ) AS subconsulta
+            )
+            SELECT
+                DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL seq MONTH), "%Y-%m") AS mes_proyeccion,
+                CONCAT(
+                    DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL seq MONTH), "%M"), " ",
+                    DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL seq MONTH), "%Y")
+                ) AS nombre_mes_proyeccion,
+                ROUND(
+                    (SELECT monto_ventas
+                     FROM VentasUltimosMeses
+                     ORDER BY mes DESC
+                     LIMIT 1
+                    ) * POW(1 + (IFNULL(promedio_incremento, 0) / 100), seq)
+                    , 2
+                ) AS proyeccion_ventas
+            FROM
+                (SELECT 1 AS seq UNION ALL
+                 SELECT 2 UNION ALL
+                 SELECT 3 UNION ALL
+                 SELECT 4 UNION ALL
+                 SELECT 5 UNION ALL
+                 SELECT 6 -- Se añade el sexto mes para proyectar 6 meses
+                ) AS secuencia
+            CROSS JOIN
+                IncrementoPromedio
+            ORDER BY
+                mes_proyeccion;
+            ';
+
+        return Database::getRows($sql);
+    }
+
+*/
+
     public function porcentajeLibrosCategoria()
     {
         $sql = 'SELECT nombre_categoria, ROUND((COUNT(id_libro) * 100.0 / (SELECT COUNT(id_libro) FROM tb_libros)), 2) porcentaje
