@@ -1,97 +1,76 @@
-  // Constante para establecer la ruta base del servidor.
-const SERVER_URL = 'http://localhost/ecoaprende/api/';
-
 // Constante para completar la ruta de la API.
-const USER_API = 'servicios/administrador/administrador.php';
-  
-  // graficos de barra 
-  const data = {
-    labels: ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes'],
-    datasets: [{
-      label: 'Libros vendidos mensualmente',
-      data: [12, 11, 9, 15, 20, 9],
-      backgroundColor:'#FF5C77',
-    }]
-  };
+const LIBROS_API = 'servicios/administrador/libros.php';
 
-  // config 
-  const config = {
-    type: 'bar',
-    data,
-    options: {
-        maintainAspectRatio: false,
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
+// Método del evento para cuando el documento ha cargado.
+document.addEventListener('DOMContentLoaded', () => {
+    // Constante para obtener el número de horas.
+    const HOUR = new Date().getHours();
+    // Se define una variable para guardar un saludo.
+    let greeting = '';
+    // Dependiendo del número de horas transcurridas en el día, se asigna un saludo para el usuario.
+    if (HOUR < 12) {
+        greeting = 'Buenos días';
+    } else if (HOUR < 19) {
+        greeting = 'Buenas tardes';
+    } else if (HOUR <= 23) {
+        greeting = 'Buenas noches';
     }
-  };
-
-  // render init block
-  const myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-  );
-
-  // Instantly assign Chart.js version
-  const chartVersion = document.getElementById('chartVersion');
-  chartVersion.innerText = Chart.version;
-
-
-
-
-
-  // graficos de linea 
-
-
-  const ctx = document.getElementById('mChart');
-              
-new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
-    datasets: [{
-      label: '# of Votes',
-      data: [74, 200, 50, 25,175],
-      borderWidth: 1,
-      backgroundColor:'#F7B32B',
-    }]
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true
-      }
-    }
-  }
+    // Llamada a la función para mostrar el encabezado y pie del documento.
+    // Llamada a la funciones que generan los gráficos en la página web.
+    graficoBarrasCategorias();
+    graficoPastelCategorias();
 });
 
+/*
+*   Función asíncrona para mostrar un gráfico de barras con la cantidad de productos por categoría.
+*   Parámetros: ninguno.
+*   Retorno: ninguno.
+*/
+const graficoBarrasCategorias = async () => {
+    // Petición para obtener los datos del gráfico.
+    const DATA = await fetchData(LIBROS_API, 'cantidadLibrosCategoria');
+    // Se comprueba si la respuesta es satisfactoria, de lo contrario se remueve la etiqueta canvas.
+    if (DATA.status) {
+        // Se declaran los arreglos para guardar los datos a graficar.
+        let categorias = [];
+        let cantidades = [];
+        // Se recorre el conjunto de registros fila por fila a través del objeto row.
+        DATA.dataset.forEach(row => {
+            // Se agregan los datos a los arreglos.
+            categorias.push(row.nombre_categoria);
+            cantidades.push(row.cantidad);
+        });
+        // Llamada a la función para generar y mostrar un gráfico de barras. Se encuentra en el archivo components.js
+        barGraph('chart1', categorias, cantidades, 'Cantidad de productos', 'Cantidad de productos por categoría');
+    } else {
+        document.getElementById('chart1').remove();
+        console.log(DATA.error);
+    }
+}
 
-const pieGraph = (canvas, legends, values, title) => {
-    // Se declara un arreglo para guardar códigos de colores en formato hexadecimal.
-    let colors = [];
-    // Se generan códigos hexadecimales de 6 cifras de acuerdo con el número de datos a mostrar y se agregan al arreglo.
-    values.forEach(() => {
-        colors.push('#' + (Math.random().toString(16)).substring(2, 8));
-    });
-    // Se crea una instancia para generar el gráfico con los datos recibidos.
-    new Chart(document.getElementById(canvas), {
-        type: 'pie',
-        data: {
-            labels: legends,
-            datasets: [{
-                data: values,
-                backgroundColor: colors
-            }]
-        },
-        options: {
-            plugins: {
-                title: {
-                    display: true,
-                    text: title
-                }
-            }
-        }
-    });
+/*
+*   Función asíncrona para mostrar un gráfico de pastel con el porcentaje de productos por categoría.
+*   Parámetros: ninguno.
+*   Retorno: ninguno.
+*/
+const graficoPastelCategorias = async () => {
+    // Petición para obtener los datos del gráfico.
+    const DATA = await fetchData(LIBROS_API, 'porcentajeLibrosCategoria');
+    // Se comprueba si la respuesta es satisfactoria, de lo contrario se remueve la etiqueta canvas.
+    if (DATA.status) {
+        // Se declaran los arreglos para guardar los datos a gráficar.
+        let categorias = [];
+        let porcentajes = [];
+        // Se recorre el conjunto de registros fila por fila a través del objeto row.
+        DATA.dataset.forEach(row => {
+            // Se agregan los datos a los arreglos.
+            categorias.push(row.nombre_categoria);
+            porcentajes.push(row.porcentaje);
+        });
+        // Llamada a la función para generar y mostrar un gráfico de pastel. Se encuentra en el archivo components.js
+        pieGraph('chart2', categorias, porcentajes, 'Porcentaje de productos por categoría');
+    } else {
+        document.getElementById('chart2').remove();
+        console.log(DATA.error);
+    }
 }
