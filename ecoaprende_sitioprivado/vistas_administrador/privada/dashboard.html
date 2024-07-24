@@ -130,14 +130,17 @@
 
 
             <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-4">
-                    <!-- Se muestra un gráfico con la cantidad de productos por categoría -->
-                    <canvas id="chart1"></canvas>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-4">
-                    <!-- Se muestra un gráfico con el porcentaje de productos por categoría -->
-                    <canvas id="chart2"></canvas>
-                </div>
+                
+      <!--Grafica 1-->
+      <div class="col-lg-7 chart-container">
+        <canvas id="chart1" class="chart-canvas"></canvas>
+      </div>
+
+      <!--Grafica 2-->
+      <div class="col-lg-5 mt-4 chart-container">
+        <canvas id="chart2" class="chart-canvas"></canvas>
+      </div>
+
             </div>
             <!-- Importación de la librería para generar los gráficos. Para más información https://www.chartjs.org/ -->
             <script type="text/javascript" src="../../recursos_administrador/js_administrador/chart.umd.min.js"></script>
