@@ -129,44 +129,18 @@
 
 
 
-            <div class="main p-3">
-                <div class="container rounded position-absolute top-50 start-0 translate-middle    shadow">
-                    <p class="card-text">Ventas totales en el año.</p>
-                    <h5 class="card-title">575 libros</h5>
-                    <div class="text-center">
-                        <div class="chartCard  ">
-                            <div class="chartBox shadow ">
-                                <canvas id="mChart"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="main p-3">
-                <div class="container rounded position-absolute top-50 start-50  translate-middle  shadow">
-                    <p class="card-text">Libros vendidos diariamente.</p>
-                    <h5 class="card-title">Prom. 20</h5>
-                    <div class="text-center">
-                        <div class="chartCard  ">
-                            <div class="chartBox shadow ">
-                                <canvas id="myChart"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-4">
                     <!-- Se muestra un gráfico con la cantidad de productos por categoría -->
                     <canvas id="chart1"></canvas>
                 </div>
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <!-- Se muestra un gráfico con el porcentaje de productos por categoría -->
+                    <canvas id="chart2"></canvas>
+                </div>
             </div>
-
+            <!-- Importación de la librería para generar los gráficos. Para más información https://www.chartjs.org/ -->
+            <script type="text/javascript" src="../../recursos_administrador/js_administrador/chart.umd.min.js"></script>
 
         </div>
     </main>
@@ -174,13 +148,9 @@
     <!-- Scripts -->
     <!-- Script de Bootstrap 5 -->
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
     <script type="text/javascript"
         src="../../controlador_administrador/graficos_administrador/grafico de barra.js"></script>
-    <script type="text/javascript" src="../../controlador_administrador/graficos_administrador/setup.js"></script>
-    <script type="text/javascript" src="../../controlador_administrador/graficos_administrador/acciones.js"></script>
     <script type="text/javascript"
         src="../../controlador_administrador/graficos_administrador/grafico de linea.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
@@ -198,8 +168,6 @@
 
     <!-- Llamada al controlador de la página web -->
 <script type="text/javascript" src="../../controlador_administrador/controlador_administrador/administrador.js"></script>
-<script type="text/javascript" src="../../controlador_administrador/conexiones_graficos/conexion.js"></script>
-    <script src="../../controlador/administrador/sidebar.js"></script>
 </body>
 
 </html>

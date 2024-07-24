@@ -1,3 +1,9 @@
+  // Constante para establecer la ruta base del servidor.
+const SERVER_URL = 'http://localhost/ecoaprende/api/';
+
+// Constante para completar la ruta de la API.
+const USER_API = 'servicios/administrador/administrador.php';
+  
   // graficos de barra 
   const data = {
     labels: ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes'],

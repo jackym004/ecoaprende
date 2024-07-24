@@ -1,3 +1,5 @@
+const LIBROS_API = 'servicios/administrador/libros.php';
+
 /*
 *   Función asíncrona para mostrar un gráfico de pastel con el porcentaje de productos por categoría.
 *   Parámetros: ninguno.
