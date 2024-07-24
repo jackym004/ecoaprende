@@ -105,6 +105,15 @@ class PedidoHandler
         return Database::executeRow($sql, $params);
     }
 
+    public function cantidadpedidosProducto()
+    {
+        $sql = 'SELECT cantidad_comprada, COUNT(id_pedido) pedido
+                FROM tb_pedidos
+                INNER JOIN tb_libros USING(id_libro)
+                GROUP BY cantidad_comprada ORDER BY pedido DESC LIMIT 5';
+        return Database::getRows($sql);
+    }
+
     // Método para eliminar un producto que se encuentra en el carrito de compras.
     public function deleteDetail()
     {
