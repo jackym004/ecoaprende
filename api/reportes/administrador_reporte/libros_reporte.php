@@ -14,7 +14,7 @@ $categoria = new CategoriaData;
 // Se verifica si existen registros para mostrar, de lo contrario se imprime un mensaje.
 if ($dataCategorias = $categoria->readAll()) {
     // Se establece un color de relleno para los encabezados.
-    $pdf->setFillColor(200);
+    $pdf->setFillColor(255,192,203);
     // Se establece la fuente para los encabezados.
     $pdf->setFont('Arial', 'B', 11);
     // Se imprimen las celdas con los encabezados.

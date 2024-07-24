@@ -30,3 +30,11 @@ const openReportt = (id) => {
     window.open(PATH.href);
 }
 
+const openReporttt = (id) => {
+    // Se declara una constante tipo objeto con la ruta específica del reporte en el servidor.
+    const PATH = new URL(`${SERVER_URL}reportes/administrador_reporte/cliente_reporte.php`);
+    // Se agrega un parámetro a la ruta con el valor del registro seleccionado.
+    PATH.searchParams.append('idCliente', id);
+    // Se abre el reporte en una nueva pestaña.
+    window.open(PATH.href);
+}

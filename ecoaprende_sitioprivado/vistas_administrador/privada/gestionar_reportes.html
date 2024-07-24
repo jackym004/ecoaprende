@@ -19,10 +19,12 @@
         <aside id="sidebar">
             <div class="d-flex">
                 <button class="toggle-btn" type="button">
-                    <img src="../../recursos_administrador/img_administrador/menu-regular-24 (1).png" width="30px" alt="..." />
+                    <img src="../../recursos_administrador/img_administrador/menu-regular-24 (1).png" width="30px"
+                        alt="..." />
                 </button>
                 <div class="sidebar-logo ms-3 ">
-                    <img src="../../recursos_administrador/img_administrador/logoeco.png" alt="" width="110px" height="80px">
+                    <img src="../../recursos_administrador/img_administrador/logoeco.png" alt="" width="110px"
+                        height="80px">
                 </div>
             </div>
 
@@ -43,56 +45,64 @@
                 <li class="sidebar-item mt-3">
                     <a href="dashboard.html" class="sidebar-link">
                         <img src="../../recursos_administrador/img_administrador/inicio.png" alt="" width="19">
-                        <span class="ms-3">Panel Principal</span>
+                        <span class="ms-3">Panel
+                            Principal</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item mt-3">
                     <a href="gestionar_administradores.html" class="sidebar-link">
                         <img src="../../recursos_administrador/img_administrador/Frame.png" alt="" width="27">
-                        <span class="ms-3">Gestionar admins.</span>
+                        <span class="ms-3">Gestionar
+                            admins.</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item mt-3">
                     <a href="gestionar_reportes.html" class="sidebar-link">
                         <img src="../../recursos_administrador/img_administrador/repo.png" alt="" width="19">
-                        <span class="ms-3">Gestionar Reportes</span>
+                        <span class="ms-3">Gestionar
+                            Reportes</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item mt-3">
                     <a href="administrar_categoria.html" class="sidebar-link ">
                         <img src="../../recursos_administrador/img_administrador/categoria_p.png" alt="" width="19">
-                        <span class="ms-3">Gestionar Categorias</span>
+                        <span class="ms-3">Gestionar
+                            Categorias</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item mt-3" onclick="alumnos_total()">
                     <a href="gestionar_clientes.html" class="sidebar-link">
                         <img src="../../recursos_administrador/img_administrador/perfill.png" alt="" width="19">
-                        <span class="ms-3">Gestionar Clientes</span>
+                        <span class="ms-3">Gestionar
+                            Clientes</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item mt-3" onclick="inscripciones()">
                     <a href="gestionar_valoraciones.html" class="sidebar-link">
                         <img src="../../recursos_administrador/img_administrador/valo.png" alt="" width="19">
-                        <span class="ms-3">Gestionar Valoraciones</span>
+                        <span class="ms-3">Gestionar
+                            Valoraciones</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item mt-3">
                     <a href="gestionar_libros.html" class="sidebar-link">
                         <img src="../../recursos_administrador/img_administrador/libros.png" alt="" width="19">
-                        <span class="ms-3 ">Gestionar libros</span>
+                        <span class="ms-3 ">Gestionar libros
+                        </span>
                     </a>
                 </li>
 
                 <li class="sidebar-item mt-3 libros">
                     <a href="gestionar_envios.html" class="sidebar-link">
                         <img src="../../recursos_administrador/img_administrador/envios.png" alt="" width="19">
-                        <span class="ms-3 ">Gestionar envios</span>
+                        <span class="ms-3 ">Gestionar envios
+                        </span>
                     </a>
                 </li>
 
@@ -110,7 +120,23 @@
                 <div class="card">
                     <img src="../../recursos_administrador/img_administrador/categorias.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <button type="button" class="btn btn-warning" onclick="openReport()">Reporte de categorias</button>
+                        <button type="button" class="btn btn-light" onclick="openReport()">Reporte de categorias</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="../../recursos_administrador/img_administrador/libro.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <button type="button" class="btn btn-light" onclick="openReportt()">Reporte de libros</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="../../recursos_administrador/img_administrador/clientes_estado.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <button type="button" class="btn btn-light" onclick="openReporttt()">Estado de clientes</button>
                     </div>
                 </div>
             </div>
@@ -118,7 +144,7 @@
                 <div class="card">
                     <img src="../../recursos_administrador/img_administrador/cerrar.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <button type="button" class="btn btn-warning" onclick="openReportt()">Open Report</button>
+                        <button type="button" class="btn btn-light" onclick="openReport()">Open Report</button>
                     </div>
                 </div>
             </div>
@@ -126,23 +152,7 @@
                 <div class="card">
                     <img src="../../recursos_administrador/img_administrador/cerrar.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <button type="button" class="btn btn-warning" onclick="openReport()">Open Report</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="../../recursos_administrador/img_administrador/cerrar.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <button type="button" class="btn btn-success" onclick="openReport()">Open Report</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="../../recursos_administrador/img_administrador/cerrar.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <button type="button" class="btn btn-warning" onclick="openReport()">Open Report</button>
+                        <button type="button" class="btn btn-light" onclick="openReport()">Open Report</button>
                     </div>
                 </div>
             </div>
