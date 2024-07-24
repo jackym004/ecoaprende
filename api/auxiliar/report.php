@@ -65,7 +65,7 @@ class Report extends FPDF
         $this->setFont('Arial', 'B', 15);
         $this->cell(166, 10, $this->encodeString($this->title), 0, 1, 'C');
         // Se ubica la fecha y hora del servidor.
-        $this->cell(20);
+        $this->cell(20 );
         $this->setFont('Arial', '', 10);
         $this->cell(166, 10, 'Fecha/Hora: ' . date('d-m-Y H:i:s'), 0, 1, 'C');
         // Se agrega un salto de línea para mostrar el contenido principal del documento.

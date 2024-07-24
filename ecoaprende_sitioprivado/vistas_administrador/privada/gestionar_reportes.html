@@ -10,7 +10,7 @@
 
     <link type="text/css" rel="stylesheet" href="../../recursos_administrador/css_administrador/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../recursos_administrador/css_administrador/gestionar_libros.css">
+    <link rel="stylesheet" href="../../recursos_administrador/css_administrador/gestionar_reportes.css">
     <link rel="stylesheet" href="../../recursos_administrador/css_administrador/sidebar.css">
 </head>
 
@@ -19,12 +19,10 @@
         <aside id="sidebar">
             <div class="d-flex">
                 <button class="toggle-btn" type="button">
-                    <img src="../../recursos_administrador/img_administrador/menu-regular-24 (1).png" width="30px"
-                        alt="..." />
+                    <img src="../../recursos_administrador/img_administrador/menu-regular-24 (1).png" width="30px" alt="..." />
                 </button>
                 <div class="sidebar-logo ms-3 ">
-                    <img src="../../recursos_administrador/img_administrador/logoeco.png" alt="" width="110px"
-                        height="80px">
+                    <img src="../../recursos_administrador/img_administrador/logoeco.png" alt="" width="110px" height="80px">
                 </div>
             </div>
 
@@ -45,64 +43,56 @@
                 <li class="sidebar-item mt-3">
                     <a href="dashboard.html" class="sidebar-link">
                         <img src="../../recursos_administrador/img_administrador/inicio.png" alt="" width="19">
-                        <span class="ms-3">Panel
-                            Principal</span>
+                        <span class="ms-3">Panel Principal</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item mt-3">
                     <a href="gestionar_administradores.html" class="sidebar-link">
                         <img src="../../recursos_administrador/img_administrador/Frame.png" alt="" width="27">
-                        <span class="ms-3">Gestionar
-                            admins.</span>
+                        <span class="ms-3">Gestionar admins.</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item mt-3">
                     <a href="gestionar_reportes.html" class="sidebar-link">
                         <img src="../../recursos_administrador/img_administrador/repo.png" alt="" width="19">
-                        <span class="ms-3">Gestionar
-                            Reportes</span>
+                        <span class="ms-3">Gestionar Reportes</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item mt-3">
                     <a href="administrar_categoria.html" class="sidebar-link ">
                         <img src="../../recursos_administrador/img_administrador/categoria_p.png" alt="" width="19">
-                        <span class="ms-3">Gestionar
-                            Categorias</span>
+                        <span class="ms-3">Gestionar Categorias</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item mt-3" onclick="alumnos_total()">
                     <a href="gestionar_clientes.html" class="sidebar-link">
                         <img src="../../recursos_administrador/img_administrador/perfill.png" alt="" width="19">
-                        <span class="ms-3">Gestionar
-                            Clientes</span>
+                        <span class="ms-3">Gestionar Clientes</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item mt-3" onclick="inscripciones()">
                     <a href="gestionar_valoraciones.html" class="sidebar-link">
                         <img src="../../recursos_administrador/img_administrador/valo.png" alt="" width="19">
-                        <span class="ms-3">Gestionar
-                            Valoraciones</span>
+                        <span class="ms-3">Gestionar Valoraciones</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item mt-3">
                     <a href="gestionar_libros.html" class="sidebar-link">
                         <img src="../../recursos_administrador/img_administrador/libros.png" alt="" width="19">
-                        <span class="ms-3 ">Gestionar libros
-                        </span>
+                        <span class="ms-3 ">Gestionar libros</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item mt-3 libros">
                     <a href="gestionar_envios.html" class="sidebar-link">
                         <img src="../../recursos_administrador/img_administrador/envios.png" alt="" width="19">
-                        <span class="ms-3 ">Gestionar envios
-                        </span>
+                        <span class="ms-3 ">Gestionar envios</span>
                     </a>
                 </li>
 
@@ -115,55 +105,60 @@
             </ul>
         </aside>
 
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-            <div class="col">
+        <div class="row row-cols-1 row-cols-md-3 g-4 main-content">
+            <div class="col-md-4">
                 <div class="card">
-                    <img src="../../recursos_administrador/img_administrador/cerrar.png" class="card-img-top" alt="...">
+                    <img src="../../recursos_administrador/img_administrador/categorias.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <button type="button" class="btn btn-warning" onclick="openReport()">
+                        <button type="button" class="btn btn-warning" onclick="openReport()">Reporte de categorias</button>
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-md-4">
                 <div class="card">
                     <img src="../../recursos_administrador/img_administrador/cerrar.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <button type="button" class="btn btn-warning" onclick="openReportt()">
+                        <button type="button" class="btn btn-warning" onclick="openReportt()">Open Report</button>
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-md-4">
                 <div class="card">
                     <img src="../../recursos_administrador/img_administrador/cerrar.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <button type="button" class="btn btn-warning" onclick="openReport()">
+                        <button type="button" class="btn btn-warning" onclick="openReport()">Open Report</button>
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-md-4">
                 <div class="card">
                     <img src="../../recursos_administrador/img_administrador/cerrar.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <button type="button" class="btn btn-success" onclick="openReport()">
+                        <button type="button" class="btn btn-success" onclick="openReport()">Open Report</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="../../recursos_administrador/img_administrador/cerrar.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <button type="button" class="btn btn-warning" onclick="openReport()">Open Report</button>
                     </div>
                 </div>
             </div>
         </div>
-
-
     </div>
+
     <script src="../../recursos_administrador/js_administrador/bootstrap.bundle.min.js"></script>
     <!-- Script de Bootstrap 5 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="../../controlador_administrador/controlador_administrador/sidebar.js"></script>
 
     <!-- IMPORTACIÓN DE ARCHIVOS JAVASCRIPT -->
     <script type="text/javascript" src="../../recursos_administrador/js_administrador/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="../../recursos_administrador/js_administrador/sweetalert.min.js"></script>
-    <script type="text/javascript"
-        src="../../controlador_administrador/utilidades_administrador/components.js"></script>
+    <script type="text/javascript" src="../../controlador_administrador/utilidades_administrador/components.js"></script>
     <script type="text/javascript" src="../../controlador_administrador/reportes_administrador/reportes.js"></script>
 
 </body>
