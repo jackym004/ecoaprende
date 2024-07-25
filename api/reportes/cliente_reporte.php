@@ -12,13 +12,13 @@ $pdf = new Report;
 $cliente = new ClientesHandler;
 
 // Se inicia el reporte con el encabezado del documento.
-$pdf->startReport('Clientes y su estado');
+$pdf->startReport('Lista de Clientes');
 
 try {
     // Se verifica si existen registros para mostrar, de lo contrario se imprime un mensaje.
     if ($dataClientes = $cliente->readAll()) {
         // Se establece un color de relleno para los encabezados.
-        $pdf->setFillColor(255, 192, 203);
+        $pdf->setFillColor(225);
         // Se establece la fuente para los encabezados.
         $pdf->setFont('Arial', 'B', 11);
         // Se imprimen las celdas con los encabezados.
@@ -28,9 +28,9 @@ try {
         $pdf->setFont('Arial', '', 11);
         // Se recorren los registros fila por fila.
         foreach ($dataClientes as $rowCliente) {
-            $estado = $rowCliente['ESTADO'];
+            $estado = $rowCliente['estado_cliente'] ? 'Activo' : 'Bloqueado';
             // Se imprimen las celdas con los datos de los clientes.
-            $pdf->cell(126, 10, $pdf->encodeString($rowCliente['NOMBRE']), 1, 0);
+            $pdf->cell(126, 10, $pdf->encodeString($rowCliente['nombre_cliente']), 1, 0);
             $pdf->cell(30, 10, $estado, 1, 1);
         }
     } else {
