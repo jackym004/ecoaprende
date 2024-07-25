@@ -206,6 +206,7 @@ const pieGraph = (canvas, legends, values, title) => {
 *   Parámetros: canvas (identificador de la etiqueta canvas), xAxis (datos para el eje X), yAxis (datos para el eje Y), legend (etiqueta para los datos) y title (título del gráfico).
 *   Retorno: ninguno.
 */
+let existingLineChart;
 const lineGraph = (canvas, legends, values, title) => {
     // Destruir gráfico existente si lo hay para evitar superposiciones.
     if (existingLineChart) {
@@ -250,6 +251,7 @@ const lineGraph = (canvas, legends, values, title) => {
 */
 
 
+let existingRadarChart;
 const radarGraph = (canvas, legends, values, title) => {
     // Destruir gráfico existente si lo hay para evitar superposiciones.
     if (existingRadarChart) {
@@ -285,7 +287,7 @@ const radarGraph = (canvas, legends, values, title) => {
 *   Parámetros: canvas (identificador de la etiqueta canvas), xAxis (datos para el eje X), yAxis (datos para el eje Y), legend (etiqueta para los datos) y title (título del gráfico).
 *   Retorno: ninguno.
 */
-
+let existingDoughnutChart;
 const doughnutGraph = (canvas, legends, values, title) => {
     // Destruir el gráfico existente si existe
     if (existingDoughnutChart) {
@@ -350,7 +352,7 @@ const logOut = async () => {
 *   Parámetros: ninguno.
 *   Retorno: ninguno.
 */
-
+let existingPolarChart;
 const polarGraph = (canvas, legends, values, title) => {
     // Destruir gráfico existente si lo hay para evitar superposiciones.
     if (existingPolarChart) {

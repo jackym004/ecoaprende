@@ -125,9 +125,9 @@ const graficoProductosVendidos = async () => {
         let cantidad = [];
         DATA.dataset.forEach(row => {
             libros.push(row.nombre_libro);
-            cantidad.push(row.cantidad_comprada);
+            cantidad.push(row.total_comprado);
         });
-        polarGraph(document.getElementById('chart4').getContext('2d'), libros, cantidad, 'Libros más Vendidos');
+        doughnutGraph('chart4', libros, cantidad, 'Libros más Vendidos');
     } else {
         document.getElementById('chart4').remove();
         console.log(DATA.error);
@@ -147,9 +147,9 @@ const graficoValoracion = async () => {
         let calificacion = [];
         DATA.dataset.forEach(row => {
             libros.push(row.nombre_libro);
-            calificacion.push(row.calificacion_producto);
+            calificacion.push(row.cantidad_valoraciones);
         });
-        radarGraph(document.getElementById('chart5').getContext('2d'), libros, calificacion, 'Libros más Vendidos');
+        radarGraph('chart5', libros, calificacion, 'Libros más Vendidos');
     } else {
         document.getElementById('chart5').remove();
         console.log(DATA.error);
@@ -179,7 +179,7 @@ const graficoPredictivoMes = async () => {
         const xAxisLabel = 'Mes';
         const yAxisLabel = 'Monto de Ventas (Proyección)';
 
-        renderChart2(document.getElementById('chart6').getContext('2d'), 'bar', meses, proyecciones, chartTitle, xAxisLabel, yAxisLabel);
+        renderChart2('chart6', 'bar', meses, proyecciones, chartTitle, xAxisLabel, yAxisLabel);
     } else {
         const chartElement = document.getElementById('chart6');
         if (chartElement) {

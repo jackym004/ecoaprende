@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase para trabajar con la base de datos.
-require_once('../../auxiliar/database.php'); 
+require_once('../../auxiliar/database.php');
 /*
 *	Clase para manejar el comportamiento de los datos de la tabla PRODUCTO.
 */
@@ -135,7 +135,7 @@ class LibroHandler
         return Database::getRows($sql);
     }
 
-    
+
     /*
     *   Métodos para generar gráficos.
     
@@ -199,20 +199,25 @@ class LibroHandler
     }
 
 */
-    
+
     public function productosMasComprados()
     {
-        $sql = 'SELECT nombre_libro, SUM(valoracion) AS calificacion_producto
-            FROM tb_valoraciones
-            INNER JOIN tb_libros ON tb_valoraciones.id_detalles_pedidos = tb_libros.id_libro
-            GROUP BY nombre_libro
-            ORDER BY cantidad_comprada DESC
-            LIMIT 5';  // Agrega LIMIT 5 para obtener solo los 5 productos más vendidos
+        $sql = 'SELECT 
+                tb_libros.nombre_libro, 
+                SUM(tb_detalles_pedidos.cantidad_comprada) AS total_comprado
+                FROM 
+                tb_detalles_pedidos
+                INNER JOIN 
+                tb_libros ON tb_detalles_pedidos.id_libro = tb_libros.id_libro
+                INNER JOIN 
+                tb_pedidos ON tb_detalles_pedidos.id_pedido = tb_pedidos.id_pedido
+                GROUP BY 
+                tb_libros.nombre_libro
+                ORDER BY 
+                total_comprado DESC;';  // Agrega LIMIT 5 para obtener solo los 5 productos más vendidos
         return Database::getRows($sql);
     }
 
-
-    
 
 
 
@@ -227,8 +232,8 @@ class LibroHandler
     }
 
 
- /*Métodos para generar reportes.*/
-    
+    /*Métodos para generar reportes.*/
+
     public function librosCategoria()
     {
         $sql = 'SELECT nombre_libro, precio_libro, estado_libro
