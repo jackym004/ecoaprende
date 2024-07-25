@@ -22,7 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Llamada a la funciones que generan los gráficos en la página web.
   graficoBarrasCategorias();
   graficoPastelCategorias();
-  graficoLineaPedidos();
+  graficoLineaUsuarioMayorPedidos();
+  graficoProductosVendidos();
+  graficoValoracion();
 });
 /*
 *   Función asíncrona para mostrar un gráfico de barras con la cantidad de productos por categoría.
@@ -84,30 +86,76 @@ const graficoPastelCategorias = async () => {
 *   Parámetros: ninguno.
 *   Retorno: ninguno.
 */
-const graficoLineaPedidos = async () => {
+const graficoLineaUsuarioMayorPedidos = async () => {
     // Petición para obtener los datos del gráfico.
-    const DATA = await fetchData(PEDIDOS_API, 'cantidadpedidosProducto');
+    const DATA = await fetchData(CLIENTES_API, 'topUsuarios');
 
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se remueve la etiqueta canvas.
     if (DATA.status) {
         // Se declaran los arreglos para guardar los datos a graficar.
         let usuario = [];
-        let estado = [];
+        let producto = [];
 
         // Se recorre el conjunto de registros fila por fila a través del objeto row.
         DATA.dataset.forEach(row => {
             // Se agregan los datos a los arreglos.
             usuario.push(row.nombre_cliente);
-            estado.push(row.estado_cliente);
+            producto.push(row.cantidad_comprada);
         });
 
         // Llamada a la función para generar y mostrar un gráfico de líneas.
-        lineGraph('chart3', usuario, estado, 'Cantidad de usuarios', 'Cantidad de usuarios por estado');
+        lineGraph('chart3', usuario, producto, 'Cantidad de usuarios', 'Cantidad de productos comprados');
     } else {
         document.getElementById('chart3').remove();
         console.log(DATA.error);
     }
 }
+
+
+/*
+*   Función para generar un gráfico de barras verticales. Requiere la librería chart.js para funcionar.
+*   Parámetros: canvas (identificador de la etiqueta canvas), xAxis (datos para el eje X), yAxis (datos para el eje Y), legend (etiqueta para los datos) y title (título del gráfico).
+*   Retorno: ninguno.
+*/
+
+const graficoProductosVendidos = async () => {
+    const DATA = await fetchData(LIBROS_API, 'productosMasComprados');
+    if (DATA.status) {
+        let libros = [];
+        let cantidad = [];
+        DATA.dataset.forEach(row => {
+            libros.push(row.nombre_libro);
+            cantidad.push(row.cantidad_comprada);
+        });
+        polarGraph(document.getElementById('chart4').getContext('2d'), libros, cantidad, 'Libros más Vendidos');
+    } else {
+        document.getElementById('chart4').remove();
+        console.log(DATA.error);
+    }
+}
+
+/*
+*   Función para generar un gráfico de barras verticales. Requiere la librería chart.js para funcionar.
+*   Parámetros: canvas (identificador de la etiqueta canvas), xAxis (datos para el eje X), yAxis (datos para el eje Y), legend (etiqueta para los datos) y title (título del gráfico).
+*   Retorno: ninguno.
+*/
+
+const graficoValoracion = async () => {
+    const DATA = await fetchData(PEDIDOS_API, 'productosMasValorados');
+    if (DATA.status) {
+        let libros = [];
+        let calificacion = [];
+        DATA.dataset.forEach(row => {
+            libros.push(row.nombre_libro);
+            calificacion.push(row.calificacion_producto);
+        });
+        radarGraph(document.getElementById('chart5').getContext('2d'), libros, calificacion, 'Libros más Vendidos');
+    } else {
+        document.getElementById('chart5').remove();
+        console.log(DATA.error);
+    }
+}
+
 
 /*
 *   Función para generar un gráfico de barras verticales. Requiere la librería chart.js para funcionar.
@@ -131,12 +179,13 @@ const graficoPredictivoMes = async () => {
         const xAxisLabel = 'Mes';
         const yAxisLabel = 'Monto de Ventas (Proyección)';
 
-        renderChart2(document.getElementById('chartProyeccionesMes').getContext('2d'), 'bar', meses, proyecciones, chartTitle, xAxisLabel, yAxisLabel);
+        renderChart2(document.getElementById('chart6').getContext('2d'), 'bar', meses, proyecciones, chartTitle, xAxisLabel, yAxisLabel);
     } else {
-        const chartElement = document.getElementById('chartProyeccionesMes');
+        const chartElement = document.getElementById('chart6');
         if (chartElement) {
             chartElement.remove();
         }
         console.log(DATA ? DATA.error : 'Error en la llamada a la API');
     }
 };
+

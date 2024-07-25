@@ -113,6 +113,13 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'No hay datos disponibles';
                 }
                 break;
+            case 'productosMasComprados':
+                if ($result['dataset'] = $libro->productosMasComprados()) {
+                    $result['status'] = 1;
+                 } else {
+                     $result['error'] = 'No hay datos disponibles';
+                }
+                    break;
             default:
                 $result['error'] = 'Acción no disponible dentro de la sesión';
         }

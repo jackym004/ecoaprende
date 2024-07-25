@@ -62,4 +62,18 @@ class PedidosHandler
         $params = array($this->id, $this->estado);
         return Database::executeRow($sql, $params);
     }
+
+
+    public function productosMasValorados()
+    {
+        $sql = 'SELECT nombre_libro, SUM(cantidad) AS cantidad_comprada
+            FROM tb_detalles_pedidos
+            INNER JOIN tb_libros ON tb_detalles_pedidos.id_libro = tb_libros.id_libro
+            INNER JOIN tb_valoraciones ON tb_valoraciones.id_detalles_pedidos = tb_detalles_pedidos.id_detalles_pedidos
+            GROUP BY nombre_libro
+            ORDER BY cantidad_comprada DESC
+            LIMIT 5';  // Agrega LIMIT 5 para obtener solo los 5 productos más vendidos
+        return Database::getRows($sql);
+    }
+
 }

@@ -44,6 +44,14 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al alterar el estado del cliente';
                 }
                 break;
+
+            case 'topUsuarios':
+                if ($result['dataset'] = $cliente->topUsuarios()) {
+                    $result['status'] = 1;
+                } else {
+                    $result['error'] = 'No hay datos disponibles';
+                }
+                break;
         }
         // Se obtiene la excepción del servidor de base de datos por si ocurrió un problema.
         $result['exception'] = Database::getException();
