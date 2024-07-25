@@ -199,6 +199,23 @@ class LibroHandler
     }
 
 */
+    
+    public function productosMasComprados()
+    {
+        $sql = 'SELECT nombre_libro, SUM(valoracion) AS calificacion_producto
+            FROM tb_valoraciones
+            INNER JOIN tb_libros ON tb_valoraciones.id_detalles_pedidos = tb_libros.id_libro
+            GROUP BY nombre_libro
+            ORDER BY cantidad_comprada DESC
+            LIMIT 5';  // Agrega LIMIT 5 para obtener solo los 5 productos más vendidos
+        return Database::getRows($sql);
+    }
+
+
+    
+
+
+
 
     public function porcentajeLibrosCategoria()
     {

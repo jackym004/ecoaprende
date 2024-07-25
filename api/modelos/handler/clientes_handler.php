@@ -105,14 +105,20 @@ class ClientesHandler
         return Database::executeRow($sql, $params);
     }
 
-    
-    public function cantidadUsuariosEstado()
+    public function topUsuarios()
     {
-        $sql = 'SELECT nombre_categoria, COUNT(id_libro) cantidad
-                FROM tb_libros
-                INNER JOIN tb_categorias USING(id_categoria)
-                GROUP BY nombre_categoria ORDER BY cantidad DESC LIMIT 5';
-        return Database::getRows($sql);
+        $this->id = $this->id === null ? 20 :$this->id;
+        $sql = 'SELECT id_cliente,CONCAT(nombre_cliente," ", correo_cliente) AS cliente,
+        SUM(cantidad_comprada) AS cantidad_comprada
+        FROM tb_detalles_pedidos 
+        JOIN tb_pedidos USING(id_cliente)
+        JOIN tb_detalles_pedidos USING(id_pedido)
+        WHERE estado_pedido = "Finalizado"
+        GROUP BY id_cliente, nombre_cliente, correo_cliente
+        ORDER BY cantidad_comprada DESC
+        LIMIT  '.$this->id.';';
+        $params = array();
+        return Database::getRows($sql, $params);
     }
 
 
