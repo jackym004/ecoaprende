@@ -77,7 +77,7 @@ class ValoracionesHandler
     //Función para cambiar el estado de un cliente.
     public function changeState()
     {
-        $sql = 'CALL cambiar_estado_valoracion(?);';
+        $sql = 'UPDATE tb_valoraciones SET estado_comentario = NOT estado_comentario WHERE id_valoracion = ?;';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }

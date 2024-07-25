@@ -58,7 +58,7 @@ const fillSelected = (data, action, selectId, selectedValue = null) => {
     // Llenar el combobox con los datos proporcionados
     data.forEach(item => {
         const option = document.createElement('option');
-        option.value = item.estado; // Suponiendo que hay una propiedad 'id' en los datos
+        option.value = item.id; // Suponiendo que hay una propiedad 'id' en los datos
         option.textContent = item.estado; // Cambia 'horario' al nombre de la propiedad que deseas mostrar en el combobox
         selectElement.appendChild(option);
     });
@@ -270,6 +270,8 @@ SAVE_FORM.addEventListener('submit', async (event) => {
     // Se verifica la acción a realizar.
     // Constante tipo objeto con los datos del formulario.
     const FORM = new FormData(SAVE_FORM);
+    console.log('ID del pedido: ',ID_PEDIDO.value);
+    console.log('Estado: ',ESTADO.value);
     // Petición para guardar los datos del formulario.
     const DATA = await fetchData(PEDIDOS_API, 'changeState', FORM);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.

@@ -58,8 +58,10 @@ class PedidosHandler
     //Función para cambiar el estado de un cliente.
     public function changeState()
     {
-        $sql = 'CALL actualizar_estado_pedido(?,?);';
-        $params = array($this->id, $this->estado);
+        $sql = 'UPDATE tb_pedidos
+                SET estado_pedido = ?
+                WHERE id_pedido = ?;';
+        $params = array($this->estado, $this->id);
         return Database::executeRow($sql, $params);
     }
 

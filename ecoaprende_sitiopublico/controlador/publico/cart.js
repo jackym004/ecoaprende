@@ -75,7 +75,7 @@ async function readDetail() {
         // Se muestra el total a pagar con dos decimales.
         document.getElementById('pago').textContent = total.toFixed(2);
     } else {
-        sweetAlert(4, DATA.error, false, 'index.html');
+        sweetAlert(4, DATA.error, false);
     }
 }
 

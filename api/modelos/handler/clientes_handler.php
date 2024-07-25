@@ -90,7 +90,7 @@ class ClientesHandler
     // Función para cambiar el estado de un cliente.
     public function changeState()
     {
-        $sql = 'CALL cambiar_estado_cliente(?);';
+        $sql = 'UPDATE tb_clientes SET estado_cliente = NOT estado_cliente WHERE id_cliente = ?;';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
