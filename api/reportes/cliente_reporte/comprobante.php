@@ -45,7 +45,7 @@ if ($dataPedidos = $pedido->readByClientAndStatus($_SESSION['idCliente'], 'Pendi
         // Encabezados de productos
         $pdf->setFont('Arial', 'B', 11);
         $pdf->setFillColor(36, 92, 157);
-        $pdf->setTextColor(255, 255, 255);
+        $pdf->setTextColor(0, 0, 0);
         $pdf->cell(126, 12, 'Producto', 0, 0, 'C', 1);
         $pdf->cell(30, 12, 'Cantidad', 0, 0, 'C', 1);
         $pdf->cell(30, 12, 'Precio (US$)', 0, 1, 'C', 1);
@@ -59,7 +59,7 @@ if ($dataPedidos = $pedido->readByClientAndStatus($_SESSION['idCliente'], 'Pendi
                 $fill = false;
                 $total = 0;
                 foreach ($dataDetalles as $rowDetalle) {
-                    $pdf->cell(126, 12, $pdf->encodeString($rowDetalle['nombre_producto']), 0, 0, '', $fill);
+                    $pdf->cell(126, 12, $pdf->encodeString($rowDetalle['nombre_libro']), 0, 0, '', $fill);
                     $pdf->cell(30, 12, $rowDetalle['cantidad_comprada'], 0, 0, 'C', $fill);
                     $pdf->cell(30, 12, number_format($rowDetalle['precio_producto'], 2, '.', ''), 0, 1, 'R', $fill);
                     $total += $rowDetalle['cantidad_comprada'] * $rowDetalle['precio_producto'];
