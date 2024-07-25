@@ -64,7 +64,7 @@ class Report extends FPDF
         $this->image('../../imagenes/ecoaprende_header.png', 150, 0, 70);
         $this->image('../../imagenes/ecoaprende_header.png', 110, 0, 70);
         $this->image('../../imagenes/ecoaprende_header_2.png', 0, 0, 20);
-        $this->image('../../imagenes/ecoaprende_background.png', 15, 50, 186);
+
         // Se ubica el título.
         $this->cell(20);
         $this->setFont('Arial', 'B', 15);

@@ -44,9 +44,9 @@ if ($dataPedidos = $pedido->readByClientAndStatus($_SESSION['idCliente'], 'Pendi
 
         // Encabezados de productos
         $pdf->setFont('Arial', 'B', 11);
-        $pdf->setFillColor(36, 92, 157);
+        $pdf->setFillColor(255, 183, 195);
         $pdf->setTextColor(0, 0, 0);
-        $pdf->cell(126, 12, 'Producto', 0, 0, 'C', 1);
+        $pdf->cell(126, 12, 'Nombre del libro', 0, 0, 'C', 1);
         $pdf->cell(30, 12, 'Cantidad', 0, 0, 'C', 1);
         $pdf->cell(30, 12, 'Precio (US$)', 0, 1, 'C', 1);
         
@@ -54,7 +54,7 @@ if ($dataPedidos = $pedido->readByClientAndStatus($_SESSION['idCliente'], 'Pendi
         if ($detallePedido->setPedido($rowPedido['id_pedido'])) {
             if ($dataDetalles = $detallePedido->readByPedido()) {
                 $pdf->setFont('Arial', '', 11);
-                $pdf->setFillColor(240, 240, 240);
+                $pdf->setFillColor(255, 183, 195);
                 $pdf->setTextColor(0, 0, 0);
                 $fill = false;
                 $total = 0;

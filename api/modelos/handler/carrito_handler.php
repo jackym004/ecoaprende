@@ -199,9 +199,9 @@ class DetallePedidoComprobante
     // Método para obtener los detalles de un pedido
     public function readByPedido()
     {
-        $sql = 'SELECT dp.cantidad_comprada, dp.precio_producto, l.nombre_libro
-                FROM tb_detalle_pedidos dp 
-                JOIN tb_libros l ON dp.id_producto = l.id_producto 
+        $sql = 'SELECT dp.*, l.nombre_libro
+                FROM tb_detalles_pedidos dp 
+                JOIN tb_libros l ON dp.id_libro = l.id_libro 
                 WHERE dp.id_pedido = ?';
         $params = array($this->idPedido);
         return Database::getRows($sql, $params);

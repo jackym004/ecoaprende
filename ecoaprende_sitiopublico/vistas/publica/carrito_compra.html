@@ -83,52 +83,54 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="paymentModalTitle">Metodo de pago</h1>
-                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal" aria-label="Close"><i
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close"><i
                             class="bi bi-x-square-fill"></i></button>
                 </div>
                 <form id="paymentForm" onsubmit="handlePayment(event)">
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="cardType" class="form-label">Tipo de tarjeta</label>
+                            <label for="cardType" class="form-label">Tipo de tarjeta:</label>
                             <select id="cardType" name="cardType" class="form-select" required>
-                                <option value="" disabled selected>Seleccionar tipo de tarjeta</option>
+                                <option value="" disabled selected>Seleccionar tipo de tarjeta...</option>
+                                <option value="visa">American Express</option>          
                                 <option value="visa">Visa</option>
                                 <option value="mastercard">MasterCard</option>
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="cardUsage" class="form-label">Tipo de uso</label>
+                            <label for="cardUsage" class="form-label">Tipo de uso:</label>
                             <select id="cardUsage" name="cardUsage" class="form-select" required>
-                                <option value="" disabled selected>Seleccionar tipo de uso</option>
+                                <option value="" disabled selected>Seleccionar tipo de uso...</option>
                                 <option value="credit">Crédito</option>
                                 <option value="debit">Débito</option>
+                                <option value="debit">Prepago</option>
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="cardNumber" class="form-label">Número de tarjeta</label>
+                            <label for="cardNumber" class="form-label">Número de tarjeta:</label>
                             <input type="text" id="cardNumber" name="cardNumber" class="form-control"
                                 placeholder="XXXX XXXX XXXX XXXX" required oninput="formatCardNumber(this)">
                         </div>
                         <div class="mb-3">
-                            <label for="cardName" class="form-label">Nombre en la tarjeta</label>
+                            <label for="cardName" class="form-label">Nombre del titular:</label>
                             <input type="text" id="cardName" name="cardName" class="form-control"
-                                placeholder="Nombre completo" required>
+                                placeholder="Nombre del titular" required>
                         </div>
                         <div class="row mb-3">
                             <div class="col">
-                                <label for="expiryDate" class="form-label">Fecha de expiración</label>
+                                <label for="expiryDate" class="form-label">Fecha de expiración:</label>
                                 <input type="text" id="expiryDate" name="expiryDate" class="form-control"
                                     placeholder="MM/AA" required oninput="formatExpiryDate(this)">
                             </div>
                             <div class="col">
-                                <label for="cvv" class="form-label">CVV</label>
+                                <label for="cvv" class="form-label">CVV:</label>
                                 <input type="text" id="cvv" name="cvv" class="form-control" placeholder="XXX" required
                                     oninput="formatCVV(this)">
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-dark">Añadir tarjeta</button>
+                        <button type="submit" class="btn btn-success">Añadir tarjeta</button>
                     </div>
                 </form>
             </div>
