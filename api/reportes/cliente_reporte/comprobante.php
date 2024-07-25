@@ -39,7 +39,7 @@ if ($dataPedidos = $pedido->readByClientAndStatus($_SESSION['idCliente'], 'Pendi
         $pdf->cell(70, 8, $pdf->encodeString($clienteEmail), 0, 0);
         $pdf->ln(10);
         $pdf->cell(90, 8, $pdf->encodeString('Fecha de Registro:'), 0, 0);
-        $pdf->cell(50, 8, $pdf->encodeString($rowPedido['fecha_registro']), 0, 1);
+        $pdf->cell(50, 8, $pdf->encodeString($rowPedido['fecha_pedido']), 0, 1);
         $pdf->ln(10);
 
         // Encabezados de productos

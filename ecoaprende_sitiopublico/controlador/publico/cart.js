@@ -102,7 +102,7 @@ function handlePayment(event) {
 
 const openReport = async () => {
     // Se declara una constante tipo objeto con la ruta específica del reporte en el servidor.
-    const PATH = new URL(`${SERVER_URL}reports/public/comprobante.php`);
+    const PATH = new URL(`${SERVER_URL}reportes/cliente_reporte/comprobante.php`);
     
     // Abre la URL en una nueva pestaña para descargar el archivo.
     window.open(PATH.href, '_blank');
