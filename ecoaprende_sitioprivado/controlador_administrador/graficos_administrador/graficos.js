@@ -82,7 +82,7 @@ const graficoPastelCategorias = async () => {
 }
 
 /*
-*   Función asíncrona para mostrar un gráfico de barras con la cantidad de productos por categoría.
+*   Función asíncrona para mostrar un gráfico de linea con la cantidad de usuarios que han hecho la mayor cantidad de pedidos.
 *   Parámetros: ninguno.
 *   Retorno: ninguno.
 */
@@ -113,7 +113,7 @@ const graficoLineaUsuarioMayorPedidos = async () => {
 
 
 /*
-*   Función para generar un gráfico de barras verticales. Requiere la librería chart.js para funcionar.
+*   Función para generar un gráfico doughnut o de pastel para los productos mas vendidos. Requiere la librería chart.js para funcionar.
 *   Parámetros: canvas (identificador de la etiqueta canvas), xAxis (datos para el eje X), yAxis (datos para el eje Y), legend (etiqueta para los datos) y title (título del gráfico).
 *   Retorno: ninguno.
 */
@@ -135,23 +135,23 @@ const graficoProductosVendidos = async () => {
 }
 
 /*
-*   Función para generar un gráfico de barras verticales. Requiere la librería chart.js para funcionar.
+*   Función para generar un gráfico de radar para los productos con mas valoraciones. Requiere la librería chart.js para funcionar.
 *   Parámetros: canvas (identificador de la etiqueta canvas), xAxis (datos para el eje X), yAxis (datos para el eje Y), legend (etiqueta para los datos) y title (título del gráfico).
 *   Retorno: ninguno.
 */
 
 const graficoValoracion = async () => {
     const DATA = await fetchData(PEDIDOS_API, 'productosMasValorados');
-    if (DATA.status) {s
+    if (DATA.status) {
         let libros = [];
         let promedio = [];
-        let calificacion = [];
         DATA.dataset.forEach(row => {
             libros.push(row.nombre_libro);
             promedio.push(row.promedio_valoracion);
-            calificacion.push(row.cantidad_valoraciones);
         });
-        radarGraph('chart5', libros,promedio, calificacion, 'Libros más Vendidos');
+        console.log(libros);
+        radarGraph('chart5', libros,promedio, 'Libros más Vendidos');
+        //radarGraph('chart5', ['Leyenda1', 'Leyenda2', 'Leyenda3'], [5, 6, 7], 'Mi Título');
     } else {
         document.getElementById('chart5').remove();
         console.log(DATA.error);

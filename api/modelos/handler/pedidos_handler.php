@@ -75,7 +75,7 @@ class PedidosHandler
             INNER JOIN tb_libros ON tb_detalles_pedidos.id_libro = tb_libros.id_libro
             GROUP BY tb_libros.nombre_libro
             ORDER BY promedio_valoracion DESC, 
-            cantidad_valoraciones DESC;
+            cantidad_valoraciones DESC
             LIMIT 5';  // Agrega LIMIT 5 para obtener solo los 5 productos más vendidos
         return Database::getRows($sql);
     }

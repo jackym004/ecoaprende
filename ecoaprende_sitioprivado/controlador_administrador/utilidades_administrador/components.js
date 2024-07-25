@@ -250,25 +250,27 @@ const lineGraph = (canvas, legends, values, title) => {
 *   Retorno: ninguno.
 */
 
-
 let existingRadarChart;
+
 const radarGraph = (canvas, legends, values, title) => {
     // Destruir gráfico existente si lo hay para evitar superposiciones.
     if (existingRadarChart) {
         existingRadarChart.destroy();
     }
 
-    let colors = [];
-    values.forEach(() => {
-        colors.push('#' + (Math.random().toString(16)).substring(2, 8));
-    });
+    // Generar un color de fondo aleatorio
+    const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+
     existingRadarChart = new Chart(document.getElementById(canvas), {
         type: 'radar',
         data: {
             labels: legends,
             datasets: [{
                 data: values,
-                backgroundColor: colors[0]
+                backgroundColor: randomColor + '66', // Añadir opacidad al color de fondo
+                borderColor: randomColor,
+                borderWidth: 1,
+                pointBackgroundColor: randomColor
             }]
         },
         options: {
@@ -277,10 +279,20 @@ const radarGraph = (canvas, legends, values, title) => {
                     display: true,
                     text: title
                 }
+            },
+            scales: {
+                r: {
+                    angleLines: {
+                        display: true
+                    },
+                    suggestedMin: 0,
+                    suggestedMax: 10
+                }
             }
         }
     });
 }
+
 
 /*
 *   Función para generar un gráfico de barras verticales. Requiere la librería chart.js para funcionar.
