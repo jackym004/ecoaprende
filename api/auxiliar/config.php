@@ -4,6 +4,10 @@ header('Access-Control-Allow-Origin: *');
 // Se establece la zona horaria local para la fecha y hora del servidor.
 date_default_timezone_set('America/El_Salvador');
 // Constantes para establecer las credenciales de conexión con el servidor de bases de datos.
+
+// contra de aplicaciones
+// mpmh fpag gsbg zgut
+
 define('SERVER', 'localhost');
 define('DATABASE', 'db_ecoaprende');
 define('USERNAME', 'root');

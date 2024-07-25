@@ -123,3 +123,87 @@ class PedidoHandler
         return Database::executeRow($sql, $params);
     }
 }
+class PedidoComprobante
+{
+    private $pdo;
+
+    public function __construct($host, $db, $user, $pass)
+    {
+        try {
+            $this->pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);
+            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            die("Error al conectar a la base de datos: " . $e->getMessage());
+        }
+    }
+
+    public function readById($idPedido)
+    {
+        $query = "SELECT * FROM tb_pedidos WHERE id_pedido = :idPedido";
+        try {
+            $stmt = $this->pdo->prepare($query);
+            $stmt->bindParam(':idPedido', $idPedido, PDO::PARAM_INT);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+            return false;
+        }
+    }
+
+    public function readByClientAndStatus($id_cliente, $estado_pedido)
+    {
+        // Actualiza la consulta SQL para incluir el campo correo_cliente
+        $sql = "SELECT p.id_pedido, p.fecha_pedido, c.nombre_cliente, c.telefono_cliente, c.dui_cliente, c.correo_cliente
+                FROM tb_pedidos p
+                INNER JOIN tb_clientes c ON p.id_cliente = c.id_cliente
+                WHERE p.estado_pedido = :estado_pedido AND p.id_cliente = :id_cliente";
+
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindParam(':estado_pedido', $estado_pedido);
+            $stmt->bindParam(':id_cliente', $id_cliente);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            die("Error al ejecutar la consulta: " . $e->getMessage());
+        }
+    }
+}
+
+
+
+class DetallePedidoComprobante
+{
+    private $pdo;
+    private $idPedido;
+
+    public function __construct($host, $db, $user, $pass)
+    {
+        try {
+            $this->pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);
+            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            die("Error al conectar a la base de datos: " . $e->getMessage());
+        }
+    }
+
+    // Método para establecer el pedido
+    public function setPedido($idPedido)
+    {
+        $this->idPedido = $idPedido;
+        return true;
+    }
+
+    // Método para obtener los detalles de un pedido
+    public function readByPedido()
+    {
+        $sql = 'SELECT dp.cantidad_comprada, dp.precio_producto, p.nombre_producto 
+                FROM tb_detalle_pedidos dp 
+                JOIN tb_productos p ON dp.id_producto = p.id_producto 
+                WHERE dp.id_pedido = ?';
+        $params = array($this->idPedido);
+        return Database::getRows($sql, $params);
+    }
+}
