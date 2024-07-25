@@ -142,14 +142,16 @@ const graficoProductosVendidos = async () => {
 
 const graficoValoracion = async () => {
     const DATA = await fetchData(PEDIDOS_API, 'productosMasValorados');
-    if (DATA.status) {
+    if (DATA.status) {s
         let libros = [];
+        let promedio = [];
         let calificacion = [];
         DATA.dataset.forEach(row => {
             libros.push(row.nombre_libro);
+            promedio.push(row.promedio_valoracion);
             calificacion.push(row.cantidad_valoraciones);
         });
-        radarGraph('chart5', libros, calificacion, 'Libros más Vendidos');
+        radarGraph('chart5', libros,promedio, calificacion, 'Libros más Vendidos');
     } else {
         document.getElementById('chart5').remove();
         console.log(DATA.error);
