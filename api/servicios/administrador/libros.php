@@ -84,21 +84,19 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al modificar el libro';
                 }
                 break;
-            case 'deleteRow':
-                if (
-                    !$libro->setId($_POST['idLibro']) or
-                    !$libro->setFilename()
-                ) {
-                    $result['error'] = $libro->getDataError();
-                } elseif ($libro->deleteRow()) {
-                    $result['status'] = 1;
-                    $result['message'] = 'libro eliminado correctamente';
-                    // Se asigna el estado del archivo después de eliminar.
-                    $result['fileStatus'] = Validator::deleteFile($libro::RUTA_IMAGEN, $libro->getFilename());
-                } else {
-                    $result['error'] = 'Ocurrió un problema al eliminar el libro';
-                }
-                break;
+                case 'deleteRow':
+                    error_log(print_r($_POST, true)); // Esto imprimirá el contenido de $_POST en el log de errores de PHP
+                    if (!isset($_POST['idLibro']) || !$libro->setId($_POST['idLibro']) || !$libro->setFilename()) {
+                        $result['error'] = 'El identificador del libro es incorrecto';
+                    } elseif ($libro->deleteRow()) {
+                        $result['status'] = 1;
+                        $result['message'] = 'Libro eliminado correctamente';
+                        $result['fileStatus'] = Validator::deleteFile($libro::RUTA_IMAGEN, $libro->getFilename());
+                    } else {
+                        $result['error'] = 'Ocurrió un problema al eliminar el libro';
+                    }
+                    break;
+                
             case 'cantidadLibrosCategoria':
                 if ($result['dataset'] = $libro->cantidadLibrosCategoria()) {
                     $result['status'] = 1;
