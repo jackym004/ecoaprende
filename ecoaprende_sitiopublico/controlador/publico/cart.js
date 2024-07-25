@@ -92,27 +92,87 @@ function openUpdate(id, quantity) {
     document.getElementById('cantidadProducto').value = quantity;
 }
 
+function handlePayment(event) {
+    event.preventDefault();
+    var modal = new bootstrap.Modal(document.getElementById('paymentModal'));
+    modal.hide();
+    
+    finishOrder();
+}
+
+const openReport = async () => {
+    // Se declara una constante tipo objeto con la ruta específica del reporte en el servidor.
+    const PATH = new URL(`${SERVER_URL}reports/public/comprobante.php`);
+    
+    // Abre la URL en una nueva pestaña para descargar el archivo.
+    window.open(PATH.href, '_blank');
+}
+
+function handleClick() {
+    finishOrder();
+}
+
+ // Formatea el número de la tarjeta de crédito con espacios cada 4 dígitos y limita a 16 dígitos
+ function formatCardNumber(input) {
+    let value = input.value.replace(/\D/g, ''); // Elimina caracteres no numéricos
+    if (value.length > 16) {
+        value = value.slice(0, 16); // Limita a 16 dígitos
+    }
+    const formatted = value.match(/.{1,4}/g)?.join(' ') || '';
+    input.value = formatted;
+}
+
+// Formatea la fecha de expiración en el formato MM/AA
+function formatExpiryDate(input) {
+    const value = input.value.replace(/\D/g, ''); // Elimina caracteres no numéricos
+    if (value.length <= 2) {
+        input.value = value;
+    } else {
+        input.value = value.slice(0, 2) + '/' + value.slice(2, 4);
+    }
+}
+
+// Formatea el CVV a 3 dígitos
+function formatCVV(input) {
+    const value = input.value.replace(/\D/g, ''); // Elimina caracteres no numéricos
+    input.value = value.slice(0, 3);
+}
+
+
 /*
 *   Función asíncrona para mostrar un mensaje de confirmación al momento de finalizar el pedido.
 *   Parámetros: ninguno.
 *   Retorno: ninguno.
 */
+
+
 async function finishOrder() {
     // Llamada a la función para mostrar un mensaje de confirmación, capturando la respuesta en una constante.
     const RESPONSE = await confirmAction('¿Está seguro de finalizar el pedido?');
+    
     // Se verifica la respuesta del mensaje.
     if (RESPONSE) {
-        // Petición para finalizar el pedido en proceso.
+        // Primero, generamos el reporte.
+        await openReport();
+        
+        // Esperamos 5 segundos para asegurar que el reporte se haya abierto.
+        await new Promise(resolve => setTimeout(resolve, 5000)); // Esperar 5 segundos
+        
+        // Luego, petición para finalizar el pedido en proceso.
         const DATA = await fetchData(PEDIDO_API, 'finishOrder');
+        
         // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
         if (DATA.status) {
             sweetAlert(1, DATA.message, true, 'index.html');
+            // Recargar la página y redirigir al índice.
+            setTimeout(() => {
+                window.location.href = 'index.html'; // Redirige al índice después de recargar
+            }, 50000); // Esperar 50 segundos para la recarga
         } else {
             sweetAlert(2, DATA.error, false);
         }
     }
 }
-
 /*
 *   Función asíncrona para mostrar un mensaje de confirmación al momento de eliminar un producto del carrito.
 *   Parámetros: id (identificador del producto).

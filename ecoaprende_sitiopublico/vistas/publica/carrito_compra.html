@@ -21,6 +21,7 @@
     </header>
     <section class="container-fluid">
         <div class="col-10 m-5">
+            <div class="py-5"></div>
             <h3>Carrito</h3>
             <!-- Tabla para mostrar los registros existentes -->
             <table class="table table-hover">
@@ -31,10 +32,10 @@
                     </tr>
                     <tr>
                         <th>PRODUCTO</th>
-                        <th>TITULO</th>
-                        <th>PRECIO</th>
+                        <th>PRECIO (US$)</th>
                         <th>CANTIDAD</th>
-                        <th>SUBTOTAL</th>
+                        <th>SUBTOTAL (US$)</th>
+                        <th>ACCIONES</th>
                     </tr>
                 </thead>
                 <!-- Cuerpo de la tabla para mostrar un registro por fila -->
@@ -74,8 +75,69 @@
             </div>
         </div>
     </section>
+
+    <!-- Modal para añadir tarjeta de pago -->
+    <div class="modal fade" id="paymentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="paymentModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="paymentModalTitle">Metodo de pago</h1>
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal" aria-label="Close"><i
+                            class="bi bi-x-square-fill"></i></button>
+                </div>
+                <form id="paymentForm" onsubmit="handlePayment(event)">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="cardType" class="form-label">Tipo de tarjeta</label>
+                            <select id="cardType" name="cardType" class="form-select" required>
+                                <option value="" disabled selected>Seleccionar tipo de tarjeta</option>
+                                <option value="visa">Visa</option>
+                                <option value="mastercard">MasterCard</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cardUsage" class="form-label">Tipo de uso</label>
+                            <select id="cardUsage" name="cardUsage" class="form-select" required>
+                                <option value="" disabled selected>Seleccionar tipo de uso</option>
+                                <option value="credit">Crédito</option>
+                                <option value="debit">Débito</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cardNumber" class="form-label">Número de tarjeta</label>
+                            <input type="text" id="cardNumber" name="cardNumber" class="form-control"
+                                placeholder="XXXX XXXX XXXX XXXX" required oninput="formatCardNumber(this)">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cardName" class="form-label">Nombre en la tarjeta</label>
+                            <input type="text" id="cardName" name="cardName" class="form-control"
+                                placeholder="Nombre completo" required>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="expiryDate" class="form-label">Fecha de expiración</label>
+                                <input type="text" id="expiryDate" name="expiryDate" class="form-control"
+                                    placeholder="MM/AA" required oninput="formatExpiryDate(this)">
+                            </div>
+                            <div class="col">
+                                <label for="cvv" class="form-label">CVV</label>
+                                <input type="text" id="cvv" name="cvv" class="form-control" placeholder="XXX" required
+                                    oninput="formatCVV(this)">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-dark">Añadir tarjeta</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <article class="text-end ">
-        <button class="btn btn-success" onclick="finishOrder()" type="submit"><i class="bi bi-cart"></i> Finalizar compra</button>
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#paymentModal" type="submit"><i class="bi bi-cart"></i> Finalizar
+            compra</button>
     </article>
     <footer class="fixed-bottom"><i class="bi bi-person-plus-fill fs-2"></i><i class="bi bi-shield-lock-fill fs-2"></i>
         <script src="/ecoaprende_sitiopublico/controlador/publico/footer_index.js"></script>
@@ -83,8 +145,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="../../recursos/js/sweetalert.min.js"></script>
-    <script src="../../../ecoaprende_sitioprivado/controlador_administrador/utilidades_administrador/components.js"></script>
-  <script src="../../controlador/publico/cart.js"></script>
+    <script
+        src="../../../ecoaprende_sitioprivado/controlador_administrador/utilidades_administrador/components.js"></script>
+    <script src="../../controlador/publico/cart.js"></script>
 </body>
 
 </html>
