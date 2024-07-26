@@ -16,5 +16,31 @@
 
   .container{
     width: 50%;
-    margin-left: 500px;
+    margin-right: 350px;
   }
+
+  .chart-container {
+    position: relative;
+    height: 200px; /* Altura deseada para los gráficos */
+}
+
+.chart-canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.container {
+    max-width: 90%; /* Ajusta este valor según sea necesario */
+}
+
+.chart-container2 {
+  position: relative;
+  height: 500px;
+  width: 500px;
+  margin-right: 500; /* Altura deseada para los gráficos */
+}
+
+.header{
+  background-color: #FFB7C3;
+  border-radius: 100;
+}
