@@ -85,7 +85,7 @@ class Report extends FPDF
         // Se establece la fuente para el número de página.
         $this->setFont('Arial', 'I', 8);
         $this->cell(0, 10, $this->encodeString('Factura generada por: ' . $_SESSION['correo_administrador']), 0, 1, 'C');
-        // Se imprime una celda con el número de página.
+        // Se imprime una celda con el número de página. 
         $this->cell(0, 10, $this->encodeString('Página ') . $this->pageNo() . '/{nb}', 0, 0, 'C');
     }
 }

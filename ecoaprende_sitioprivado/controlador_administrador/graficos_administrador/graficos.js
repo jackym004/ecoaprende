@@ -7,24 +7,24 @@ const DETALLE_PEDIDO_API = 'servicios/administrador/detalle_pedido.php';
 
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', () => {
-  // Constante para obtener el número de horas.
-  const HOUR = new Date().getHours();
-  // Se define una variable para guardar un saludo.
-  let greeting = '';
-  // Dependiendo del número de horas transcurridas en el día, se asigna un saludo para el usuario.
-  if (HOUR < 12) {
-      greeting = 'Buenos días';
-  } else if (HOUR < 19) {
-      greeting = 'Buenas tardes';
-  } else if (HOUR <= 23) {
-      greeting = 'Buenas noches';
-  }
-  // Llamada a la funciones que generan los gráficos en la página web.
-  graficoBarrasCategorias();
-  graficoPastelCategorias();
-  graficoLineaUsuarioMayorPedidos();
-  graficoProductosVendidos();
-  graficoValoracion();
+    // Constante para obtener el número de horas.
+    const HOUR = new Date().getHours();
+    // Se define una variable para guardar un saludo.
+    let greeting = '';
+    // Dependiendo del número de horas transcurridas en el día, se asigna un saludo para el usuario.
+    if (HOUR < 12) {
+        greeting = 'Buenos días';
+    } else if (HOUR < 19) {
+        greeting = 'Buenas tardes';
+    } else if (HOUR <= 23) {
+        greeting = 'Buenas noches';
+    }
+    // Llamada a la funciones que generan los gráficos en la página web.
+    graficoBarrasCategorias();
+    graficoPastelCategorias();
+    graficoLineaUsuarioMayorPedidos();
+    graficoProductosVendidos();
+    graficoValoracion();
 });
 /*
 *   Función asíncrona para mostrar un gráfico de barras con la cantidad de productos por categoría.
@@ -150,7 +150,7 @@ const graficoValoracion = async () => {
             promedio.push(row.promedio_valoracion);
         });
         console.log(libros);
-        radarGraph('chart5', libros,promedio, 'Libros más Vendidos');
+        radarGraph('chart5', libros, promedio, 'Libros valoracion alta');
         //radarGraph('chart5', ['Leyenda1', 'Leyenda2', 'Leyenda3'], [5, 6, 7], 'Mi Título');
     } else {
         document.getElementById('chart5').remove();

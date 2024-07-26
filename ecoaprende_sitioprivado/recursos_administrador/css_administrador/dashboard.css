@@ -21,7 +21,7 @@
 
   .chart-container {
     position: relative;
-    height: 200px; /* Altura deseada para los gráficos */
+    height: auto; /* Altura deseada para los gráficos */
 }
 
 .chart-canvas {
@@ -35,9 +35,9 @@
 
 .chart-container2 {
   position: relative;
-  height: 500px;
-  width: 500px;
+  height: auto;
   margin-right: 500; /* Altura deseada para los gráficos */
+  margin-top: 10;
 }
 
 .header{

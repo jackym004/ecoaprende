@@ -68,14 +68,12 @@ class PedidosHandler
 
     public function productosMasValorados()
     {
-        $sql = 'SELECT tb_libros.nombre_libro, AVG(tb_valoraciones.calificacion_producto) AS promedio_valoracion,
-            COUNT(tb_valoraciones.calificacion_producto) AS cantidad_valoraciones
+        $sql = 'SELECT tb_libros.nombre_libro, AVG(tb_valoraciones.calificacion_producto) AS promedio_valoracion
             FROM tb_valoraciones
             INNER JOIN tb_detalles_pedidos ON tb_valoraciones.id_detalles_pedidos = tb_detalles_pedidos.id_detalles_pedidos
             INNER JOIN tb_libros ON tb_detalles_pedidos.id_libro = tb_libros.id_libro
             GROUP BY tb_libros.nombre_libro
-            ORDER BY promedio_valoracion DESC, 
-            cantidad_valoraciones DESC
+            ORDER BY promedio_valoracion DESC
             LIMIT 5';  // Agrega LIMIT 5 para obtener solo los 5 productos más vendidos
         return Database::getRows($sql);
     }

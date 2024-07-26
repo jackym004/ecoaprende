@@ -73,7 +73,7 @@ class LibroHandler
 
     public function readFilename()
     {
-        $sql = 'SELECT imagen_libro
+            $sql = 'SELECT imagen_libro
                 FROM tb_libros
                 WHERE id_libro = ?';
         $params = array($this->id);
@@ -207,14 +207,10 @@ class LibroHandler
                 SUM(tb_detalles_pedidos.cantidad_comprada) AS total_comprado
                 FROM 
                 tb_detalles_pedidos
-                INNER JOIN 
-                tb_libros ON tb_detalles_pedidos.id_libro = tb_libros.id_libro
-                INNER JOIN 
-                tb_pedidos ON tb_detalles_pedidos.id_pedido = tb_pedidos.id_pedido
-                GROUP BY 
-                tb_libros.nombre_libro
-                ORDER BY 
-                total_comprado DESC;';  // Agrega LIMIT 5 para obtener solo los 5 productos más vendidos
+                INNER JOIN tb_libros ON tb_detalles_pedidos.id_libro = tb_libros.id_libro
+                GROUP BY tb_libros.nombre_libro
+                ORDER BY total_comprado DESC
+                limit 5;';  // Agrega LIMIT 5 para obtener solo los 5 productos más vendidos
         return Database::getRows($sql);
     }
 
