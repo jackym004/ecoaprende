@@ -100,7 +100,7 @@ const graficoLineaUsuarioMayorPedidos = async () => {
         DATA.dataset.forEach(row => {
             // Se agregan los datos a los arreglos.
             usuario.push(row.nombre_cliente);
-            producto.push(row.cantidad_comprada);
+            producto.push(row.numero_de_pedidos);
         });
 
         // Llamada a la función para generar y mostrar un gráfico de líneas.

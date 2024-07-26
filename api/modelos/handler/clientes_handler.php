@@ -107,19 +107,13 @@ class ClientesHandler
 
     public function topUsuarios()
     {
-        $this->id = $this->id === null ? 20 :$this->id;
-        $sql = 'SELECT id_cliente,CONCAT(nombre_cliente," ", correo_cliente) AS cliente,
-        SUM(cantidad_comprada) AS cantidad_comprada
-        FROM tb_detalles_pedidos 
-        JOIN tb_pedidos USING(id_cliente)
-        JOIN tb_detalles_pedidos USING(id_pedido)
-        WHERE estado_pedido = "Finalizado"
-        GROUP BY id_cliente, nombre_cliente, correo_cliente
-        ORDER BY cantidad_comprada DESC
-        LIMIT  '.$this->id.';';
-        $params = array();
-        return Database::getRows($sql, $params);
-    }
+        $sql = 'SELECT tb_clientes.nombre_cliente, tb_clientes.correo_cliente, COUNT(tb_pedidos.id_pedido) AS numero_de_pedidos
+            FROM tb_clientes
+            INNER JOIN tb_pedidos ON tb_clientes.id_cliente = tb_pedidos.id_cliente
+            GROUP BY tb_clientes.nombre_cliente, tb_clientes.correo_cliente
+            ORDER BY numero_de_pedidos DESC';
+        return Database::getRows($sql);    
+}
 
 
 

@@ -81,9 +81,10 @@ class Report extends FPDF
         $this->image('../../imagenes/ecoaprende_header_3.png', 110, 260, 70);
         $this->image('../../imagenes/ecoaprende_header_3.png', 150, 260, 70);
         // Se establece la posición para el número de página (a 15 milímetros del final).
-        $this->setY(-15);
+        $this->setY(-20);
         // Se establece la fuente para el número de página.
         $this->setFont('Arial', 'I', 8);
+        $this->cell(0, 10, $this->encodeString('Factura generada por: ' . $_SESSION['correo_administrador']), 0, 1, 'C');
         // Se imprime una celda con el número de página.
         $this->cell(0, 10, $this->encodeString('Página ') . $this->pageNo() . '/{nb}', 0, 0, 'C');
     }
