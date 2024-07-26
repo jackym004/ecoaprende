@@ -85,9 +85,8 @@ if (isset($_GET['action'])) {
                 }
                 break;
                 case 'deleteRow':
-                    error_log(print_r($_POST, true)); // Esto imprimirá el contenido de $_POST en el log de errores de PHP
-                    if (!isset($_POST['idLibro']) || !$libro->setId($_POST['idLibro']) || !$libro->setFilename()) {
-                        $result['error'] = 'El identificador del libro es incorrecto';
+                    if (!$libro->setId($_POST['idLibro']) or !$libro->setFilename()) {
+                        $result['error'] = $libro->getDataError();
                     } elseif ($libro->deleteRow()) {
                         $result['status'] = 1;
                         $result['message'] = 'Libro eliminado correctamente';
