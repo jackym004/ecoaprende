@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase del modelo.
-require_once ('../../modelos/data/clientes_data.php');
+require_once('../../modelos/data/clientes_data.php');
 
 // Se comprueba si existe una acción a realizar, de lo contrario se finaliza el script con un mensaje de error.
 if (isset($_GET['action'])) {
@@ -31,7 +31,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al cerrar la sesión';
                 }
                 break;
-            // Ver perfil
+                // Ver perfil
             case 'readOne':
                 if ($result['dataset'] = $cliente->readOne()) {
                     $result['status'] = 1;
@@ -39,7 +39,18 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Perfil inexistente';
                 }
                 break;
-            // Ver perfil
+                // Ver perfil en la aplicaciòn movil
+            case 'readProfileMovil':
+                if (isset($_SESSION['correoCliente'])) {
+                    $result['status'] = 1;
+                    $result['username'] = $_SESSION['correoCliente'];
+                    $result['name'] = $cliente->readOneCorreo($_SESSION['correoCliente']);
+                } else {
+                    $result['error'] = 'Correo de usuario indefinido';
+                    $result['name'] = 'No se pudo obtener el usuario';
+                }
+                break;
+                // Ver perfil
             case 'readEditProfile':
                 if ($result['dataset'] = $cliente->readOneEditProfile()) {
                     $result['status'] = 1;
@@ -143,7 +154,7 @@ if (isset($_GET['action'])) {
     // Se indica el tipo de contenido a mostrar y su respectivo conjunto de caracteres.
     header('Content-type: application/json; charset=utf-8');
     // Se imprime el resultado en formato JSON y se retorna al controlador.
-    print (json_encode($result));
+    print(json_encode($result));
 } else {
-    print (json_encode('Recurso no disponible'));
+    print(json_encode('Recurso no disponible'));
 }

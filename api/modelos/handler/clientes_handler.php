@@ -163,7 +163,14 @@ class ClientesHandler
         return Database::executeRow($sql, $params);
     }
 
-
+    public function readOneCorreo($correo)
+    {
+        $sql = 'SELECT id_cliente, nombre_cliente, correo_cliente, dui_cliente, telefono_cliente
+                FROM tb_clientes
+                WHERE correo_cliente = ?';
+        $params = array($correo);
+        return Database::getRow($sql, $params);
+    }
 
 }
 
