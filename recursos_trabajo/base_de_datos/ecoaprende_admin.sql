@@ -41,6 +41,8 @@ CREATE TABLE tb_clientes (
     telefono_cliente VARCHAR(9) NOT NULL, #CHECK UNIQUE
 	estado_cliente BOOLEAN DEFAULT 1 NULL,
     dui_cliente VARCHAR(10) NOT NULL, #CHECK UNIQUE
+	codigo_recuperacion VARCHAR(6) NOT NULL,
+	fecha_expiracion_codigo DATETIME NULL,
     id_carrera INT #FK
 );
 
